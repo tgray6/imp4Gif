@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans",
+  sans-serif;
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+  line-height: 1.5;
+  min-width: 320px;
+}
+
+
+header {
+  padding: 45px 15px;
+}
+
+section {
+  min-height: 200px;
+  padding: 30px 15px;
+  background-color: #bbb;
+}
+
+section:nth-child(even) {
+  background-color: #ddd;
+}
+
+p {
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+
+form {
+  text-align: center;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 500px;
+}
+
+
+label {
+  display: block;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+button{
+  font-size: 15px;
+  padding: 10px;
+  width: 100px;
+}

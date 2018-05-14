@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans",
+  sans-serif;
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+  line-height: 1.5;
+}
+
+main{
+  margin-top: 65px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #aaa;
+}
+
+#navlogo{
+  width: 100px;
+  height: 50px;
+}
+
+.container {
+  display: flex;
+}
+
+.container > li {
+  flex: 1;
+  display: table;
+}
+
+header {
+  padding: 45px 15px;
+}
+
+section {
+  min-height: 200px;
+  padding: 30px 15px;
+  background-color: #bbb;
+}
+
+.postedSection {
+  border-radius: 20px;
+}
+
+section:nth-child(even) {
+  background-color: #ddd;
+}
+
+p {
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+.logo p{
+  display: inline;
+}
+
+
+.logoutSection p{
+  display: inline;
+}
+
+button{
+  font-size: 15px;
+  padding: 10px;
+  width: 100px;
+}
+
+.flexContainer {
+  max-width: 1300px;
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  background-color:rgb(38, 38, 38);
+  border-radius: 20px;
+  padding-bottom:10px;
+}
+.flexItem1 {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+.flexImage1{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
