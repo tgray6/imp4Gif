@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-
-export default function PostedSection (props) {
+export function PostedSection (props) {
     return (
       <section className="postedSection">
         <div className="flexContainer">
@@ -14,6 +14,12 @@ export default function PostedSection (props) {
     );
 }
 
-PostedSection.defaultProps = {
-	image: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp"
-}
+const mapStateToProps = state => ({
+  image: state.image
+});
+
+export default connect(mapStateToProps)(PostedSection);
+
+// PostedSection.defaultProps = {
+// 	image: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp"
+// }

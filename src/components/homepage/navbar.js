@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import logo from '../landingpage/logo.png';
 
-export default function NavBar(props) {
+export function NavBar(props) {
   return (
   <nav>
     <ul className="container">
@@ -20,6 +21,12 @@ export default function NavBar(props) {
   );
 }
 
-NavBar.defaultProps = {
-	nickName: "Xer0"
-}
+const mapStateToProps = state => ({
+  nickName: state.nickName
+});
+
+export default connect(mapStateToProps)(NavBar);
+
+// NavBar.defaultProps = {
+// 	nickName: "Xer0"
+// }
