@@ -10,7 +10,7 @@ const initialState = {
 
 	images: [
 		"https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp",
-		// "https://i.imgur.com/aFU9kHz.jpg"
+		"https://i.imgur.com/aFU9kHz.jpg"
 	],
 
 	title: "State Test Title",
