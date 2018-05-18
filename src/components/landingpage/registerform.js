@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function RegisterForm(props) {
   return (
+    <div>
+    <h2>Register</h2>
     <form className='signup-form'>
      	<div>
             <label htmlFor="nick-name">Nickname </label>
@@ -15,7 +17,8 @@ export default function RegisterForm(props) {
            	<label htmlFor="password">Password </label>
             <input type="password" name='password' id='registerPassword' placeholder='Password' />
         </div>
-            <button type='submit'>Register </button>
+            <button type='submit' onClick={props.goHome}>Register </button>
         </form>
+    </div>
   );
 }

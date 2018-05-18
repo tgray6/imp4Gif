@@ -15,7 +15,7 @@ export function PostedSection (props) {
 }
 
 const mapStateToProps = state => ({
-  image: state.image
+  image: state.items[3].url
 });
 
 export default connect(mapStateToProps)(PostedSection);

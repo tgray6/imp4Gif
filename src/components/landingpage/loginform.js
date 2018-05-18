@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function LoginForm(props) {
   return (
+    <div>
+    <h2>Login</h2>
     <form className='login-form'>
         <div>
   	        <label htmlFor="user-name">Username </label>
@@ -11,7 +13,8 @@ export default function LoginForm(props) {
             <label htmlFor="password">Password </label>
             <input type="password" name='password' id='loginPassword' placeholder='Password' />
         </div>
-        <button type='submit'>Login</button>
+        <button type='submit' onClick={props.goHome}>Login</button>
         </form>
+    </div>
   );
 }

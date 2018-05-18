@@ -50,3 +50,19 @@ img{
   width: 100%;
   height: 100%;
 }
+
+@media screen and (max-width: 950px){
+#explanationDiv{
+  width: 100%;
+  padding: 0px;
+}
+
+.landingList p {
+  margin-bottom: 15px;
+  display: inline-block;
+  text-align: left;
+}
+.landingList li {
+  display: table;
+}
+}

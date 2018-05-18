@@ -8,8 +8,7 @@ import PostedSection from './postedsection';
 export default function HomePage (props) {
     return (
       <div className="App">
-      	<NavBar nickName="" />
-      	<header><h1>Recent Posts</h1></header>
+      	<NavBar />
       	<PostedSection />
       </div>
     );

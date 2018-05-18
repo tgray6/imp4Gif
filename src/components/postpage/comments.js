@@ -11,7 +11,7 @@ export function Comments (props) {
 
 const mapStateToProps = state => ({
 	nickName: state.nickName + ": ",
-	comments: state.comments
+	comments: state.items[3].comments
 });
 
 export default connect(mapStateToProps)(Comments);

@@ -6,20 +6,30 @@ import Header from './header';
 import RegisterForm from './registerform';
 import LoginForm from './loginform';
 import Explanation from './explanation';
+import { withRouter } from 'react-router-dom'
+// this also works with react-router-native
 
-export default function LandingPage (props) {
+
+
+ class LandingPage extends React.Component {
+
+  nextPath(path) {
+  this.props.history.push(path);
+  }
+
+  render(){
+
     return (
       <div className="App">
         <Header />
         <section>
-          <h2>Register</h2>
-          <RegisterForm />
-          <h2>Login</h2>
-          <LoginForm />
+          <RegisterForm goHome={() => this.nextPath('/homepage')} />
+          <LoginForm goHome={() => this.nextPath('/homepage')} />
         </section>
-        <section>
           <Explanation />
-        </section>
       </div>
     );
+  }
 }
+
+export default withRouter(LandingPage);

@@ -20,7 +20,7 @@ export function PostPage (props) {
 }
 
 const mapStateToProps = state => ({
-  title: state.title
+  title: state.items[0].title
 });
 
 export default connect(mapStateToProps)(PostPage);

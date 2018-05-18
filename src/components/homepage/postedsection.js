@@ -1,45 +1,50 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import FlexImage from './fleximage';
-import FlexVideo from './flexvideo';
+// import FlexImage from './fleximage';
+// import FlexVideo from './flexvideo';
 
 
 
 export class PostedSection extends React.Component {
 	renderResults(){
-		const videoList = this.props.videos.map((videos, index) =>
-			<div className="flexItem1">
-            	<video controls className="flexImage1" key={index}>
-            		<source src={videos} type="video/mp4" />
-           		</video>
-           	</div>
-        );
- 		const imageList = this.props.images.map((images, index) =>
-			<div className="flexItem1">
-				<img src={images} className="flexImage1" key={index} alt="postedimage">
-				</img>
-        	</div>
-        );       
-
-        return (
- 			[videoList, imageList]
-        	)
+		return this.props.items.map((items, index) => {
+			// function clickEvent()
+			if (items.type==="video"){
+				return (
+					<div className="flexItem1" key={index}>
+            			<video controls className="flexImage1" >
+            			<source src={items.url} type="video/mp4" />
+           				</video>
+           			</div>
+				)
+			}
+			else{
+				return ( 
+					<div className="flexItem1" key={index}>
+						<img src={items.url} className="flexImage1"  alt="postedimage">
+						</img>
+        			</div>
+        		) 
+			}
+		});
     }
     render(){
    	 return (
+   	 	<div>
+   	 	<header><h1>Recent Posts</h1></header>
      	<section className="postedSection">
        		<div className="flexContainer">
         		{this.renderResults()}
         	</div>
       	</section>
+      	</div>
     );
 	}
 }
 
 const mapStateToProps =  state => ({
-	videos: state.videos,
-	images: state.images
+	items: state.items
 })
 
 export default connect(mapStateToProps)(PostedSection)
