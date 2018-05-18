@@ -37,7 +37,7 @@ class NavBar extends React.Component {
     </nav>
       {
       this.props.show?
-      <PostForm closeForm={this.toggleForm} />
+      <PostForm />
       : null
       }
     </div>
@@ -52,7 +52,7 @@ const mapStateToProps = state => ({
   nickName: state.nickName
 });
 
-export default withRouter(connect(mapStateToProps)(NavBar));;
+export default withRouter(connect(mapStateToProps)(NavBar));
 
 
 

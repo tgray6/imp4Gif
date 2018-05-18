@@ -33,7 +33,7 @@ nav {
   display: flex;
 }
 
-.container > li {
+.container li {
   flex: 1;
   display: table;
 }
@@ -66,12 +66,12 @@ p + p {
 }
 
 .logo p{
-  display: inline;
+  display: flex;
 }
 
 
 .logoutSection p{
-  display: inline;
+  display: flex;
 }
 
 button{
