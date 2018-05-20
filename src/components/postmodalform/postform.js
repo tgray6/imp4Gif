@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import './postform.css';
 import {togglePostForm} from '../actions/actions';
+import {addPost} from '../actions/actions';
 
 export class PostForm extends React.Component{
 
@@ -10,23 +11,50 @@ export class PostForm extends React.Component{
     console.log(this.props.show);
   };
 
+
+
   handleSubmit = (event) => {
     event.preventDefault();
     const title = this.getTitle.value;
     const url = this.getUrl.value;
+
+    const subString = ".mp4";
+
+    function contains(search, find) {
+    return search.indexOf(find) !== -1;
+    }
+
+    let type
+    let typeFunction = () => {
+      if (contains(url.toLowerCase(), subString.toLowerCase())){
+      type="video";
+      }
+      else{
+      type="image";
+      }
+    }
+    typeFunction();
+
+
     const data = {
       id: new Date(),
       title,
+      type: type,
       url
-    }
+    };
+
+    this.props.dispatch(addPost(data));
     console.log(data);
+
     let resetForm = () => {
       this.getTitle.reset();
       this.getUrl.reset();
-    }
+    };
+
     resetForm
     this.props.dispatch(togglePostForm());
-  }
+  };
+
 
   render(){
     return (
