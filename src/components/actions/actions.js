@@ -3,6 +3,16 @@ export const togglePostForm = () => ({
     type: TOGGLEFORM
 });
 
+export const LOGOUTUSER = 'LOGOUTUSER';
+export const logoutUser = () => ({
+    type: LOGOUTUSER
+});
+
+export const GOHOME = 'GOHOME';
+export const goHome = () => ({
+    type: GOHOME
+});
+
 
 export const ADD_POST = "ADD_POST";
 export const addPost = data => ({

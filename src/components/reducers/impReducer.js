@@ -2,6 +2,8 @@ import {TOGGLEFORM} from '../actions/actions';
 import {ADD_POST} from '../actions/actions';
 import {DELETE_POST} from '../actions/actions';
 import {INDIVIDUAL_RENDER} from '../actions/actions';
+import {LOGOUTUSER} from '../actions/actions';
+import {GOHOME} from '../actions/actions';
 
 const initialState = {
 	nickName: "Xer0",
@@ -74,6 +76,18 @@ export function impReducer (state=initialState, action) {
 	if(action.type === INDIVIDUAL_RENDER) {
 		return Object.assign({}, state, {
 			itemToDisplay: state.items.find((post) => post.id === action.id)
+		});
+	}
+
+	if(action.type === LOGOUTUSER) {
+		return Object.assign({}, state, {
+			nickName: null
+		});
+	}
+
+	if(action.type === GOHOME) {
+		return Object.assign({}, state, {
+			itemToDisplay : null
 		});
 	}
 

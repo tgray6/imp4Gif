@@ -39,19 +39,23 @@ nav {
 }
 
 header {
-  padding: 45px 15px;
+  padding: 15px 15px;
+}
+
+.postTitle{
+  color: #dedcdb;
 }
 
 section {
   min-height: 200px;
   padding: 30px 15px;
   background-color: #bbb;
-/*  margin-top: 100px;*/
+  margin-top: 25px;
 }
 
 .postedSection {
   border-radius: 20px;
-  margin-top: 200px;
+  margin-top: 125px;
 }
 
 section:nth-child(even) {
@@ -92,8 +96,8 @@ button{
   justify-content: center;
   background-color:rgb(38, 38, 38);
   border-radius: 20px;
-  padding-top:10px;
-  padding-bottom:10px;
+/*  padding-top:10px;*/
+  padding-bottom:50px;
 /*  margin-top: 100px;*/
 }
 .flexItem1 {

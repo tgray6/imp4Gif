@@ -10,12 +10,11 @@ export class PostedSection extends React.Component {
       if (this.props.itemToDisplay.type==="video"){
         return (
           <div>
-            <header><h1>{this.props.itemToDisplay.title}</h1></header>
+            <header><h1 className="postTitle">{this.props.itemToDisplay.title}</h1></header>
               <div className="flexItemTest">
                   <video controls className="flexImage">
                   <source src={this.props.itemToDisplay.url} type="video/mp4" />
                   </video>
-                  <button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button>
               </div>
           </div>
         )
@@ -23,22 +22,24 @@ export class PostedSection extends React.Component {
       else{
         return (
           <div>
-            <header><h1>{this.props.itemToDisplay.title}</h1></header>
+            <header><h1 className="postTitle">{this.props.itemToDisplay.title}</h1></header>
             <div className="flexItemTest">
               <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
               </img>
-              <button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button>
             </div>
           </div>
+
         ) 
       }
     }
     render(){
-     console.log(this.props);
      return (
       <section className="postedSection">
         <div className="flexContainer">
           {this.renderResults()}
+        </div>
+        <div>
+        <button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button>
         </div>
       </section>
     );

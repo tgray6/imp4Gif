@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import {deletePost} from '../actions/actions';
 
 import {renderPost} from '../actions/actions';
 
@@ -26,7 +25,6 @@ export class PostedSection extends React.Component {
 
 	renderResults(){
 		return this.props.items.map((items, index) => {
-			// index = items.id;
 			if (items.type==="video"){
 				return (
 					<div className="flexItem" key={index}>
@@ -49,7 +47,6 @@ export class PostedSection extends React.Component {
 		});
     }
     render(){
-     console.log(this.props);
    	 return (
    	 	<div>
    	 	<header><h1>Recent Posts</h1></header>
@@ -71,11 +68,6 @@ export default connect(mapStateToProps)(PostedSection)
 
 // export default connect(mapStateToProps)withRouter(PostedSection)
 
-// export default withRouter(connect(mapStateToProps)(PostedSection));
-
-//removed below button from lines 26 and 35 since its on the postpage anyways
-
-//<button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(items.id))}>Delete</button>
 
 
 
