@@ -1,25 +1,92 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {deletePost} from '../actions/actions';
 
-export function PostedSection (props) {
-    return (
+
+export class PostedSection extends React.Component {
+
+  renderResults(){
+      // function clickEvent()
+      if (this.props.itemToDisplay.type==="video"){
+        return (
+          <div>
+            <header><h1>{this.props.itemToDisplay.title}</h1></header>
+              <div className="flexItemTest">
+                  <video controls className="flexImage">
+                  <source src={this.props.itemToDisplay.url} type="video/mp4" />
+                  </video>
+                  <button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button>
+              </div>
+          </div>
+        )
+      }
+      else{
+        return (
+          <div>
+            <header><h1>{this.props.itemToDisplay.title}</h1></header>
+            <div className="flexItemTest">
+              <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
+              </img>
+              <button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button>
+            </div>
+          </div>
+        ) 
+      }
+    }
+    render(){
+     console.log(this.props);
+     return (
       <section className="postedSection">
         <div className="flexContainer">
-          <div className="flexItem">
-          	<img src={props.image} className="flexImage" alt="fleximage"> 
-          	</img>
-          </div>
+          {this.renderResults()}
         </div>
       </section>
     );
+  }
 }
 
 const mapStateToProps = state => ({
-  image: state.items[3].url
+  itemToDisplay: state.itemToDisplay
 });
+
 
 export default connect(mapStateToProps)(PostedSection);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import { connect } from 'react-redux';
+
+// export function PostedSection (props) {
+//     return (
+//       <section className="postedSection">
+//         <div className="flexContainer">
+//           <div className="flexItem">
+//            <img src={props.image} className="flexImage" alt="fleximage"> 
+//            </img>
+//           </div>
+//         </div>
+//       </section>
+//     );
+// }
+
+// const mapStateToProps = state => ({
+//   image: state.items[3].url
+// });
+
+// export default connect(mapStateToProps)(PostedSection);
+
 // PostedSection.defaultProps = {
-// 	image: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp"
+//  image: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp"
 // }

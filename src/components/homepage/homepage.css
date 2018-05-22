@@ -48,7 +48,7 @@ section {
   background-color: #bbb;
 }
 
-.postedSection {
+.postedSectionHome {
   border-radius: 20px;
 }
 
@@ -92,7 +92,7 @@ button{
   border-radius: 20px;
   padding-bottom:10px;
 }
-.flexItem1 {
+.flexItem {
   width: 150px;
   height: 150px;
   margin: 5px;

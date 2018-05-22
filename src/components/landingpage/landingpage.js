@@ -11,7 +11,7 @@ import { withRouter } from 'react-router-dom'
 
 
 
- class LandingPage extends React.Component {
+ export default class LandingPage extends React.Component {
 
   nextPath(path) {
   this.props.history.push(path);
@@ -32,4 +32,5 @@ import { withRouter } from 'react-router-dom'
   }
 }
 
-export default withRouter(LandingPage);
+
+// export default withRouter(LandingPage);

@@ -25,7 +25,7 @@ class NavBar extends React.Component {
     <div>
     <nav>
      <ul className="container">
-        <Link to="/homepage"><img src={logo} id="navlogo" alt="logo"></img></Link>
+        <img src={logo} id="navlogo" alt="logo"></img>
         <li className="logo"> 
         <button className="post" onClick={this.toggleForm}>Post</button> 
         </li>
@@ -52,7 +52,12 @@ const mapStateToProps = state => ({
   nickName: state.nickName
 });
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+// <Link to="/homepage"><img src={logo} id="navlogo" alt="logo"></img></Link>
+//         <li className="logo"> 
+
+export default connect(mapStateToProps)(NavBar);
+
+// export default withRouter(connect(mapStateToProps)(NavBar));
 
 
 

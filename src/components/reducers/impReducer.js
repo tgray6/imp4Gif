@@ -1,10 +1,14 @@
 import {TOGGLEFORM} from '../actions/actions';
 import {ADD_POST} from '../actions/actions';
+import {DELETE_POST} from '../actions/actions';
+import {INDIVIDUAL_RENDER} from '../actions/actions';
 
 const initialState = {
 	nickName: "Xer0",
 
 	show: false,
+
+	itemToDisplay: null,
 
 	items:[
 		{
@@ -38,15 +42,6 @@ const initialState = {
 	]
 }
 
-// export const impReducer = (state=initialState, action) => {
-// 	if(action.type === TOGGLEFORM) {
-// 		return Object.assign({}, state, {
-// 			show: true
-// 		});
-// 	}
-// 	return state;
-// }
-
 
 export function impReducer (state=initialState, action) {
 	if(action.type === TOGGLEFORM) {
@@ -69,13 +64,19 @@ export function impReducer (state=initialState, action) {
 		});
 	}
 
-	// switch(action.type) {
-	// 	case 'ADD_POST':
-	// 		return [...state.items, action.data]
-	// 		// return state.concat([action.data])
-	// 	default:
-	// 	return state;
-	// }
+	if(action.type === DELETE_POST) {
+		return Object.assign({}, state, {
+			items: [...state.items.filter((post) => post.id !== action.id)],
+			itemToDisplay: null
+		});
+	}
+
+	if(action.type === INDIVIDUAL_RENDER) {
+		return Object.assign({}, state, {
+			itemToDisplay: state.items.find((post) => post.id === action.id)
+		});
+	}
+
 	return state;
 }
 
