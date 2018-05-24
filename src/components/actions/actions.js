@@ -31,3 +31,9 @@ export const renderPost = id => ({
 	type: INDIVIDUAL_RENDER,
 	id
 });
+
+export const ADD_COMMENT = "ADD_COMMENT";
+export const addComment = comment => ({
+	type: ADD_COMMENT,
+	comment
+});

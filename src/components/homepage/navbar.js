@@ -41,7 +41,7 @@ class NavBar extends React.Component {
         <button className="post" onClick={this.toggleForm}>Post</button> 
         </li>
         <li className="logoutSection">
-          <p className="helloUser">Hello {this.props.nickName} </p> 
+          <p className="helloUser">{this.props.nickName} </p> 
           <button className="logoutUser" onClick={this.logoutUser}>Logout</button>
         </li>
      </ul>

@@ -40,7 +40,8 @@ export class PostForm extends React.Component{
       id: new Date(),
       title,
       type: type,
-      url
+      url,
+      comments: []
     };
 
     this.props.dispatch(addPost(data));

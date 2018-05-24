@@ -35,7 +35,7 @@ export class PostedSection extends React.Component {
     render(){
      return (
       <section className="postedSection">
-        <div className="flexContainer">
+        <div className="flexContainer1">
           {this.renderResults()}
         </div>
         <div>
