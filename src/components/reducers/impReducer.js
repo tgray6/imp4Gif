@@ -19,6 +19,7 @@ const initialState = {
 			title: "Id 0 post title",
 			type: "video",
 			url: "https://i.imgur.com/KtK8z0F.mp4",
+			author: "Xer0",
 			comments: []
 		},
 		{
@@ -26,6 +27,7 @@ const initialState = {
 			title: "Id 1 post title",
 			type:"image",
 			url: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp",
+			author: "Biggunz",
 			comments: []
 		},
 		{
@@ -33,6 +35,7 @@ const initialState = {
 			title: "Id 2 post title",
 			type: "video",
 			url: "https://i.imgur.com/tJ7roYr.mp4",
+			author: "BakerMan",
 			comments: []
 		},
 		{
@@ -40,6 +43,7 @@ const initialState = {
 			title: "Id 3 post title",
 			type: "image",
 			url: "https://images5.alphacoders.com/444/thumb-1920-444701.jpg",
+			author: "FarrariMan",
 			comments: []
 		}
 	]

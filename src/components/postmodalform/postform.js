@@ -41,6 +41,7 @@ export class PostForm extends React.Component{
       title,
       type: type,
       url,
+      author: this.props.nickName,
       comments: []
     };
 
@@ -84,6 +85,7 @@ export class PostForm extends React.Component{
 }
 
 const mapStateToProps =  state => ({
+  nickName: state.nickName,
   items: state.items
 })
 

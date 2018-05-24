@@ -10,19 +10,24 @@ export class PostedSection extends React.Component {
       if (this.props.itemToDisplay.type==="video"){
         return (
           <div>
-            <header><h1 className="postTitle">{this.props.itemToDisplay.title}</h1></header>
-              <div className="flexItemTest">
-                  <video controls className="flexImage">
-                  <source src={this.props.itemToDisplay.url} type="video/mp4" />
-                  </video>
-              </div>
+            <header>
+              <h1 className="postTitle">{this.props.itemToDisplay.title}</h1>
+              <p className="author">Post By: {this.props.itemToDisplay.author}</p>
+            </header>
+            <div className="flexItemTest">
+                <video controls className="flexImage">
+                <source src={this.props.itemToDisplay.url} type="video/mp4" />
+                </video>
+            </div>
           </div>
         )
       }
       else{
         return (
           <div>
-            <header><h1 className="postTitle">{this.props.itemToDisplay.title}</h1></header>
+            <header>
+              <h1 className="postTitle">{this.props.itemToDisplay.title}</h1>
+              <p className="author">Post By: {this.props.itemToDisplay.author}</p></header>
             <div className="flexItemTest">
               <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
               </img>

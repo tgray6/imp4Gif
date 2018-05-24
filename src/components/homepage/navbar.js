@@ -37,11 +37,11 @@ class NavBar extends React.Component {
     <nav>
      <ul className="container">
         <img src={logo} onClick={this.goHome} id="navlogo" alt="logo"></img>
-        <li className="logo"> 
+        <li> 
         <button className="post" onClick={this.toggleForm}>Post</button> 
         </li>
         <li className="logoutSection">
-          <p className="helloUser">{this.props.nickName} </p> 
+          <p id="helloUser">{this.props.nickName} </p> 
           <button className="logoutUser" onClick={this.logoutUser}>Logout</button>
         </li>
      </ul>
