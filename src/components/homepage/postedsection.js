@@ -7,20 +7,21 @@ import { withRouter } from 'react-router-dom';
 
 // import FlexImage from './fleximage';
 // import FlexVideo from './flexvideo';
-
+import {Link} from 'react-router-dom';
 
 
 
 export class PostedSection extends React.Component {
 
-  	nextPath(){
-  		this.props.history.push('/postpage/:id');
- 	 }
+  	// nextPath(){
+  	// 	this.props.history.push('/postpage/:id');
+ 	 // }
 
  	handleClickGen(id){
  		return () => {
  			this.props.dispatch(renderPost(id));
  		}
+
  	}
 
 	renderResults(){
@@ -29,7 +30,7 @@ export class PostedSection extends React.Component {
 				return (
 					<div className="flexItem" key={index}>
             			<video controls className="flexImage1" onClick={this.handleClickGen(items.id)}>
-            			<source src={items.url} type="video/mp4" />
+            			<source src={items.url} type="video/mp4" alt="postedlink"/>
            				</video>
 
            			</div>
@@ -38,7 +39,7 @@ export class PostedSection extends React.Component {
 			else{
 				return ( 
 					<div className="flexItem" key={index}>
-						<img src={items.url} className="flexImage1"  alt="postedimage" onClick={this.handleClickGen(items.id)}>
+						<img src={items.url} className="flexImage1"  alt="postedlink" onClick={this.handleClickGen(items.id)}>
 						</img>
 
         			</div>
@@ -66,7 +67,6 @@ const mapStateToProps =  state => ({
 
 export default connect(mapStateToProps)(PostedSection)
 
-// export default connect(mapStateToProps)withRouter(PostedSection)
 
 
 

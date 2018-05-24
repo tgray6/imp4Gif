@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Route,
     Redirect,
-    Switch,
+    Switch
 } from 'react-router-dom';
 
 
@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import LandingPage from './landingpage/landingpage';
 import HomePage from './homepage/homepage';
 import PostPage from './postpage/postpage';
+
 
 
 export class App extends Component {

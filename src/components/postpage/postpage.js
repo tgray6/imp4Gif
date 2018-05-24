@@ -38,16 +38,15 @@ import { connect } from 'react-redux';
 import './postpage.css';
 
 import NavBar from '../homepage/navbar';
-import PostedSection from './postedsection';
+import ItemToDisplay from './itemtodisplay';
 import CommentSection from './commentsection';
 
 export function PostPage (props) {
     return (
       <div className="App">
       	<NavBar nickName="Xer0" />
-      	<PostedSection />
+      	<ItemToDisplay />
       	<CommentSection />
-
       </div>
     );
 }

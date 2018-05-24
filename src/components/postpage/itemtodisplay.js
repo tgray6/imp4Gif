@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import {deletePost} from '../actions/actions';
 
 
-export class PostedSection extends React.Component {
+export class ItemToDisplay extends React.Component {
+
 
   renderResults(){
+
       // function clickEvent()
       if (this.props.itemToDisplay.type==="video"){
         return (
@@ -16,9 +18,10 @@ export class PostedSection extends React.Component {
             </header>
             <div className="flexItemTest">
                 <video controls className="flexImage">
-                <source src={this.props.itemToDisplay.url} type="video/mp4" />
+                <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
             </div>
+            <a href ={this.props.itemToDisplay.url} className="source">Source</a>
           </div>
         )
       }
@@ -32,6 +35,7 @@ export class PostedSection extends React.Component {
               <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
               </img>
             </div>
+            <a href ={this.props.itemToDisplay.url} className="source">Source</a>
           </div>
 
         ) 
@@ -56,7 +60,7 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(PostedSection);
+export default connect(mapStateToProps)(ItemToDisplay);
 
 
 

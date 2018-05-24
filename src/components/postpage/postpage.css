@@ -134,3 +134,17 @@ button{
 ::-webkit-input-placeholder {
    text-align: center;
 }
+
+.source {
+  color: white;
+  text-decoration: none;
+}
+
+.source:visited{
+  color: white;
+  text-decoration: none;
+}
+
+.source:hover{
+  color: #5607bd;
+}
