@@ -6,6 +6,7 @@ import {LOGOUTUSER} from '../actions/actions';
 import {GOHOME} from '../actions/actions';
 import {ADD_COMMENT} from '../actions/actions';
 
+const uuidv1 = require('uuid/v1');
 const initialState = {
 	nickName: "Xer0",
 
@@ -15,7 +16,7 @@ const initialState = {
 
 	items:[
 		{
-			id: new Date(),
+			id: uuidv1(),
 			title: "Id 0 post title",
 			type: "video",
 			url: "https://i.imgur.com/KtK8z0F.mp4",
@@ -23,7 +24,7 @@ const initialState = {
 			comments: []
 		},
 		{
-			id: new Date(),
+			id: uuidv1(),
 			title: "Id 1 post title",
 			type:"image",
 			url: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp",
@@ -31,7 +32,7 @@ const initialState = {
 			comments: []
 		},
 		{
-			id: new Date(),
+			id: uuidv1(),
 			title: "Id 2 post title",
 			type: "video",
 			url: "https://i.imgur.com/tJ7roYr.mp4",
@@ -39,7 +40,7 @@ const initialState = {
 			comments: []
 		},
 		{
-			id: new Date(),
+			id: uuidv1(),
 			title: "Id 3 post title",
 			type: "image",
 			url: "https://images5.alphacoders.com/444/thumb-1920-444701.jpg",

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
+import './homepage.css';
 
 import logo from '../landingpage/logo.png';
 import PostForm from '../postmodalform/postform';

@@ -5,33 +5,30 @@ import {renderPost} from '../actions/actions';
 
 import { withRouter } from 'react-router-dom';
 
-// import FlexImage from './fleximage';
-// import FlexVideo from './flexvideo';
 import {Link} from 'react-router-dom';
 
+import './homepage.css';
 
 
 export class PostedSection extends React.Component {
 
-  	// nextPath(){
-  	// 	this.props.history.push('/postpage/:id');
- 	 // }
 
- 	handleClickGen(id){
- 		return () => {
- 			this.props.dispatch(renderPost(id));
- 		}
 
- 	}
+ 	// handleClickGen(id){
+ 	// 	return () => {
+ 	// 		this.props.dispatch(renderPost(id));
+ 	// 	}
+
+ 	// }
 
 	renderResults(){
 		return this.props.items.map((items, index) => {
 			if (items.type==="video"){
 				return (
 					<div className="flexItem" key={index}>
-            			<video controls className="flexImage1" onClick={this.handleClickGen(items.id)}>
+            			<Link to={`/${items.id}`}><video controls className="flexImage1">
             			<source src={items.url} type="video/mp4" alt="postedlink"/>
-           				</video>
+           				</video></Link>
 
            			</div>
 				)
@@ -39,8 +36,8 @@ export class PostedSection extends React.Component {
 			else{
 				return ( 
 					<div className="flexItem" key={index}>
-						<img src={items.url} className="flexImage1"  alt="postedlink" onClick={this.handleClickGen(items.id)}>
-						</img>
+						<Link to={`/${items.id}`}><img src={items.url} className="flexImage1"  alt="postedlink">
+						</img></Link>
 
         			</div>
         		) 
@@ -65,8 +62,14 @@ const mapStateToProps =  state => ({
 	items: state.items
 })
 
-export default connect(mapStateToProps)(PostedSection)
+export default connect(mapStateToProps)(PostedSection);
 
+
+//NOTE we removed the handleClickGen function since we are using Router Link now:  onClick={this.handleClickGen(items.id)}.
+
+//We used to use this to get the id of the current clicked object, using our reducer INDIVIDUAL_RENDER using the state.items.find. We now use the below, which is on itemtodisplay.js. This is similar to our reducer, but its not equal to the action.id anymore, its equal to the router: props.match.params.postId(postID path is declared on App.js).
+
+//  itemToDisplay: state.items.find((post) => post.id == props.match.params.postId)
 
 
 

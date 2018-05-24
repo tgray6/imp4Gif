@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {deletePost} from '../actions/actions';
-
+import CommentSection from './commentsection';
+import './postpage.css';
+import {Link} from 'react-router-dom';
 
 export class ItemToDisplay extends React.Component {
 
@@ -43,21 +45,31 @@ export class ItemToDisplay extends React.Component {
     }
     render(){
      return (
+      <div>
       <section className="postedSection">
         <div className="flexContainer1">
           {this.renderResults()}
         </div>
         <div>
-        <button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button>
+        <Link to={`/`}><button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button></Link>
         </div>
       </section>
+      
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  itemToDisplay: state.itemToDisplay
-});
+const mapStateToProps = (state, props )=> 
+  { 
+  console.log(props.match.params);
+  let result = 
+  {
+  itemToDisplay: state.items.find((post) => post.id == props.match.params.postId)
+ }
+  console.log(result)
+  return result
+};
 
 
 export default connect(mapStateToProps)(ItemToDisplay);

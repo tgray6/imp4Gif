@@ -9,25 +9,28 @@ import {
 
 import {connect} from 'react-redux';
 import LandingPage from './landingpage/landingpage';
-import HomePage from './homepage/homepage';
-import PostPage from './postpage/postpage';
 
 
+import NavBar from './homepage/navbar';
+import ItemToDisplay from './postpage/itemtodisplay'
+import PostedSection from './homepage/postedsection';
 
 export class App extends Component {
   render() {
 
     if(this.props.nickName){
-      if(this.props.itemToDisplay){
-        return (
-          <PostPage />
-          )
-      }
-      else {
-        return (
-          <HomePage />
-          )
-      }
+      return(
+      <Router>
+        <div className="App">
+          <NavBar />
+
+          <Route exact path="/:postId" component={ItemToDisplay} />
+
+          <Route exact path="/" component={PostedSection} />
+
+        </div>
+      </Router>
+      )
     } 
     else {
       return (
