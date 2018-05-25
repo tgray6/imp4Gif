@@ -35,8 +35,8 @@ const initialState = {
 			id: uuidv1(),
 			title: "Id 2 post title",
 			type:"youtube",
-			youtubeUrl: "https://www.youtube.com/embed/Vxg5eOPmzHI",
-			////https://www.youtube.com/watch?v=HSTsyGbUvts
+			youtubeUrl: "https://www.youtube.com/embed/SN43u7up93I",
+			url: "https://www.youtube.com/watch?v=SN43u7up93I",
 			author: "Biggunz",
 			comments: []			
 		},
