@@ -23,7 +23,7 @@ export class PostForm extends React.Component{
     console.log(url);
 
     const subString = ".mp4";
-    const youTubeString = "www.youtube.com";
+    const youTubeString = "youtube.com";
 
     function contains(search, find) {
     return search.indexOf(find) !== -1;
