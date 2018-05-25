@@ -18,9 +18,9 @@ export class PostForm extends React.Component{
     const title = this.getTitle.value;
     let url = this.getUrl.value;
 
-    function createYouTubeEmbedLink (link) {
-      return link.replace("/watch?v=", "/embed/");
-    }
+    let youtubeUrl = url.replace("watch?v=" , "embed/");
+
+    console.log(url);
 
     const subString = ".mp4";
     const youTubeString = "www.youtube.com";
@@ -36,8 +36,6 @@ export class PostForm extends React.Component{
       }
       else if (contains(url.toLowerCase(), youTubeString.toLowerCase())){
         type="youtube";
-        createYouTubeEmbedLink(url);
-        console.log(url);
       }
       else{
         type="image";
@@ -50,12 +48,12 @@ export class PostForm extends React.Component{
       title,
       type: type,
       url,
+      youtubeUrl,
       author: this.props.nickName,
       comments: []
     };
 
     this.props.dispatch(addPost(data));
-    // console.log(data);
 
     let resetForm = () => {
       this.getTitle.reset();

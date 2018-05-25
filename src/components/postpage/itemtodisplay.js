@@ -37,7 +37,7 @@ export class ItemToDisplay extends React.Component {
             </header>
 
 
-              <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.url} allowFullScreen autohide="1"></iframe>
+              <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.youtubeUrl} allowFullScreen autohide="1"></iframe>
 
             <a href ={this.props.itemToDisplay.url} className="source">Source</a>
           </div>

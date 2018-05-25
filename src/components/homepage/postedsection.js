@@ -36,7 +36,7 @@ export class PostedSection extends React.Component {
 					<div className="flexItem"  key={index}>
             			<Link to={`/${items.id}`} className="linkwrap">
             			<div className="blocker"></div>
-						<iframe className="flexImage1" src={items.url} frameBorder="0" showinfo="0"></iframe>
+						<iframe className="flexImage1" src={items.youtubeUrl} frameBorder="0" showinfo="0"></iframe>
 
             			</Link>
 
