@@ -14,12 +14,9 @@ export class PostedSection extends React.Component {
 
 
 
- 	// handleClickGen(id){
- 	// 	return () => {
- 	// 		this.props.dispatch(renderPost(id));
- 	// 	}
-
- 	// }
+ 	handleIframe(event){
+ 		event.preventDefault();
+ 	}
 
 	renderResults(){
 		return this.props.items.map((items, index) => {
@@ -33,6 +30,20 @@ export class PostedSection extends React.Component {
            			</div>
 				)
 			}
+
+			else if (items.type==="youtube") {
+				return (
+					<div className="flexItem"  key={index}>
+            			<Link to={`/${items.id}`} className="linkwrap">
+            			<div className="blocker"></div>
+						<iframe className="flexImage1" src={items.url} frameBorder="0" showinfo="0"></iframe>
+
+            			</Link>
+
+           			</div>	
+				)
+			}
+
 			else{
 				return ( 
 					<div className="flexItem" key={index}>

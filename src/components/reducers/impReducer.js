@@ -34,6 +34,15 @@ const initialState = {
 		{
 			id: uuidv1(),
 			title: "Id 2 post title",
+			type:"youtube",
+			url: "https://www.youtube.com/embed/Vxg5eOPmzHI",
+			////https://www.youtube.com/watch?v=HSTsyGbUvts
+			author: "Biggunz",
+			comments: []			
+		},
+		{
+			id: uuidv1(),
+			title: "Id 3 post title",
 			type: "video",
 			url: "https://i.imgur.com/tJ7roYr.mp4",
 			author: "BakerMan",
@@ -41,7 +50,7 @@ const initialState = {
 		},
 		{
 			id: uuidv1(),
-			title: "Id 3 post title",
+			title: "Id 4 post title",
 			type: "image",
 			url: "https://images5.alphacoders.com/444/thumb-1920-444701.jpg",
 			author: "FarrariMan",

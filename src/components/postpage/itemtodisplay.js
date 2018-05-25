@@ -27,6 +27,23 @@ export class ItemToDisplay extends React.Component {
           </div>
         )
       }
+
+      else if (this.props.itemToDisplay.type==="youtube"){
+        return(
+          <div>
+            <header>
+              <h1 className="postTitle">{this.props.itemToDisplay.title}</h1>
+              <p className="author">Post By: {this.props.itemToDisplay.author}</p>
+            </header>
+
+
+              <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.url} allowFullScreen autohide="1"></iframe>
+
+            <a href ={this.props.itemToDisplay.url} className="source">Source</a>
+          </div>
+        )
+      }
+
       else{
         return (
           <div>

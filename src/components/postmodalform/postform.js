@@ -16,9 +16,14 @@ export class PostForm extends React.Component{
   handleSubmit = (event) => {
     event.preventDefault();
     const title = this.getTitle.value;
-    const url = this.getUrl.value;
+    let url = this.getUrl.value;
+
+    function createYouTubeEmbedLink (link) {
+      return link.replace("/watch?v=", "/embed/");
+    }
 
     const subString = ".mp4";
+    const youTubeString = "www.youtube.com";
 
     function contains(search, find) {
     return search.indexOf(find) !== -1;
@@ -27,14 +32,18 @@ export class PostForm extends React.Component{
     let type
     let typeFunction = () => {
       if (contains(url.toLowerCase(), subString.toLowerCase())){
-      type="video";
+        type="video";
+      }
+      else if (contains(url.toLowerCase(), youTubeString.toLowerCase())){
+        type="youtube";
+        createYouTubeEmbedLink(url);
+        console.log(url);
       }
       else{
-      type="image";
+        type="image";
       }
     }
     typeFunction();
-
 
     const data = {
       id: new Date(),
@@ -46,7 +55,7 @@ export class PostForm extends React.Component{
     };
 
     this.props.dispatch(addPost(data));
-    console.log(data);
+    // console.log(data);
 
     let resetForm = () => {
       this.getTitle.reset();

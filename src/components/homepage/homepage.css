@@ -121,3 +121,11 @@ button:hover {
   background: #3800a1;
   text-decoration: none;
 }
+
+.blocker{
+  position:absolute; height:150px; width:150px; z-index:1; opacity:0; 
+}
+
+.linkwrap iframe {
+  z-index: 2;
+}
