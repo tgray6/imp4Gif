@@ -14,10 +14,6 @@ export class PostedSection extends React.Component {
 
 
 
- 	handleIframe(event){
- 		event.preventDefault();
- 	}
-
 	renderResults(){
 		return this.props.items.map((items, index) => {
 			if (items.type==="video"){

@@ -21,8 +21,6 @@ export class PostForm extends React.Component{
     let youtubeTest = url.replace("watch?v=" , "embed/");
     let youtubeUrl = youtubeTest.replace("https://m.", "https://www.");
 
-    console.log(url);
-
     const subString = ".mp4";
     const youTubeString = "youtube.com";
 
