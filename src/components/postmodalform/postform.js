@@ -18,7 +18,7 @@ export class PostForm extends React.Component{
     const title = this.getTitle.value;
     let url = this.getUrl.value;
 
-    let youtubeUrl = url.replace("watch?v=" , "embed/");
+    let youtubeUrl = url.replace("watch?v=" , "embed/" & "https://m.", "https://www.");
 
     console.log(url);
 
