@@ -102,6 +102,13 @@ section:nth-child(even) {
   } 
 }
 
+@media screen and (max-width: 362px) { 
+  .flexItem {
+    width: 140px;
+    height: 140px;
+  }
+}
+
 button {
   -webkit-border-radius: 6;
   -moz-border-radius: 6;
