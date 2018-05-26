@@ -11,6 +11,7 @@ export default function Explanation() {
   }
 
   let color2 = {
+    fontWeight: "bold",
     color: "red"
   }
   return (

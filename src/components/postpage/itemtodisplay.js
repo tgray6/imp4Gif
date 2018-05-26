@@ -23,7 +23,7 @@ export class ItemToDisplay extends React.Component {
                 <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
             </div>
-            <a href ={this.props.itemToDisplay.url} className="source">Source</a>
+            <a href ={this.props.itemToDisplay.url}  target="_blank" className="source">Source</a>
           </div>
         )
       }
@@ -39,7 +39,7 @@ export class ItemToDisplay extends React.Component {
 
               <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.youtubeUrl} allowFullScreen autohide="1"></iframe>
 
-            <a href ={this.props.itemToDisplay.url} className="source">Source</a>
+            <a href ={this.props.itemToDisplay.url}  target="_blank"className="source">Source</a>
           </div>
         )
       }
@@ -54,7 +54,7 @@ export class ItemToDisplay extends React.Component {
               <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
               </img>
             </div>
-            <a href ={this.props.itemToDisplay.url} className="source">Source</a>
+            <a href ={this.props.itemToDisplay.url}  target="_blank" className="source">Source</a>
           </div>
 
         ) 

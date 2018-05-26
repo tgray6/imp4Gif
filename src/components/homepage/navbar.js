@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './homepage.css';
 
-import logo from '../landingpage/logo.png';
+// import logo from '../landingpage/logo.png';
+import logo2 from '../landingpage/logo2.png';
 import PostForm from '../postmodalform/postform';
 
 import {togglePostForm} from '../actions/actions';
@@ -37,7 +38,7 @@ class NavBar extends React.Component {
     <div>
     <nav>
      <ul className="container">
-        <img src={logo} onClick={this.goHome} id="navlogo" alt="logo"></img>
+        <img src={logo2} onClick={this.goHome} id="navlogo" alt="logo"></img>
         <li> 
         <button className="post" onClick={this.toggleForm}>Post</button> 
         </li>
