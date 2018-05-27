@@ -21,7 +21,7 @@ const initialState = {
 			type: "video",
 			url: "https://i.imgur.com/KtK8z0F.mp4",
 			author: "Xer0",
-			comments: []
+			comments: ["test", "fuck", "shit"]
 		},
 		{
 			id: uuidv1(),
@@ -115,9 +115,7 @@ export function impReducer (state=initialState, action) {
 		let itemToDisplay = Object.assign({}, state.itemToDisplay, {comments})
 
 		//NOW, we need to update our items array as well, because this is what holds our array information. so, let items = state.items.map, takes the item parameter, checks the specific item.id and checks if it is equal to itemToDisplay.id, if so, itemToDisplay is set to item, which updates our state.items
-		let items = state.items.map(
-			item => item.id == itemToDisplay.id? itemToDisplay: item
-		)
+		let items = state.items.map(item => item.id == itemToDisplay.id? itemToDisplay: item)
 
 		return Object.assign({}, state, {
 			itemToDisplay, items

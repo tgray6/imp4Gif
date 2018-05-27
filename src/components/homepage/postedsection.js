@@ -19,7 +19,7 @@ export class PostedSection extends React.Component {
 			if (items.type==="video"){
 				return (
 					<div className="flexItem" key={index}>
-            			<Link to={`/${items.id}`}><video controls className="flexImage1">
+            			<Link to={`/${items.id}`}><video height="auto" width="100%" controls ="true" className="flexImage1">
             			<source src={items.url} type="video/mp4" alt="postedlink"/>
            				</video></Link>
 

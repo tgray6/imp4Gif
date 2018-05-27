@@ -5,6 +5,9 @@ import CommentSection from './commentsection';
 import './postpage.css';
 import {Link} from 'react-router-dom';
 
+import CommentForm from './commentform';
+import Comments from './comments'
+
 export class ItemToDisplay extends React.Component {
 
 
@@ -19,7 +22,7 @@ export class ItemToDisplay extends React.Component {
               <p className="author">Post By: {this.props.itemToDisplay.author}</p>
             </header>
             <div className="flexItemTest">
-                <video controls className="flexImage">
+                <video height="auto" width="100%" controls="true" className="flexImage">
                 <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
             </div>
@@ -61,6 +64,11 @@ export class ItemToDisplay extends React.Component {
       }
     }
     render(){
+
+    const comments = this.props.itemToDisplay.comments.map((item, index) => (
+      <li key={index}>{item}</li>
+    ));
+
      return (
       <div>
       <section className="postedSection">
@@ -71,7 +79,13 @@ export class ItemToDisplay extends React.Component {
         <Link to={`/`}><button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button></Link>
         </div>
       </section>
-      
+      <section>
+        <CommentForm />
+        <hr></hr>
+        <div className="commentSection">
+          <ul className="comments">{comments}</ul>
+       </div>
+      </section>
       </div>
     );
   }

@@ -31,9 +31,12 @@ export default function Explanation() {
           <ul className="landingList">
               <li>
                 <p><span style={bold}>Youtube Link</span> These are easy, just copy the url from the top of the browser on any youtube video.</p>
+                <p>Example url: https://www.youtube.com/watch?v=SN43u7up93I</p>
+                <p>Mobile url: https:m.youtube.com/watch?v=SN43u7up93I</p>
+ 
               </li>
                 <li>
-                <p><span style={bold}>Image/Gif/mp4:</span> <span style={color2}>Desktop </span>is easy. Just Google an image, gif, mp4, and right click on what you plan to post, and click "Copy Image Address"</p>
+                <p><span style={bold}>Image/Gif/mp4:</span> <span style={color2}>Desktop </span>is easy. Just Google an image, gif, mp4, and right click on what you plan to post, and click "Copy Image Address", or if its an mp4, "Copy Video Address".</p>
                </li>
                 <li>
                 <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> can be tricky depending on the site. The goal is to "Open image in new tab" and copy that link in the address bar. Just Google an image, gif, mp4, and press and hold your finger over your selected item, and select "Open image in new tab", then copy the link in the address bar. As mentioned, some sites can be a bit tricky or won't have this option.</p>
