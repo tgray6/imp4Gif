@@ -108,11 +108,11 @@ export function impReducer (state=initialState, action) {
 
 	if(action.type === ADD_COMMENT) {
 		//NEVER push to an array like I was trying to do initially. We need to copy the array, add something to it, then update the original array.
-
+		let currentItem = state.items.find((post) => post.id === action.id);
 		//let comments takes our comments array in itemToDisplay.comments, and adds our new comment on commentform submit with the action.comment.
-		let comments = [...state.itemToDisplay.comments, action.comment]
+		let comments = [...currentItem.comments, action.comment]
 		//let itemToDisplay sets our state to our itemToDisplay state, and adds our new comments array.
-		let itemToDisplay = Object.assign({}, state.itemToDisplay, {comments})
+		let itemToDisplay = Object.assign({}, currentItem, {comments})
 
 		//NOW, we need to update our items array as well, because this is what holds our array information. so, let items = state.items.map, takes the item parameter, checks the specific item.id and checks if it is equal to itemToDisplay.id, if so, itemToDisplay is set to item, which updates our state.items
 		let items = state.items.map(item => item.id == itemToDisplay.id? itemToDisplay: item)

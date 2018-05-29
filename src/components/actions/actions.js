@@ -33,7 +33,8 @@ export const renderPost = id => ({
 });
 
 export const ADD_COMMENT = "ADD_COMMENT";
-export const addComment = comment => ({
+export const addComment = (comment, id )=> ({
 	type: ADD_COMMENT,
+	id,
 	comment
 });

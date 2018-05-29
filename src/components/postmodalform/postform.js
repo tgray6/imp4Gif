@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import './postform.css';
 import {togglePostForm} from '../actions/actions';
 import {addPost} from '../actions/actions';
+const uuidv1 = require('uuid/v1');
 
 export class PostForm extends React.Component{
 
@@ -43,7 +44,7 @@ export class PostForm extends React.Component{
     typeFunction();
 
     const data = {
-      id: new Date(),
+      id: uuidv1(),
       title,
       type: type,
       url,
