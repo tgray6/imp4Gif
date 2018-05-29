@@ -90,7 +90,7 @@ export class ItemToDisplay extends React.Component {
     );
   }
 }
-
+//<CommentForm />  removed from line 83
 const mapStateToProps = (state, props )=> 
   { 
   console.log(props.match.params);

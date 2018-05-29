@@ -15,7 +15,7 @@ export class CommentForm extends React.Component {
 
 
   render(){
-
+    // console.log("Testing comment form:" + this.props.itemToDisplay);
     return (
     	<div>
         	<form onSubmit={this.handleSubmit}>
@@ -32,7 +32,7 @@ export class CommentForm extends React.Component {
 
 const mapStateToProps = state => ({
   nickName: state.nickName,
-  itemToDisplay: state.itemToDisplay
+  // itemToDisplay: state.itemToDisplay
 });
 
 

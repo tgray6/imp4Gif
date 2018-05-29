@@ -15,10 +15,10 @@ export class PostedSection extends React.Component {
 
 
 	renderResults(){
-		return this.props.items.map((items, index) => {
+		return this.props.items.map((items) => {
 			if (items.type==="video"){
 				return (
-					<div className="flexItem" key={index}>
+					<div className="flexItem" key={items.id}>
             			<Link to={`/${items.id}`}><video height="auto" width="100%" controls ="true" className="flexImage1">
             			<source src={items.url} type="video/mp4" alt="postedlink"/>
            				</video></Link>
@@ -29,7 +29,7 @@ export class PostedSection extends React.Component {
 
 			else if (items.type==="youtube") {
 				return (
-					<div className="flexItem"  key={index}>
+					<div className="flexItem"  key={items.id}>
             			<Link to={`/${items.id}`} className="linkwrap">
             			<div className="blocker"></div>
 						<iframe className="flexImage1" src={items.youtubeUrl} frameBorder="0" showinfo="0"></iframe>
@@ -42,7 +42,7 @@ export class PostedSection extends React.Component {
 
 			else{
 				return ( 
-					<div className="flexItem" key={index}>
+					<div className="flexItem" key={items.id}>
 						<Link to={`/${items.id}`}><img src={items.url} className="flexImage1"  alt="postedlink">
 						</img></Link>
 

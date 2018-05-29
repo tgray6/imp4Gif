@@ -64,6 +64,7 @@ section:nth-child(even) {
 
 .logoutSection p{
   display: flex;
+  margin-right: 15px;
 }
 
 /*button{

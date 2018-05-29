@@ -38,7 +38,7 @@ class NavBar extends React.Component {
     <div>
     <nav>
      <ul className="container">
-        <img src={logo2} onClick={this.goHome} id="navlogo" alt="logo"></img>
+        <Link to={`/`}><img src={logo2} onClick={this.goHome} id="navlogo" alt="logo"></img></Link>
         <li> 
         <button className="post" onClick={this.toggleForm}>Post</button> 
         </li>
