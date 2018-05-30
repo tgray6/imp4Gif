@@ -50,7 +50,8 @@ export class PostForm extends React.Component{
       url,
       youtubeUrl,
       author: this.props.nickName,
-      comments: []
+      comments: [],
+      created: Date.now()
     };
 
     this.props.dispatch(addPost(data));
