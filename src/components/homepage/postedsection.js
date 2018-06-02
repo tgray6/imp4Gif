@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {renderPost} from '../actions/actions';
+import {fetchItems} from '../actions/actions';
 
 import { withRouter } from 'react-router-dom';
 
@@ -12,9 +12,13 @@ import './homepage.css';
 
 export class PostedSection extends React.Component {
 
+    componentDidMount() {
+        this.props.dispatch(fetchItems());
+    }
 
 
 	renderResults(){
+		console.log(this.props.items);
 		return this.props.items.map((items) => {
 			if (items.type==="video"){
 				return (
@@ -32,7 +36,7 @@ export class PostedSection extends React.Component {
 					<div className="flexItem"  key={items.id}>
             			<Link to={`/${items.id}`} className="linkwrap">
             			<div className="blocker"></div>
-						<iframe className="flexImage1" src={items.youtubeUrl} frameBorder="0" showinfo="0"></iframe>
+						<iframe className="flexImage1" src={items.youTubeUrl} frameBorder="0" showinfo="0"></iframe>
 
             			</Link>
 

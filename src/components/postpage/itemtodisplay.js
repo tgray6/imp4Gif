@@ -40,7 +40,7 @@ export class ItemToDisplay extends React.Component {
             </header>
 
 
-              <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.youtubeUrl} allowFullScreen autohide="1"></iframe>
+              <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.youTubeUrl} allowFullScreen autohide="1"></iframe>
 
             <a href ={this.props.itemToDisplay.url}  target="_blank"className="source">Source</a>
           </div>
@@ -84,12 +84,13 @@ export class ItemToDisplay extends React.Component {
         <hr></hr>
         <div className="commentSection">
           <ul className="comments">{comments}</ul>
-       </div>
+        </div>
       </section>
       </div>
     );
   }
 }
+//<ul className="comments">{comments}</ul> removed from line 86 for now
 //<CommentForm />  removed from line 83
 const mapStateToProps = (state, props )=> 
   { 

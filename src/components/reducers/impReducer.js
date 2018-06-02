@@ -5,62 +5,64 @@ import {INDIVIDUAL_RENDER} from '../actions/actions';
 import {LOGOUTUSER} from '../actions/actions';
 import {GOHOME} from '../actions/actions';
 import {ADD_COMMENT} from '../actions/actions';
+import {FETCH_ITEMS_SUCCESS} from '../actions/actions';
+import {LOGINUSER} from '../actions/actions';
 
 const uuidv1 = require('uuid/v1');
 const initialState = {
-	nickName: "Xer0",
+	nickName: "",
 
 	show: false,
 
 	itemToDisplay: null,
 
 	items:[
-		{
-			id: uuidv1(),
-			title: "Id 0 post title",
-			type: "video",
-			url: "https://i.imgur.com/KtK8z0F.mp4",
-			author: "Xer0",
-			comments: ["test", "TESTING!"],
-			created: Date.now()
-		},
-		{
-			id: uuidv1(),
-			title: "Id 1 post title",
-			type:"image",
-			url: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp",
-			author: "Biggunz",
-			comments: [],
-			created: Date.now()
-		},
-		{
-			id: uuidv1(),
-			title: "Id 2 post title",
-			type:"youtube",
-			youtubeUrl: "https://www.youtube.com/embed/SN43u7up93I",
-			url: "https://www.youtube.com/watch?v=SN43u7up93I",
-			author: "Biggunz",
-			comments: [],
-			created: Date.now()			
-		},
-		{
-			id: uuidv1(),
-			title: "Id 3 post title",
-			type: "video",
-			url: "https://i.imgur.com/tJ7roYr.mp4",
-			author: "BakerMan",
-			comments: [],
-			created: Date.now()
-		},
-		{
-			id: uuidv1(),
-			title: "Id 4 post title",
-			type: "image",
-			url: "https://images5.alphacoders.com/444/thumb-1920-444701.jpg",
-			author: "FarrariMan",
-			comments: [],
-			created: Date.now()
-		}
+		// {
+		// 	id: uuidv1(),
+		// 	title: "Id 0 post title",
+		// 	type: "video",
+		// 	url: "https://i.imgur.com/KtK8z0F.mp4",
+		// 	author: "Xer0",
+		// 	comments: [],
+		// 	created: Date.now()
+		// },
+		// {
+		// 	id: uuidv1(),
+		// 	title: "Id 1 post title",
+		// 	type:"image",
+		// 	url: "https://media3.giphy.com/media/pYfxQcXVEGF6o/200w.webp",
+		// 	author: "Biggunz",
+		// 	comments: [],
+		// 	created: Date.now()
+		// },
+		// {
+		// 	id: uuidv1(),
+		// 	title: "Id 2 post title",
+		// 	type:"youtube",
+		// 	youtubeUrl: "https://www.youtube.com/embed/SN43u7up93I",
+		// 	url: "https://www.youtube.com/watch?v=SN43u7up93I",
+		// 	author: "Biggunz",
+		// 	comments: [],
+		// 	created: Date.now()			
+		// },
+		// {
+		// 	id: uuidv1(),
+		// 	title: "Id 3 post title",
+		// 	type: "video",
+		// 	url: "https://i.imgur.com/tJ7roYr.mp4",
+		// 	author: "BakerMan",
+		// 	comments: [],
+		// 	created: Date.now()
+		// },
+		// {
+		// 	id: uuidv1(),
+		// 	title: "Id 4 post title",
+		// 	type: "image",
+		// 	url: "https://images5.alphacoders.com/444/thumb-1920-444701.jpg",
+		// 	author: "FarrariMan",
+		// 	comments: [],
+		// 	created: Date.now()
+		// }
 	]
 }
 
@@ -105,6 +107,12 @@ export function impReducer (state=initialState, action) {
 		});
 	}
 
+	if(action.type === LOGINUSER) {
+		return Object.assign({}, state, {
+			nickName: "hardcodednickName"
+		});
+	}
+
 	if(action.type === GOHOME) {
 		return Object.assign({}, state, {
 			itemToDisplay : null
@@ -126,6 +134,10 @@ export function impReducer (state=initialState, action) {
 			itemToDisplay, items
 		});
 	}
+
+	else if (action.type === FETCH_ITEMS_SUCCESS) {
+        return Object.assign({}, state, action.items);
+    }
 
 	return state;
 }

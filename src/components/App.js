@@ -6,7 +6,6 @@ import {
     Switch
 } from 'react-router-dom';
 
-
 import {connect} from 'react-redux';
 import LandingPage from './landingpage/landingpage';
 

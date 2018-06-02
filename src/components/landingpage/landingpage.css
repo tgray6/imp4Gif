@@ -61,6 +61,7 @@ img{
 }
 
 .landingList p {
+  margin: 0 0px;
   margin-bottom: 15px;
   display: inline-block;
   text-align: left;

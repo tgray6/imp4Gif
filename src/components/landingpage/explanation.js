@@ -26,8 +26,9 @@ export default function Explanation() {
         </ul>
       </div>
 
-      <h2 style={color}>NOTE ON COPYING LINKS</h2>
+      
         <div>
+        <h2 style={color}>NOTE ON COPYING LINKS</h2>
           <ul className="landingList">
               <li>
                 <p><span style={bold}>Youtube Link</span> These are easy, just copy the url from the top of the browser on any youtube video.</p>
@@ -36,10 +37,14 @@ export default function Explanation() {
  
               </li>
                 <li>
-                <p><span style={bold}>Image/Gif/mp4:</span> <span style={color2}>Desktop </span>is easy. Just Google an image, gif, mp4, and right click on what you plan to post, and click "Copy Image Address", or if its an mp4, "Copy Video Address".</p>
+                <p><span style={bold}>Image/Gif/mp4:</span> <span style={color2}>Desktop </span>is easy. Just Google an image, gif, mp4, and right click on what you plan to post, and click "Copy Image Address", or if its an mp4, "Copy Video Address". </p>
                </li>
                 <li>
-                <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> can be tricky depending on the site. The goal is to "Open image in new tab" and copy that link in the address bar. Just Google an image, gif, mp4, and press and hold your finger over your selected item, and select "Open image in new tab", then copy the link in the address bar. As mentioned, some sites can be a bit tricky or won't have this option.</p>
+                <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> can be tricky depending on the site. The goal is to "Open image in new tab" and copy that link in the address bar. Just Google an image, gif, mp4, and press and hold your finger over your selected item, and select "Open image in new tab", then copy the link in the address bar. As mentioned, some sites can be a bit tricky or won't have this option.
+                </p>
+                <p>
+                <span style={color2}>iPad/iPhone: </span> Works same as above, but when you hold your finger over a selected item, select "Copy", then paste into the url. Then, when the new url loads, hold your finger over the newly loaded image and select "Open image in new tab".
+                </p>
                </li>
           </ul>
       </div>

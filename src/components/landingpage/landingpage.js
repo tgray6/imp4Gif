@@ -6,16 +6,11 @@ import Header from './header';
 import RegisterForm from './registerform';
 import LoginForm from './loginform';
 import Explanation from './explanation';
-import { withRouter } from 'react-router-dom'
-// this also works with react-router-native
 
 
 
  export default class LandingPage extends React.Component {
 
-  nextPath(path) {
-  this.props.history.push(path);
-  }
 
   render(){
 
@@ -23,8 +18,8 @@ import { withRouter } from 'react-router-dom'
       <div className="App">
         <Header />
         <section>
-          <RegisterForm goHome={() => this.nextPath('/homepage')} />
-          <LoginForm goHome={() => this.nextPath('/homepage')} />
+          <RegisterForm />
+          <LoginForm />
         </section>
           <Explanation />
       </div>

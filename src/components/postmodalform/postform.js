@@ -20,7 +20,7 @@ export class PostForm extends React.Component{
     let url = this.getUrl.value;
 
     let youtubeTest = url.replace("watch?v=" , "embed/");
-    let youtubeUrl = youtubeTest.replace("https://m.", "https://www.");
+    let youTubeUrl = youtubeTest.replace("https://m.", "https://www.");
 
     const subString = ".mp4";
     const youTubeString = "youtube.com";
@@ -44,14 +44,12 @@ export class PostForm extends React.Component{
     typeFunction();
 
     const data = {
-      id: uuidv1(),
       title,
       type: type,
       url,
-      youtubeUrl,
+      youTubeUrl,
       author: this.props.nickName,
       comments: [],
-      created: Date.now()
     };
 
     this.props.dispatch(addPost(data));
