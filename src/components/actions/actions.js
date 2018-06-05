@@ -1,5 +1,5 @@
 export const API_BASE_URL =
-    process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
+    process.env.REACT_APP_API_BASE_URL || 'http://localhost:8888';
 
 export const TOGGLEFORM = 'TOGGLEFORM';
 export const togglePostForm = () => ({
@@ -56,7 +56,7 @@ export const addComment = (comment, id )=> ({
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
 export const fetchItemsSuccess = items => ({
     type: FETCH_ITEMS_SUCCESS,
-    items
+    items:items
 });
 
 
@@ -68,7 +68,7 @@ export const fetchItems = () => dispatch => {
             }
             return res.json();
         })
-        .then(items => {
-            dispatch(fetchItemsSuccess(items));
+        .then(response => {
+            dispatch(fetchItemsSuccess(response.items));
         });
 };

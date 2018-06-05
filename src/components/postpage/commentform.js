@@ -31,7 +31,7 @@ export class CommentForm extends React.Component {
 
 
 const mapStateToProps = state => ({
-  nickName: state.nickName
+  nickName: state.imp.nickName
   // id: props.id
   // itemToDisplay: state.itemToDisplay
 });

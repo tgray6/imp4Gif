@@ -70,7 +70,7 @@ export class PostedSection extends React.Component {
 }
 
 const mapStateToProps =  state => ({
-	items: state.items
+	items: state.imp.items
 })
 
 export default connect(mapStateToProps)(PostedSection);

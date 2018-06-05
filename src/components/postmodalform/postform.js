@@ -49,7 +49,7 @@ export class PostForm extends React.Component{
       url,
       youTubeUrl,
       author: this.props.nickName,
-      comments: [],
+      comments: []
     };
 
     this.props.dispatch(addPost(data));
@@ -91,8 +91,8 @@ export class PostForm extends React.Component{
 }
 
 const mapStateToProps =  state => ({
-  nickName: state.nickName,
-  items: state.items
+  nickName: state.imp.nickName,
+  items: state.imp.items
 })
 
 export default connect(mapStateToProps)(PostForm)

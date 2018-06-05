@@ -97,7 +97,7 @@ const mapStateToProps = (state, props )=>
   console.log(props.match.params);
   let result = 
   {
-  itemToDisplay: state.items.find((post) => post.id == props.match.params.postId)
+  itemToDisplay: state.imp.items.find((post) => post.id == props.match.params.postId)
  }
   console.log(result)
   return result

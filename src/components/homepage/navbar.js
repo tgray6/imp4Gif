@@ -59,8 +59,8 @@ class NavBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  show: state.show,
-  nickName: state.nickName,
+  show: state.imp.show,
+  nickName: state.imp.nickName,
 });
 
 // <Link to="/homepage"><img src={logo} id="navlogo" alt="logo"></img></Link>

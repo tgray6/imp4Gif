@@ -136,7 +136,9 @@ export function impReducer (state=initialState, action) {
 	}
 
 	else if (action.type === FETCH_ITEMS_SUCCESS) {
-        return Object.assign({}, state, action.items);
+        return Object.assign({}, state, {
+        	items: action.items
+        });
     }
 
 	return state;

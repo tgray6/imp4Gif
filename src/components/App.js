@@ -40,8 +40,8 @@ export class App extends Component {
 }
 
 const mapStateToProps =  state => ({
-  nickName: state.nickName,
-  itemToDisplay: state.itemToDisplay,
+  nickName: state.imp.nickName,
+  itemToDisplay: state.imp.itemToDisplay,
 })
 
 export default connect(mapStateToProps)(App)
