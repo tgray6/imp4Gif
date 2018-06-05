@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import './postform.css';
 import {togglePostForm} from '../actions/actions';
 import {addPost} from '../actions/actions';
-const uuidv1 = require('uuid/v1');
+import {reduxForm, Field} from 'redux-form';
+// import Input from './input';
+// const uuidv1 = require('uuid/v1');
 
 export class PostForm extends React.Component{
 
@@ -14,8 +16,9 @@ export class PostForm extends React.Component{
 
 
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  submit = () => {
+
+    // event.preventDefault();
     const title = this.getTitle.value;
     let url = this.getUrl.value;
 
@@ -43,7 +46,8 @@ export class PostForm extends React.Component{
     }
     typeFunction();
 
-    const data = {
+    const DATA = {
+      // id: uuidv1(),
       title,
       type: type,
       url,
@@ -52,15 +56,32 @@ export class PostForm extends React.Component{
       comments: []
     };
 
-    this.props.dispatch(addPost(data));
+    this.props.dispatch(addPost(DATA));
 
-    let resetForm = () => {
-      this.getTitle.reset();
-      this.getUrl.reset();
-    };
 
-    resetForm
+
+    let form = document.getElementById("postForm");
+    form.reset();
+
+
+
     this.props.dispatch(togglePostForm());
+
+
+
+    const APIURL = "http://localhost:8888/items/";
+
+
+    fetch(APIURL, {
+      method: 'POST',
+      body: JSON.stringify(DATA), 
+      headers:{
+        'Content-Type': 'application/json'
+     }
+    })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
   };
 
 
@@ -71,15 +92,15 @@ export class PostForm extends React.Component{
         <h1>Make a Post</h1>
       </header>
       <section>
-        <form id="postForm" onSubmit={this.handleSubmit}>
+        <form id="postForm" onSubmit={this.props.handleSubmit(this.submit)}>
           <div className="form-section">
             <label htmlFor="post-title">Post Title</label>
-            <input type="text" name="post-title" placeholder="This is the title of your post and appears above your actual post." required ref={(input) => this.getTitle = input} />
+            <Field type="text" name="post-title" component="input" placeholder="This is the title of your post" required ref={(input) => this.getTitle = input} />
           </div>
 
           <div className="form-section">
             <label htmlFor="post-link">Paste in your link</label>
-            <input type="text" name="post-link" placeholder="Put In That Link. (Right click an image/gif/mp4 and copy image address)" required ref={(input) => this.getUrl = input}/>
+            <Field type="text" name="post-link" component="input" placeholder="Put In That Link. (Instructions on Login Page)" required ref={(input) => this.getUrl = input}/>
           </div>
           <button type="submit">Submit</button>
           <button className="close" onClick={this.toggleForm}>Close</button>
@@ -91,8 +112,7 @@ export class PostForm extends React.Component{
 }
 
 const mapStateToProps =  state => ({
-  nickName: state.imp.nickName,
-  items: state.imp.items
+  nickName: state.imp.nickName
 })
 
-export default connect(mapStateToProps)(PostForm)
+export default connect(mapStateToProps)(reduxForm({ form: "post" })(PostForm));

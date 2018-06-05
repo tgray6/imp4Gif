@@ -8,7 +8,7 @@ import {ADD_COMMENT} from '../actions/actions';
 import {FETCH_ITEMS_SUCCESS} from '../actions/actions';
 import {LOGINUSER} from '../actions/actions';
 
-const uuidv1 = require('uuid/v1');
+// const uuidv1 = require('uuid/v1');
 const initialState = {
 	nickName: "",
 
@@ -128,7 +128,7 @@ export function impReducer (state=initialState, action) {
 		let itemToDisplay = Object.assign({}, currentItem, {comments})
 
 		//NOW, we need to update our items array as well, because this is what holds our array information. so, let items = state.items.map, takes the item parameter, checks the specific item.id and checks if it is equal to itemToDisplay.id, if so, itemToDisplay is set to item, which updates our state.items
-		let items = state.items.map(item => item.id == itemToDisplay.id? itemToDisplay: item)
+		let items = state.items.map(item => item.id === itemToDisplay.id? itemToDisplay: item)
 
 		return Object.assign({}, state, {
 			itemToDisplay, items

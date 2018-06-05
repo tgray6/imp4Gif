@@ -1,14 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import {loginUser} from '../actions/actions';
-// import {fetchItems} from '../actions/actions';
-
+import { connect } from 'react-redux';
+// import {reduxForm, Field} from 'redux-form';
 export class RegisterForm extends React.Component {
 
 handleSubmit = (event) => {
   event.preventDefault();
   this.props.dispatch(loginUser());
-  // this.props.dispatch(fetchItems());
+
 }
   render(){
 

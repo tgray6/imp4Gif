@@ -1,14 +1,12 @@
 import React from 'react';
 import {loginUser} from '../actions/actions';
 import { connect } from 'react-redux';
-// import {fetchItems} from '../actions/actions';
-
+// import {reduxForm, Field} from 'redux-form';
 export class LoginForm extends React.Component {
 
 handleSubmit = (event) => {
   event.preventDefault();
   this.props.dispatch(loginUser());
-  // this.props.dispatch(fetchItems());
 }
   render(){
   return (

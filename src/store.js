@@ -14,16 +14,6 @@ import {impReducer} from './components/reducers/impReducer';
 import {reducer as formReducer} from 'redux-form'
 import thunk from 'redux-thunk';
 
-// export default createStore(impReducer,applyMiddleware(thunk));
-
-// export default createStore(
-//     combineReducers({
-//         form: formReducer,
-//         impReducer: impReducer,
-//         applyMiddleware(thunk)
-//     })
-// );
-
 const reducers = {
 	form: formReducer,
     imp: impReducer

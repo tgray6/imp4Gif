@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {addComment} from '../actions/actions';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+// import {reduxForm, Field} from 'redux-form';
 export class CommentForm extends React.Component {
 
   handleSubmit = (event) => {

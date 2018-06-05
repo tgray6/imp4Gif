@@ -1,14 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {deletePost} from '../actions/actions';
-import CommentSection from './commentsection';
+// import {deletePost} from '../actions/actions';
 import './postpage.css';
 import {Link} from 'react-router-dom';
-
+// import {fetchItems} from '../actions/actions';
 import CommentForm from './commentform';
-import Comments from './comments'
+// import {goHome} from '../actions/actions';
+
 
 export class ItemToDisplay extends React.Component {
+
+  // goHome = () => {
+  //   this.props.dispatch(goHome())
+  // };
+
+deleteData(id) {
+  return fetch("http://localhost:8888/items/" + id, {
+    method: 'DELETE'
+  })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response));
+  // goHome()
+}
+       
 
 
   renderResults(){
@@ -40,7 +55,7 @@ export class ItemToDisplay extends React.Component {
             </header>
 
 
-              <iframe id="iframeId" className="flexImage" src={this.props.itemToDisplay.youTubeUrl} allowFullScreen autohide="1"></iframe>
+              <iframe id="iframeId" className="flexImage" title="youtube video" src={this.props.itemToDisplay.youTubeUrl} allowFullScreen autohide="1"></iframe>
 
             <a href ={this.props.itemToDisplay.url}  target="_blank"className="source">Source</a>
           </div>
@@ -76,7 +91,7 @@ export class ItemToDisplay extends React.Component {
           {this.renderResults()}
         </div>
         <div>
-        <Link to={`/`}><button className="deleteButton" onClick={()=>this.props.dispatch(deletePost(this.props.itemToDisplay.id))}>Delete</button></Link>
+        <Link to={`/`}><button className="deleteButton" onClick={()=>this.deleteData(this.props.itemToDisplay.id)}>Delete</button></Link>
         </div>
       </section>
       <section>
@@ -90,15 +105,14 @@ export class ItemToDisplay extends React.Component {
     );
   }
 }
-//<ul className="comments">{comments}</ul> removed from line 86 for now
-//<CommentForm />  removed from line 83
+
 const mapStateToProps = (state, props )=> 
   { 
   console.log(props.match.params);
   let result = 
   {
-  itemToDisplay: state.imp.items.find((post) => post.id == props.match.params.postId)
- }
+  itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
+  }
   console.log(result)
   return result
 };

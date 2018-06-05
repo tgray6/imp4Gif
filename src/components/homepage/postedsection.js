@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 
 import {fetchItems} from '../actions/actions';
 
-import { withRouter } from 'react-router-dom';
-
 import {Link} from 'react-router-dom';
 
 import './homepage.css';
@@ -18,7 +16,6 @@ export class PostedSection extends React.Component {
 
 
 	renderResults(){
-		console.log(this.props.items);
 		return this.props.items.map((items) => {
 			if (items.type==="video"){
 				return (
@@ -36,7 +33,7 @@ export class PostedSection extends React.Component {
 					<div className="flexItem"  key={items.id}>
             			<Link to={`/${items.id}`} className="linkwrap">
             			<div className="blocker"></div>
-						<iframe className="flexImage1" src={items.youTubeUrl} frameBorder="0" showinfo="0"></iframe>
+						<iframe className="flexImage1" title="youtube video" src={items.youTubeUrl} frameBorder="0" showinfo="0"></iframe>
 
             			</Link>
 
@@ -56,6 +53,7 @@ export class PostedSection extends React.Component {
 		});
     }
     render(){
+    // console.log(this.props.items)
    	 return (
    	 	<div>
    	 	<header><h1>Recent Posts</h1></header>

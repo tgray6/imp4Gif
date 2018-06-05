@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './homepage.css';
 
-// import logo from '../landingpage/logo.png';
 import logo2 from '../landingpage/logo2.png';
 import PostForm from '../postmodalform/postform';
 
@@ -11,13 +10,9 @@ import {togglePostForm} from '../actions/actions';
 import {logoutUser} from '../actions/actions';
 import {goHome} from '../actions/actions';
 
-import { withRouter } from 'react-router-dom'
 
 class NavBar extends React.Component {
 
-  nextPath(path) {
-  this.props.history.push(path);
-  };
 
   toggleForm = () => {
     this.props.dispatch(togglePostForm());
@@ -63,8 +58,6 @@ const mapStateToProps = state => ({
   nickName: state.imp.nickName,
 });
 
-// <Link to="/homepage"><img src={logo} id="navlogo" alt="logo"></img></Link>
-//         <li className="logo"> 
 
 export default connect(mapStateToProps)(NavBar);
 
