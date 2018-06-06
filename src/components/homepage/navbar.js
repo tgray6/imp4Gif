@@ -8,7 +8,7 @@ import PostForm from '../postmodalform/postform';
 
 import {togglePostForm} from '../actions/actions';
 import {logoutUser} from '../actions/actions';
-import {goHome} from '../actions/actions';
+// import {goHome} from '../actions/actions';
 
 
 class NavBar extends React.Component {
@@ -23,9 +23,9 @@ class NavBar extends React.Component {
     this.props.dispatch(logoutUser());
   };
 
-  goHome = () => {
-    this.props.dispatch(goHome())
-  };
+  // goHome = () => {
+  //   this.props.dispatch(goHome())
+  // };
 
 
   render(){

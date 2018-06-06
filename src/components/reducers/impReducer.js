@@ -3,18 +3,39 @@ import {ADD_POST} from '../actions/actions';
 import {DELETE_POST} from '../actions/actions';
 import {INDIVIDUAL_RENDER} from '../actions/actions';
 import {LOGOUTUSER} from '../actions/actions';
-import {GOHOME} from '../actions/actions';
+// import {GOHOME} from '../actions/actions';
 import {ADD_COMMENT} from '../actions/actions';
 import {FETCH_ITEMS_SUCCESS} from '../actions/actions';
 import {LOGINUSER} from '../actions/actions';
+import {LOADING} from '../actions/actions';
+// const uuidv1 = require('uuid/v1'); 
 
-// const uuidv1 = require('uuid/v1');
+//using .sort on our ADD_POST
+function sortItems(a, b) {
+
+  let d1 = new Date(a.created);
+  let d2 = new Date(b.created); 
+  if (d1 > d2) {
+    return -1;
+  }
+  if (d1 < d2) {
+    return 1;
+  }
+
+  return 0;
+}
+
+
+
+
 const initialState = {
 	nickName: "",
 
 	show: false,
 
-	itemToDisplay: null,
+	loading: false,
+
+	// itemToDisplay: null,
 
 	items:[
 		// {
@@ -83,23 +104,45 @@ export function impReducer (state=initialState, action) {
 	}
 
 	if(action.type === ADD_POST) {
+		let items = [...state.items, action.data].sort(sortItems);
+		// console.log(items);
 		return Object.assign({}, state, {
-			items: [...state.items, action.data]
+			items,
+			show: false
 		});
 	}
 
 	if(action.type === DELETE_POST) {
 		return Object.assign({}, state, {
 			items: [...state.items.filter((post) => post.id !== action.id)],
-			itemToDisplay: null
+			loading: true
 		});
 	}
+
+
 
 	if(action.type === INDIVIDUAL_RENDER) {
 		return Object.assign({}, state, {
 			itemToDisplay: state.items.find((post) => post.id === action.id)
 		});
 	}
+
+
+
+	if(action.type === LOADING) {
+		if(state.loading===false){
+			return Object.assign({}, state, {
+				loading: true
+			});
+		}
+		else if(state.loading===true){
+			return Object.assign({}, state, {
+				loading: false
+			});			
+		}
+	}
+
+
 
 	if(action.type === LOGOUTUSER) {
 		return Object.assign({}, state, {
@@ -113,11 +156,11 @@ export function impReducer (state=initialState, action) {
 		});
 	}
 
-	if(action.type === GOHOME) {
-		return Object.assign({}, state, {
-			itemToDisplay : null
-		});
-	}
+	// if(action.type === GOHOME) {
+	// 	return Object.assign({}, state, {
+	// 		itemToDisplay : null
+	// 	});
+	// }
 
 	if(action.type === ADD_COMMENT) {
 		//NEVER push to an array like I was trying to do initially. We need to copy the array, add something to it, then update the original array.

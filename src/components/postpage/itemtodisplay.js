@@ -1,34 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import {deletePost} from '../actions/actions';
+import {deletePost} from '../actions/actions';
+import {loading} from '../actions/actions';
 import './postpage.css';
-import {Link} from 'react-router-dom';
-// import {fetchItems} from '../actions/actions';
 import CommentForm from './commentform';
-// import {goHome} from '../actions/actions';
+import { withRouter } from "react-router-dom";
+import Spinner from 'react-spinkit';
 
 
 export class ItemToDisplay extends React.Component {
 
-  // goHome = () => {
-  //   this.props.dispatch(goHome())
-  // };
 
-deleteData(id) {
-  return fetch("http://localhost:8888/items/" + id, {
+
+
+deleteData() {
+
+  let toggleLoading = () => {
+    this.props.dispatch(loading());
+  };
+
+  toggleLoading();
+
+  let backtoPostedSection = () => {
+  this.props.history.push('/');
+  toggleLoading();
+  }
+
+  
+  let id = this.props.itemToDisplay.id
+  fetch("http://localhost:8888/items/" + id, {
     method: 'DELETE'
   })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-  // goHome()
+    .then(response => {
+      console.log('Success:', response);
+      return response;
+    })
+    .then(response => this.props.dispatch(deletePost(response)));
+    setTimeout(backtoPostedSection, 2000);
 }
        
 
 
   renderResults(){
+  
 
-      // function clickEvent()
       if (this.props.itemToDisplay.type==="video"){
         return (
           <div>
@@ -84,6 +101,17 @@ deleteData(id) {
       <li key={index}>{item}</li>
     ));
 
+    if (this.props.loading===true) {
+      return(
+        <section className="postedSection">
+        <div className="flexContainer2">
+          <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" noFadeIn />
+        </div>
+        </section>
+      )
+    }
+
+    
      return (
       <div>
       <section className="postedSection">
@@ -91,7 +119,7 @@ deleteData(id) {
           {this.renderResults()}
         </div>
         <div>
-        <Link to={`/`}><button className="deleteButton" onClick={()=>this.deleteData(this.props.itemToDisplay.id)}>Delete</button></Link>
+        <button className="deleteButton" onClick={()=>this.deleteData()}>Delete</button>
         </div>
       </section>
       <section>
@@ -111,6 +139,7 @@ const mapStateToProps = (state, props )=>
   console.log(props.match.params);
   let result = 
   {
+  loading: state.imp.loading,
   itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
   }
   console.log(result)
@@ -118,7 +147,7 @@ const mapStateToProps = (state, props )=>
 };
 
 
-export default connect(mapStateToProps)(ItemToDisplay);
+export default connect(mapStateToProps)(withRouter(ItemToDisplay));
 
 
 

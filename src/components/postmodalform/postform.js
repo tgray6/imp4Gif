@@ -33,18 +33,18 @@ export class PostForm extends React.Component{
     }
 
     let type
-    let typeFunction = () => {
-      if (contains(url.toLowerCase(), subString.toLowerCase())){
-        type="video";
-      }
-      else if (contains(url.toLowerCase(), youTubeString.toLowerCase())){
-        type="youtube";
-      }
-      else{
-        type="image";
-      }
+
+    if (contains(url.toLowerCase(), subString.toLowerCase())){
+      type="video";
     }
-    typeFunction();
+    else if (contains(url.toLowerCase(), youTubeString.toLowerCase())){
+      type="youtube";
+    }
+    else{
+      type="image";
+    }
+
+
 
     const DATA = {
       // id: uuidv1(),
@@ -56,7 +56,7 @@ export class PostForm extends React.Component{
       comments: []
     };
 
-    this.props.dispatch(addPost(DATA));
+    
 
 
 
@@ -64,8 +64,6 @@ export class PostForm extends React.Component{
     form.reset();
 
 
-
-    this.props.dispatch(togglePostForm());
 
 
 
@@ -81,7 +79,12 @@ export class PostForm extends React.Component{
     })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+    .then(response => {
+      console.log('Success:', response);
+      return response;
+    })
+    .then(response => this.props.dispatch(addPost(response)));
+
   };
 
 

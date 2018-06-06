@@ -17,10 +17,15 @@ export const logoutUser = () => ({
     type: LOGOUTUSER
 });
 
-export const GOHOME = 'GOHOME';
-export const goHome = () => ({
-    type: GOHOME
+export const LOADING = 'LOADING';
+export const loading = () => ({
+    type: LOADING
 });
+
+// export const GOHOME = 'GOHOME';
+// export const goHome = () => ({
+//     type: GOHOME
+// });
 
 
 export const ADD_POST = "ADD_POST";
