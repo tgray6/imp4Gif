@@ -8,6 +8,8 @@ import {ADD_COMMENT} from '../actions/actions';
 import {FETCH_ITEMS_SUCCESS} from '../actions/actions';
 import {LOGINUSER} from '../actions/actions';
 import {LOADING} from '../actions/actions';
+import {TOGGLEREGISTERFORM} from '../actions/actions';
+import {TOGGLELOGINFORM} from '../actions/actions';
 // const uuidv1 = require('uuid/v1'); 
 
 //using .sort on our ADD_POST
@@ -32,10 +34,11 @@ const initialState = {
 	nickName: "",
 
 	show: false,
-
+	showRegisterForm: false,
+	showLoginForm: false,
 	loading: false,
 
-	// itemToDisplay: null,
+	itemToDisplay: null,
 
 	items:[
 		// {
@@ -98,6 +101,34 @@ export function impReducer (state=initialState, action) {
 		else if(state.show===true){
 			return Object.assign({}, state, {
 				show: false
+			});			
+		}
+
+	}
+
+	if(action.type === TOGGLEREGISTERFORM) {
+		if(state.showRegisterForm===false){
+			return Object.assign({}, state, {
+				showRegisterForm: true
+			});
+		}
+		else if(state.showRegisterForm===true){
+			return Object.assign({}, state, {
+				showRegisterForm: false
+			});			
+		}
+
+	}
+
+	if(action.type === TOGGLELOGINFORM) {
+		if(state.showLoginForm===false){
+			return Object.assign({}, state, {
+				showLoginForm: true
+			});
+		}
+		else if(state.showLoginForm===true){
+			return Object.assign({}, state, {
+				showLoginForm: false
 			});			
 		}
 

@@ -6,6 +6,16 @@ export const togglePostForm = () => ({
     type: TOGGLEFORM
 });
 
+export const TOGGLEREGISTERFORM = 'TOGGLEREGISTERFORM';
+export const toggleRegisterForm = () => ({
+    type: TOGGLEREGISTERFORM
+});
+
+export const TOGGLELOGINFORM = 'TOGGLELOGINFORM';
+export const toggleLoginForm = () => ({
+    type: TOGGLELOGINFORM
+});
+
 //just used to change the nickName value at this point
 export const LOGINUSER = 'LOGINUSER';
 export const loginUser = () => ({

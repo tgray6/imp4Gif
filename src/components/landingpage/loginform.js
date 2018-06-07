@@ -21,7 +21,7 @@ handleSubmit = (event) => {
             <label htmlFor="password">Password </label>
             <input type="password" name='password' id='loginPassword' placeholder='Password' />
         </div>
-        <button type='submit' >Login</button>
+        <button type='submit'>Submit Login</button>
         </form>
     </div>
   );

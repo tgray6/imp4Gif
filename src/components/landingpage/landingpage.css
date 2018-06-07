@@ -32,6 +32,9 @@ section:nth-child(even) {
   padding-right: 50px;
 }
 
+.registerFormDiv{
+  margin-bottom: 50px;
+}
 .landingList {
   display: table;
   margin-bottom: 50px;

@@ -7,16 +7,49 @@ export class CommentForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Log this id = : " + this.props.id);
-    const comment = this.props.nickName + ": " + this.commentInput.value;
+    console.log("Log this id = : " + this.props.match.params.postId);
+    const comment = {
+      comment: this.props.nickName + ": " + this.commentInput.value
+    }
 
-    this.props.dispatch(addComment(comment, this.props.match.params.postId));
+
+
+
+
+
+
+    let id = this.props.match.params.postId
+
+    fetch("http://localhost:8888/items/" + id, {
+      method: 'PUT',
+      body: JSON.stringify(comment), 
+      headers:{
+        'Content-Type': 'application/json'
+     }
+    })
+    .then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => {
+      console.log('Success:', response);
+      return response;
+    })
+
+
+
+    .then(response => this.props.dispatch(addComment(response)));
+
+
+    // this.props.dispatch(addComment(comment, this.props.match.params.postId));
     this.commentInput.value = '';
   };
 
 
+
+
+
+
   render(){
-    // console.log("Testing comment form:" + this.props.itemToDisplay);
+
     return (
     	<div>
         	<form onSubmit={this.handleSubmit}>
@@ -33,8 +66,7 @@ export class CommentForm extends React.Component {
 
 const mapStateToProps = state => ({
   nickName: state.imp.nickName
-  // id: props.id
-  // itemToDisplay: state.itemToDisplay
+  // itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
 });
 
 
