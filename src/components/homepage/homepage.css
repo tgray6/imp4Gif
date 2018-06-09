@@ -17,6 +17,9 @@ main{
   margin-top: 65px;
 }
 
+/*h1{
+  font-family: 'Black Han Sans', sans-serif;
+}*/
 nav {
   position: fixed;
   top: 0;
@@ -139,3 +142,5 @@ button:hover {
 .linkwrap iframe {
   z-index: 2;
 }
+
+tp-video-play-button {display: none !important}

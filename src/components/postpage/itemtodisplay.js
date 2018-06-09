@@ -54,7 +54,7 @@ deleteData() {
               <p className="author">Post By: {this.props.itemToDisplay.author}</p>
             </header>
             <div className="flexItemTest">
-                <video height="auto" width="100%" controls="true" className="flexImage">
+                <video height="auto" width="100%" controls="true" className="flexImage" muted="true" autoPlay="true" loop="true">
                 <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
             </div>

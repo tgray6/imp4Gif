@@ -56,14 +56,19 @@ export const renderPost = id => ({
 	id
 });
 
-export const ADD_COMMENT = "ADD_COMMENT";
-export const addComment = (comment, id )=> ({
-	type: ADD_COMMENT,
-	id,
-	comment
+// export const ADD_COMMENT = "ADD_COMMENT";
+// export const addComment = (comment, id )=> ({
+// 	type: ADD_COMMENT,
+// 	id,
+// 	comment
+// });
+
+
+export const UPDATE_ITEM = "UPDATE_ITEM";
+export const updateItem = item => ({
+	type: UPDATE_ITEM,
+	item
 });
-
-
 
 
 

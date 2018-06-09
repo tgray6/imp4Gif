@@ -20,7 +20,9 @@ export class PostedSection extends React.Component {
 			if (items.type==="video"){
 				return (
 					<div className="flexItem" key={items.id}>
-            			<Link to={`/${items.id}`}><video height="auto" width="100%" controls ="true" className="flexImage1">
+            			<Link to={`/${items.id}`}>
+            			<div className="blocker"></div>
+            			<video height="auto" width="100%" className="flexImage1">
             			<source src={items.url} type="video/mp4" alt="postedlink"/>
            				</video></Link>
 
@@ -54,7 +56,7 @@ export class PostedSection extends React.Component {
     }
     render(){
     // console.log(this.props.items)
-   	 return (
+   	  return (
    	 	<div>
    	 	<header><h1>Recent Posts</h1></header>
      	<section className="postedSectionHome">
@@ -63,7 +65,7 @@ export class PostedSection extends React.Component {
         	</div>
       	</section>
       	</div>
-    );
+      );
 	}
 }
 

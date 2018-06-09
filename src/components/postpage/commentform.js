@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addComment} from '../actions/actions';
+// import {addComment} from '../actions/actions';
+import {updateItem} from '../actions/actions';
 import { withRouter } from 'react-router-dom';
 // import {reduxForm, Field} from 'redux-form';
 export class CommentForm extends React.Component {
@@ -11,10 +12,6 @@ export class CommentForm extends React.Component {
     const comment = {
       comment: this.props.nickName + ": " + this.commentInput.value
     }
-
-
-
-
 
 
 
@@ -36,7 +33,7 @@ export class CommentForm extends React.Component {
 
 
 
-    .then(response => this.props.dispatch(addComment(response)));
+    .then(response => this.props.dispatch(updateItem(response)));
 
 
     // this.props.dispatch(addComment(comment, this.props.match.params.postId));

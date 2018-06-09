@@ -4,12 +4,13 @@ import {DELETE_POST} from '../actions/actions';
 import {INDIVIDUAL_RENDER} from '../actions/actions';
 import {LOGOUTUSER} from '../actions/actions';
 // import {GOHOME} from '../actions/actions';
-import {ADD_COMMENT} from '../actions/actions';
+// import {ADD_COMMENT} from '../actions/actions';
 import {FETCH_ITEMS_SUCCESS} from '../actions/actions';
 import {LOGINUSER} from '../actions/actions';
 import {LOADING} from '../actions/actions';
 import {TOGGLEREGISTERFORM} from '../actions/actions';
 import {TOGGLELOGINFORM} from '../actions/actions';
+import {UPDATE_ITEM} from '../actions/actions';
 // const uuidv1 = require('uuid/v1'); 
 
 //using .sort on our ADD_POST
@@ -193,19 +194,29 @@ export function impReducer (state=initialState, action) {
 	// 	});
 	// }
 
-	if(action.type === ADD_COMMENT) {
-		//NEVER push to an array like I was trying to do initially. We need to copy the array, add something to it, then update the original array.
-		let currentItem = state.items.find((post) => post.id === action.id);
-		//let comments takes our comments array in itemToDisplay.comments, and adds our new comment on commentform submit with the action.comment.
-		let comments = [...currentItem.comments, action.comment]
-		//let itemToDisplay sets our state to our itemToDisplay state, and adds our new comments array.
-		let itemToDisplay = Object.assign({}, currentItem, {comments})
+	// if(action.type === ADD_COMMENT) {
+	// 	//NEVER push to an array like I was trying to do initially. We need to copy the array, add something to it, then update the original array.
+	// 	let currentItem = state.items.find((post) => post.id === action.id);
+	// 	//let comments takes our comments array in itemToDisplay.comments, and adds our new comment on commentform submit with the action.comment.
+	// 	let comments = [...currentItem.comments, action.comment]
+	// 	//let itemToDisplay sets our state to our itemToDisplay state, and adds our new comments array.
+	// 	let itemToDisplay = Object.assign({}, currentItem, {comments})
 
-		//NOW, we need to update our items array as well, because this is what holds our array information. so, let items = state.items.map, takes the item parameter, checks the specific item.id and checks if it is equal to itemToDisplay.id, if so, itemToDisplay is set to item, which updates our state.items
-		let items = state.items.map(item => item.id === itemToDisplay.id? itemToDisplay: item)
+	// 	//NOW, we need to update our items array as well, because this is what holds our array information. so, let items = state.items.map, takes the item parameter, checks the specific item.id and checks if it is equal to itemToDisplay.id, if so, itemToDisplay is set to item, which updates our state.items
+	// 	let items = state.items.map(item => item.id === itemToDisplay.id? itemToDisplay: item)
 
+	// 	return Object.assign({}, state, {
+	// 		itemToDisplay, items
+	// 	});
+	// }
+
+
+
+	//THIS IS USED NOW INSTEAD OF ADD_COMMENT BECAUSE WE ARE RETURNING A WHOLE NEW ITEM OBJECT WHEN WE USE PUT ON THE SERVER. SO, WE JUST UPDATE OUR ITEM WITH action.item, which will be updateItem(response), the response from our server. Remember, the server is doing what we had to manually do with ADD_COMMENT, its returning an updated object after we fetch our PUT.
+	//This is taking our items, mapping them to the item parameter, then if action.item.id EQUALS the item id in the state, then set our action.item to be our newest updated Item in the state.
+	if(action.type === UPDATE_ITEM) {
 		return Object.assign({}, state, {
-			itemToDisplay, items
+			items: state.items.map(item => action.item.id === item.id? action.item: item)
 		});
 	}
 
