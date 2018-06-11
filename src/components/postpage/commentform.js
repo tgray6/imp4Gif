@@ -14,10 +14,12 @@ export class CommentForm extends React.Component {
     }
 
 
+    // const APIURL = "http://localhost:8888/items/"
+    const APIURL = "https://thawing-mountain-68022.herokuapp.com/items/"
 
     let id = this.props.match.params.postId
 
-    fetch("http://localhost:8888/items/" + id, {
+    fetch(APIURL + id, {
       method: 'PUT',
       body: JSON.stringify(comment), 
       headers:{

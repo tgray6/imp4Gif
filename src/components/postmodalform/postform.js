@@ -67,7 +67,8 @@ export class PostForm extends React.Component{
 
 
 
-    const APIURL = "http://localhost:8888/items/";
+    // const APIURL = "http://localhost:8888/items/";
+    const APIURL = "https://thawing-mountain-68022.herokuapp.com/items/";
 
 
     fetch(APIURL, {
