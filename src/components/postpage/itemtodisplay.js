@@ -28,12 +28,12 @@ deleteData() {
 
   
   let id = this.props.itemToDisplay.id
-  // fetch("http://localhost:8888/items/" + id, {
-  //   method: 'DELETE'
-  // })
-  fetch("https://thawing-mountain-68022.herokuapp.com/items/" + id, {
+  fetch("http://localhost:8888/items/" + id, {
     method: 'DELETE'
   })
+  // fetch("https://thawing-mountain-68022.herokuapp.com/items/" + id, {
+  //   method: 'DELETE'
+  // })
     .then(res => res.json())
     .then(response => {
       console.log('Success:', response);
