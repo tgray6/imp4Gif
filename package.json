@@ -2,7 +2,8 @@
   "name": "imp4gif-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8888",
+  "proxy": "https://imp4gif.netlify.com/",
+  // "proxy": "http://localhost:8888",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
