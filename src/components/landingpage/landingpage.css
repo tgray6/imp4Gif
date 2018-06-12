@@ -77,3 +77,28 @@ img{
 button {
   cursor: pointer;
 }
+
+
+
+
+.message {
+    padding: 12px 6px;
+}
+
+.message-success {
+    background-color: #5CB85C;
+    color: white;
+    font-weight: bold;
+}
+
+.message-error, .form-error {
+    background-color: #d9534f;
+    color: white;
+    font-weight: bold;
+}
+
+.form-error {
+    margin: 0 6px;
+    padding: 6px;
+    display: inline-block;
+}
