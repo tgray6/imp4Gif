@@ -5,10 +5,15 @@ import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import {required, nonEmpty} from '../validation';
 import RegisterInput from './registerinput';
 
+
 export class RegisterForm extends React.Component {
 
-
   onSubmit(values) {
+    
+    // alert(JSON.stringify(values.nickname))
+
+    let nicknameTest = values.nickname;
+    console.log(nicknameTest);
 
     const APIURL = "http://localhost:8888/users";
 
@@ -57,16 +62,14 @@ export class RegisterForm extends React.Component {
           );
       });
 
-
   }
   render(){
-
 
         let successMessage;
         if (this.props.submitSucceeded) {
             successMessage = (
                 <div className="message message-success">
-                    Registration Successful
+                    Registration Success
                 </div>
             );
         }
@@ -86,7 +89,7 @@ export class RegisterForm extends React.Component {
       {successMessage}
       {errorMessage}
      	<div>
-            <label htmlFor="nick-name">Nickname </label>
+            <label htmlFor="nickname">Nickname </label>
             <Field 
               component={RegisterInput} 
               type="text" 
@@ -97,7 +100,7 @@ export class RegisterForm extends React.Component {
             />
         </div>
         <div>
-        	<label htmlFor="user-name">Username </label>
+        	<label htmlFor="username">Username </label>
             <Field 
               component={RegisterInput} 
               type="text" 
@@ -128,9 +131,12 @@ export class RegisterForm extends React.Component {
   }
 }
 
+
 // export default connect()(RegisterForm);
+
 
 export default reduxForm({ 
   form: "register",
   onSubmitFail: (errors, dispatch) =>
     dispatch(focus('register', Object.keys(errors)[0])) })(RegisterForm);
+
