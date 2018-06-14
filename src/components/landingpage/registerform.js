@@ -2,9 +2,9 @@ import React from 'react';
 // import {loginUser} from '../actions/actions';
 // import { connect } from 'react-redux';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
-import {required, nonEmpty} from '../validation';
+import {required, nonEmpty, isTrimmed, matches} from '../validation';
 import RegisterInput from './registerinput';
-
+const matchesPassword = matches('password');
 
 export class RegisterForm extends React.Component {
 
@@ -42,7 +42,7 @@ export class RegisterForm extends React.Component {
             });
         }
               return;
-            })
+      })
 
       .then(() => console.log('Submitted with values', values))
       .catch(err => {
@@ -107,7 +107,7 @@ export class RegisterForm extends React.Component {
               name='username' 
               id='registerUsername' 
               placeholder='Username'
-              validate={[required, nonEmpty]}
+              validate={[required, nonEmpty, isTrimmed]}
             />
         </div>
         <div>
@@ -118,7 +118,18 @@ export class RegisterForm extends React.Component {
               name='password' 
               id='registerPassword' 
               placeholder='Password'
-              validate={[required, nonEmpty]} 
+              validate={[required, nonEmpty, isTrimmed]} 
+            />
+        </div>
+        <div>
+          <label htmlFor="passwordConfirm">Confirm password</label>
+            <Field
+              component={RegisterInput}
+                type="password"
+                name="passwordConfirm"
+                id='validateregisterPassword' 
+                placeholder='Confirm Password'
+                validate={[required, nonEmpty, matchesPassword]}
             />
         </div>
             <button type='submit' disabled={
