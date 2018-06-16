@@ -1,46 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {deletePost} from '../actions/actions';
+// import {deletePost} from '../actions/actions';
 import {loading} from '../actions/actions';
 import './postpage.css';
 import CommentForm from './commentform';
 import { withRouter } from "react-router-dom";
 import Spinner from 'react-spinkit';
-
+import {API_BASE_URL} from '../config';
 
 export class ItemToDisplay extends React.Component {
 
 
 
 
-deleteData() {
+  deleteData() {
 
-  let toggleLoading = () => {
-    this.props.dispatch(loading());
-  };
+    let toggleLoading = () => {
+      this.props.dispatch(loading());
+    };
 
-  toggleLoading();
+    toggleLoading();
 
-  let backtoPostedSection = () => {
-  this.props.history.push('/');
-  toggleLoading();
-  }
+    let backtoPostedSection = () => {
+      this.props.history.push('/');
+      toggleLoading();
+    }
 
   
-  let id = this.props.itemToDisplay.id
-  fetch("http://localhost:8888/items/" + id, {
-    method: 'DELETE'
-  })
-  // fetch("https://thawing-mountain-68022.herokuapp.com/items/" + id, {
-  //   method: 'DELETE'
-  // })
+    let id = this.props.itemToDisplay.id
+    fetch(`${API_BASE_URL}/items/` + id, {
+      method: 'DELETE'
+    })
+
     .then(res => res.json())
     .then(response => {
       console.log('Success:', response);
       return response;
     })
     .catch(error => console.error('Error:', error))
-    .then(response => this.props.dispatch(deletePost(response)));
+    // .then(response => this.props.dispatch(deletePost(response)));
     setTimeout(backtoPostedSection, 2000);
 }
        
@@ -143,7 +141,7 @@ const mapStateToProps = (state, props )=>
   let result = 
   {
   loading: state.imp.loading,
-  itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
+  itemToDisplay: state.protectedData.data.find((post) => post.id === props.match.params.postId)
   }
   console.log(result)
   return result

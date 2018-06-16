@@ -1,15 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './homepage.css';
-
+import {
+  Link
+} from 'react-router-dom';
 import logo2 from '../landingpage/logo2.png';
 import PostForm from '../postmodalform/postform';
 
-import {togglePostForm} from '../actions/actions';
-import {logoutUser} from '../actions/actions';
+import {togglePostForm} from '../actions/protected';
+// import {logoutUser} from '../actions/actions';
 // import {goHome} from '../actions/actions';
-
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 class NavBar extends React.Component {
 
@@ -19,13 +21,12 @@ class NavBar extends React.Component {
     console.log(this.props.show);
   };
 
-  logoutUser = () => {
-    this.props.dispatch(logoutUser());
-  };
 
-  // goHome = () => {
-  //   this.props.dispatch(goHome())
-  // };
+
+  logOut() {
+    this.props.dispatch(clearAuth());
+    clearAuthToken();
+  }
 
 
   render(){
@@ -33,13 +34,13 @@ class NavBar extends React.Component {
     <div>
     <nav>
      <ul className="container">
-        <Link to={`/`}><img src={logo2} onClick={this.goHome} id="navlogo" alt="logo"></img></Link>
+        <Link to="/"><img src={logo2} id="navlogo" alt="logo"></img></Link>
         <li> 
         <button className="post" onClick={this.toggleForm}>Post</button> 
         </li>
         <li className="logoutSection">
-          <p id="helloUser">{this.props.nickName} </p> 
-          <button className="logoutUser" onClick={this.logoutUser}>Logout</button>
+          <p id="helloUser">{this.props.nickname} </p> 
+          <button className="logoutUser" onClick={() => this.logOut()}>Logout</button>
         </li>
      </ul>
     </nav>
@@ -53,15 +54,18 @@ class NavBar extends React.Component {
   };
 }
 
+// const mapStateToProps = state => ({
+//   show: state.imp.show,
+//   nickName: state.imp.nickName,
+// });
+
 const mapStateToProps = state => ({
-  show: state.imp.show,
-  nickName: state.imp.nickName,
-});
+    show: state.protectedData.show,
+    nickname: state.auth.currentUser.nickname
+})
 
 
 export default connect(mapStateToProps)(NavBar);
-
-// export default withRouter(connect(mapStateToProps)(NavBar));
 
 
 

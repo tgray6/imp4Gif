@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchItems} from '../actions/actions';
+// import {fetchItems} from '../actions/actions';
+import {fetchProtectedData} from '../actions/protected';
 
 import {Link} from 'react-router-dom';
 
@@ -11,7 +12,8 @@ import './homepage.css';
 export class PostedSection extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(fetchItems());
+    	console.log("PostedSection is Rendering here")
+        this.props.dispatch(fetchProtectedData());
     }
 
 
@@ -55,7 +57,6 @@ export class PostedSection extends React.Component {
 		});
     }
     render(){
-    // console.log(this.props.items)
    	  return (
    	 	<div>
    	 	<header><h1>Recent Posts</h1></header>
@@ -69,9 +70,19 @@ export class PostedSection extends React.Component {
 	}
 }
 
-const mapStateToProps =  state => ({
-	items: state.imp.items
-})
+// const mapStateToProps = state => {
+//     // const {currentUser} = state.auth;
+//     // return {
+//         // username: state.auth.currentUser.username,
+//         // nickname: state.auth.currentUser.nickname,
+//         items: state.protectedData.data
+//     // };
+// };
+
+const mapStateToProps = state => ({
+  items: state.protectedData.data
+  // itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
+});
 
 export default connect(mapStateToProps)(PostedSection);
 

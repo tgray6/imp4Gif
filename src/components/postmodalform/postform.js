@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './postform.css';
-import {togglePostForm} from '../actions/actions';
-import {addPost} from '../actions/actions';
+import {togglePostForm} from '../actions/protected';
+import {addPost} from '../actions/protected';
 import {reduxForm, Field} from 'redux-form';
+import {API_BASE_URL} from '../config';
 // import Input from './input';
 // const uuidv1 = require('uuid/v1');
 
@@ -52,7 +53,7 @@ export class PostForm extends React.Component{
       type: type,
       url,
       youTubeUrl,
-      author: this.props.nickName,
+      author: this.props.nickname,
       comments: []
     };
 
@@ -67,11 +68,11 @@ export class PostForm extends React.Component{
 
 
 
-    const APIURL = "http://localhost:8888/items/";
+    // const APIURL = "http://localhost:8888/items/";
     // const APIURL = "https://thawing-mountain-68022.herokuapp.com/items/";
 
 
-    fetch(APIURL, {
+    fetch(`${API_BASE_URL}/items`, {
       method: 'POST',
       body: JSON.stringify(DATA), 
       headers:{
@@ -116,7 +117,7 @@ export class PostForm extends React.Component{
 }
 
 const mapStateToProps =  state => ({
-  nickName: state.imp.nickName
+  nickname: state.auth.currentUser.nickname
 })
 
 export default connect(mapStateToProps)(reduxForm({ form: "post" })(PostForm));

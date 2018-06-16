@@ -1,25 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import {addComment} from '../actions/actions';
-import {updateItem} from '../actions/actions';
+import {updateItem} from '../actions/protected';
 import { withRouter } from 'react-router-dom';
 // import {reduxForm, Field} from 'redux-form';
+import {API_BASE_URL} from '../config';
 export class CommentForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("Log this id = : " + this.props.match.params.postId);
     const comment = {
-      comment: this.props.nickName + ": " + this.commentInput.value
+      comment: this.props.nickname + ": " + this.commentInput.value
     }
 
 
-    const APIURL = "http://localhost:8888/items/"
+    // const APIURL = "http://localhost:8888/items/"
     // const APIURL = "https://thawing-mountain-68022.herokuapp.com/items/"
 
     let id = this.props.match.params.postId
 
-    fetch(APIURL + id, {
+    fetch(`${API_BASE_URL}/items/` + id, {
       method: 'PUT',
       body: JSON.stringify(comment), 
       headers:{
@@ -64,7 +65,7 @@ export class CommentForm extends React.Component {
 
 
 const mapStateToProps = state => ({
-  nickName: state.imp.nickName
+  nickname: state.auth.currentUser.nickname
   // itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
 });
 

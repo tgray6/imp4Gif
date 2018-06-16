@@ -1,92 +1,48 @@
 import React from 'react';
 // import {loginUser} from '../actions/actions';
 // import { connect } from 'react-redux';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
+import {reduxForm, Field, focus} from 'redux-form';
 import {required, nonEmpty, isTrimmed, matches} from '../validation';
+import {registerUser} from '../actions/users';
+import {login} from '../actions/auth';
 import RegisterInput from './registerinput';
 const matchesPassword = matches('password');
+
 
 export class RegisterForm extends React.Component {
 
   onSubmit(values) {
-    
-    // alert(JSON.stringify(values.nickname))
-
-    let nicknameTest = values.nickname;
-    console.log(nicknameTest);
-
-    const APIURL = "http://localhost:8888/users";
-
-    return fetch(APIURL, {
-      method: 'POST',
-      body: JSON.stringify(values),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => {
-        if (!res.ok) {
-          if (
-            res.headers.has('content-type') &&
-            res.headers
-              .get('content-type')
-              .startsWith('application/json')
-          ) {
-            // It's a nice JSON error returned by us, so decode it
-              return res.json().then(err => Promise.reject(err));
-            }
-              // It's a less informative error returned by express
-            return Promise.reject({
-              code: res.status,
-              message: res.statusText
-            });
-        }
-              return;
-      })
-
-      .then(() => console.log('Submitted with values', values))
-      .catch(err => {
-        const {reason, message, location} = err;
-          if (reason === 'ValidationError') {
-            // Convert ValidationErrors into SubmissionErrors for Redux Form
-            return Promise.reject(
-              new SubmissionError({
-                  [location]: message
-                        })
-            );
-          }
-          return Promise.reject(
-            new SubmissionError({
-              _error: 'Error submitting message'
-            })
-          );
-      });
-
+    const {username, password, nickname} = values;
+    const user = {username, password, nickname};
+    return this.props.dispatch(registerUser(user))
+    .then(() => console.log('Submitted with values', values))
+      .then(() => this.props.dispatch(login(username, password)));
   }
+
   render(){
 
-        let successMessage;
-        if (this.props.submitSucceeded) {
-            successMessage = (
-                <div className="message message-success">
-                    Registration Success
-                </div>
-            );
-        }
+    // let successMessage;
+    // if (this.props.submitSucceeded) {
+    //   successMessage = (
+    //     <div className="message message-success">
+    //       Registration Success
+    //     </div>
+    //         );
+    // }
 
-        let errorMessage;
-        if (this.props.error) {
-            errorMessage = (
-                <div className="message message-error">{this.props.error}</div>
-            );
-        }
+    let errorMessage;
+    if (this.props.error) {
+      errorMessage = (
+        <div className="message message-error">{this.props.error}</div>
+      );
+    }
   return (
     <div>
     <h2>Register</h2>
     <form className='signup-form' onSubmit={this.props.handleSubmit(values => 
       this.onSubmit(values)
     )}>
-      {successMessage}
+      
       {errorMessage}
      	<div>
             <label htmlFor="nickname">Nickname </label>
@@ -142,7 +98,7 @@ export class RegisterForm extends React.Component {
   }
 }
 
-
+//Took out of line 45 {successMessage} uncomment 24-31 if we want to show a message somehow
 // export default connect()(RegisterForm);
 
 
@@ -151,3 +107,170 @@ export default reduxForm({
   onSubmitFail: (errors, dispatch) =>
     dispatch(focus('register', Object.keys(errors)[0])) })(RegisterForm);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// // import {loginUser} from '../actions/actions';
+// // import { connect } from 'react-redux';
+// import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
+// import {required, nonEmpty, isTrimmed, matches} from '../validation';
+// import RegisterInput from './registerinput';
+// const matchesPassword = matches('password');
+
+// export class RegisterForm extends React.Component {
+
+//   onSubmit(values) {
+    
+//     // alert(JSON.stringify(values.nickname))
+
+//     let nicknameTest = values.nickname;
+//     console.log(nicknameTest);
+
+//     const APIURL = "http://localhost:8888/users";
+
+//     return fetch(APIURL, {
+//       method: 'POST',
+//       body: JSON.stringify(values),
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     })
+//       .then(res => {
+//         if (!res.ok) {
+//           if (
+//             res.headers.has('content-type') &&
+//             res.headers
+//               .get('content-type')
+//               .startsWith('application/json')
+//           ) {
+//             // It's a nice JSON error returned by us, so decode it
+//               return res.json().then(err => Promise.reject(err));
+//             }
+//               // It's a less informative error returned by express
+//             return Promise.reject({
+//               code: res.status,
+//               message: res.statusText
+//             });
+//         }
+//               return;
+//       })
+
+//       .then(() => console.log('Submitted with values', values))
+//       .catch(err => {
+//         const {reason, message, location} = err;
+//           if (reason === 'ValidationError') {
+//             // Convert ValidationErrors into SubmissionErrors for Redux Form
+//             return Promise.reject(
+//               new SubmissionError({
+//                   [location]: message
+//                         })
+//             );
+//           }
+//           return Promise.reject(
+//             new SubmissionError({
+//               _error: 'Error submitting message'
+//             })
+//           );
+//       });
+
+//   }
+//   render(){
+
+//         let successMessage;
+//         if (this.props.submitSucceeded) {
+//             successMessage = (
+//                 <div className="message message-success">
+//                     Registration Success
+//                 </div>
+//             );
+//         }
+
+//         let errorMessage;
+//         if (this.props.error) {
+//             errorMessage = (
+//                 <div className="message message-error">{this.props.error}</div>
+//             );
+//         }
+//   return (
+//     <div>
+//     <h2>Register</h2>
+//     <form className='signup-form' onSubmit={this.props.handleSubmit(values => 
+//       this.onSubmit(values)
+//     )}>
+//       {successMessage}
+//       {errorMessage}
+//       <div>
+//             <label htmlFor="nickname">Nickname </label>
+//             <Field 
+//               component={RegisterInput} 
+//               type="text" 
+//               name='nickname' 
+//               id='registerNickname' 
+//               placeholder='Nickname' 
+//               validate={[required, nonEmpty]}
+//             />
+//         </div>
+//         <div>
+//           <label htmlFor="username">Username </label>
+//             <Field 
+//               component={RegisterInput} 
+//               type="text" 
+//               name='username' 
+//               id='registerUsername' 
+//               placeholder='Username'
+//               validate={[required, nonEmpty, isTrimmed]}
+//             />
+//         </div>
+//         <div>
+//             <label htmlFor="password">Password </label>
+//             <Field 
+//               component={RegisterInput} 
+//               type="password" 
+//               name='password' 
+//               id='registerPassword' 
+//               placeholder='Password'
+//               validate={[required, nonEmpty, isTrimmed]} 
+//             />
+//         </div>
+//         <div>
+//           <label htmlFor="passwordConfirm">Confirm password</label>
+//             <Field
+//               component={RegisterInput}
+//                 type="password"
+//                 name="passwordConfirm"
+//                 id='validateregisterPassword' 
+//                 placeholder='Confirm Password'
+//                 validate={[required, nonEmpty, matchesPassword]}
+//             />
+//         </div>
+//             <button type='submit' disabled={
+//         this.props.pristine ||
+//         this.props.submitting }>Submit Register 
+//             </button>
+//         </form>
+//     </div>
+//   );
+//   }
+// }
+
+
+// // export default connect()(RegisterForm);
+
+
+// export default reduxForm({ 
+//   form: "register",
+//   onSubmitFail: (errors, dispatch) =>
+//     dispatch(focus('register', Object.keys(errors)[0])) })(RegisterForm);

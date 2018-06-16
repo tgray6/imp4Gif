@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:8888",
   "dependencies": {
+    "jwt-decode": "^2.2.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
@@ -14,7 +15,8 @@
     "redux": "^4.0.0",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "v4": "0.0.1"
   },
   "scripts": {
     "start": "set PORT=9999 && react-scripts start",
