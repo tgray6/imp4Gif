@@ -24,6 +24,7 @@ function sortItems(a, b) {
 const initialState = {
     data: [],
     // itemToDisplay: null,
+    loading: false,
     error: null,
     show: false
 };

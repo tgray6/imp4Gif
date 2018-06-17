@@ -5,8 +5,9 @@ import {loading} from '../actions/actions';
 import './postpage.css';
 import CommentForm from './commentform';
 import { withRouter } from "react-router-dom";
-import Spinner from 'react-spinkit';
+// import Spinner from 'react-spinkit';
 import {API_BASE_URL} from '../config';
+import {LoadingComponent} from '../loading/loadingcomponent'
 
 export class ItemToDisplay extends React.Component {
 
@@ -102,19 +103,20 @@ export class ItemToDisplay extends React.Component {
       <li key={index}>{item}</li>
     ));
 
-    if (this.props.loading===true) {
-      return(
-        <section className="postedSection">
-        <div className="flexContainer2">
-          <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" noFadeIn />
-        </div>
-        </section>
-      )
-    }
+    // if (this.props.loading===true) {
+    //   return(
+    //     <section className="postedSection">
+    //     <div className="flexContainer2">
+    //       <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" noFadeIn />
+    //     </div>
+    //     </section>
+    //   )
+    // }
 
     
      return (
       <div>
+      <LoadingComponent ready={!this.props.loading}>
       <section className="postedSection">
         <div className="flexContainer1">
           {this.renderResults()}
@@ -130,6 +132,7 @@ export class ItemToDisplay extends React.Component {
           <ul className="comments">{comments}</ul>
         </div>
       </section>
+      </LoadingComponent>
       </div>
     );
   }
