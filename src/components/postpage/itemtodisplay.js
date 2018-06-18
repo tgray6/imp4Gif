@@ -30,7 +30,10 @@ export class ItemToDisplay extends React.Component {
   
     let id = this.props.itemToDisplay.id
     fetch(`${API_BASE_URL}/items/` + id, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers:{
+        Authorization: `Bearer ${this.props.authToken}`
+     }
     })
 
     .then(res => res.json())
@@ -144,7 +147,8 @@ const mapStateToProps = (state, props )=>
   let result = 
   {
   loading: state.imp.loading,
-  itemToDisplay: state.protectedData.data.find((post) => post.id === props.match.params.postId)
+  itemToDisplay: state.protectedData.data.find((post) => post.id === props.match.params.postId),
+  authToken: state.auth.authToken
   }
   console.log(result)
   return result

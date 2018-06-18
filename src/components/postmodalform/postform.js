@@ -76,7 +76,8 @@ export class PostForm extends React.Component{
       method: 'POST',
       body: JSON.stringify(DATA), 
       headers:{
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.props.authToken}`
      }
     })
     .then(res => res.json())
@@ -117,7 +118,8 @@ export class PostForm extends React.Component{
 }
 
 const mapStateToProps =  state => ({
-  nickname: state.auth.currentUser.nickname
+  nickname: state.auth.currentUser.nickname,
+  authToken: state.auth.authToken
 })
 
 export default connect(mapStateToProps)(reduxForm({ form: "post" })(PostForm));

@@ -67,6 +67,28 @@ export function protectedReducer(state = initialState, action) {
 
 
 
+
+
+
+
+
+    //TESTING SET GET INFO TO LOCAL STORAGE@#$@$@#$@#$@#$@#$
+    if (action.type === SET_GET_INFO) {
+        return Object.assign({}, state, {
+            data: action.data
+        });
+    }
+    //TESTING#$@$@$@#$@#$@#$@#$#$#@$@@#$@$@#$@$@#$@#$@#$@#$#
+
+
+
+
+
+
+
+
+
+
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
         return Object.assign({}, state, {
             data: action.data,

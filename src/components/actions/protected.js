@@ -25,6 +25,32 @@ export const updateItem = item => ({
 
 
 
+
+
+//TESTING LOCAL STORAGE FOR GET TO FIX REFRESH ISSUE$%#$%%$#%$#%
+export const SET_GET_INFO = 'SET_GET_INFO';
+export const setGetInto = data => ({
+    type: SET_GET_INFO,
+    data
+});
+
+
+
+const storeGetInfo = (data, dispatch) => {
+    dispatch(setGetInfo(data));
+    // dispatch(authSuccess(decodedToken.user));
+    saveAuthToken(authToken);
+};
+//$%%#%#%$#%$#%$%$#%#$%#$%#%#$%$#%#$%#$%#$%#$%#$%#$%#$%#$%#$%#$%
+
+
+
+
+
+
+
+
+
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
     type: FETCH_PROTECTED_DATA_SUCCESS,

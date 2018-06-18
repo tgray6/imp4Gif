@@ -24,7 +24,8 @@ export class CommentForm extends React.Component {
       method: 'PUT',
       body: JSON.stringify(comment), 
       headers:{
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.props.authToken}`
      }
     })
     .then(res => res.json())
@@ -65,7 +66,8 @@ export class CommentForm extends React.Component {
 
 
 const mapStateToProps = state => ({
-  nickname: state.auth.currentUser.nickname
+  nickname: state.auth.currentUser.nickname,
+  authToken: state.auth.authToken
   // itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
 });
 
