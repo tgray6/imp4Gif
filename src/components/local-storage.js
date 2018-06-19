@@ -13,23 +13,3 @@ export const clearAuthToken = () => {
         localStorage.removeItem('authToken');
     } catch (e) {}
 };
-
-
-
-
-
-
-
-//TESTING SET GET INFO TO LOCAL STORAGE$@#$@#$@#$
-
-export const loadGetInfo = () => {
-    return localStorage.getItem('data');
-};
-
-export const saveGetInfo = data => {
-    try {
-        localStorage.setItem('data', data);
-    } catch (e) {}
-};
-
-//@#$@#$@#$@#$#@$#@$@#$@#$@#$#$@#$#@$@#$#@$@#$@#$@

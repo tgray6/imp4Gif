@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 
 export function LoadingComponent(props){
-	console.log(props.ready);
+	// console.log(props.ready);
 	if(props.ready){
 		return(
 			<div>
@@ -24,8 +24,22 @@ export function LoadingComponent(props){
 
 
 
-const mapStateToProps = (state) => ({
-	ready: state.imp.loading
-});
+// const mapStateToProps = (state, props) => {
+// 	console.log(state,props)
+// 	return
+// 	{
+// 	ready: state.imp.loading
+// 	}
+// };
+
+
+const mapStateToProps = (state, props )=> 
+  { 
+  let result = 
+  {
+	ready: !state.protectedData.ready
+  }
+  return result
+};
 
 export default connect(mapStateToProps)(LoadingComponent);

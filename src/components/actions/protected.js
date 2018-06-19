@@ -1,7 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './errornormalize';
 
-
 export const ADD_POST = "ADD_POST";
 export const addPost = data => ({
     type: ADD_POST,
@@ -20,34 +19,6 @@ export const updateItem = item => ({
     type: UPDATE_ITEM,
     item
 });
-
-
-
-
-
-
-
-//TESTING LOCAL STORAGE FOR GET TO FIX REFRESH ISSUE$%#$%%$#%$#%
-export const SET_GET_INFO = 'SET_GET_INFO';
-export const setGetInto = data => ({
-    type: SET_GET_INFO,
-    data
-});
-
-
-
-const storeGetInfo = (data, dispatch) => {
-    dispatch(setGetInfo(data));
-    // dispatch(authSuccess(decodedToken.user));
-    saveAuthToken(authToken);
-};
-//$%%#%#%$#%$#%$%$#%#$%#$%#%#$%$#%#$%#$%#$%#$%#$%#$%#$%#$%#$%#$%
-
-
-
-
-
-
 
 
 
@@ -80,10 +51,10 @@ export const fetchProtectedData = () => (dispatch, getState) => {
         })
 
         .then(res => {
-            dispatch(fetchProtectedDataSuccess(res.items));
+            dispatch(fetchProtectedDataSuccess(res.items))
         })
 
         .catch(err => {
-            dispatch(fetchProtectedDataError(err));
+            dispatch(fetchProtectedDataError(err))
         });
 };

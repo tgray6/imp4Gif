@@ -31,7 +31,7 @@ export default function Explanation() {
         <h2 style={color}>INSTRUCTIONS ON LINKS</h2>
           <ul className="landingList">
               <li>
-                <p><span style={bold}>Youtube Link</span> These are easy, just copy the url from the top of the browser on any youtube video.</p>
+                <p><span style={bold}>Youtube Link</span> These are easy, just copy the BASE url from the top of the browser on any youtube video. Base meaning no timestamps or anything. Correct examples below:</p>
                 <p>Example url: https://www.youtube.com/watch?v=SN43u7up93I</p>
                 <p>Mobile url: https:m.youtube.com/watch?v=SN43u7up93I</p>
  

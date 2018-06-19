@@ -18,17 +18,8 @@ import {authReducer} from './components/reducers/authreducer';
 import {protectedReducer} from './components/reducers/protectedReducer';
 import {setAuthToken, refreshAuthToken} from './components/actions/auth';
 
-// const reducers = {
-// 	form: formReducer,
-// 	auth: authReducer,
-//     imp: impReducer,
-//     protectedData: protectedReducer
-// }
-
-// const reducer = combineReducers(reducers);
-
-// export default createStore(reducer, applyMiddleware(thunk));
-
+// import {loadGetInfo} from './components/local-storage';
+// import {setGetInfo} from './components/actions/protected';
 
 
 
@@ -49,5 +40,6 @@ if (authToken) {
     store.dispatch(setAuthToken(token));
     store.dispatch(refreshAuthToken());
 }
+
 
 export default store;

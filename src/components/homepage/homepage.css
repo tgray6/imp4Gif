@@ -14,7 +14,7 @@ body {
 }
 
 main{
-  margin-top: 65px;
+  margin-top: 80px !important;
 }
 
 /*h1{
@@ -27,7 +27,7 @@ nav {
   right: 0;
   z-index: 10;
   background-color: #aaa;
-  border-bottom: 1px solid #381057;
+  border-bottom: 2px solid #381057;
 }
 
 #navlogo{
@@ -35,6 +35,7 @@ nav {
   height: 50px;
   cursor: pointer;
 }
+
 
 .container {
   display: flex;
@@ -56,7 +57,9 @@ section {
 }
 
 .postedSectionHome {
+  border-bottom: 3px solid #381057;
   border-radius: 20px;
+  box-shadow: 0px 10px 20px #381057;
 }
 
 section:nth-child(even) {

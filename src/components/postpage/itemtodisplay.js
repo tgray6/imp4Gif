@@ -5,9 +5,10 @@ import {loading} from '../actions/actions';
 import './postpage.css';
 import CommentForm from './commentform';
 import { withRouter } from "react-router-dom";
-// import Spinner from 'react-spinkit';
+import Spinner from 'react-spinkit';
 import {API_BASE_URL} from '../config';
-import {LoadingComponent} from '../loading/loadingcomponent'
+import LoadingComponent from '../loading/loadingcomponent';
+import {fetchProtectedData} from '../actions/protected';
 
 export class ItemToDisplay extends React.Component {
 
@@ -63,7 +64,9 @@ export class ItemToDisplay extends React.Component {
                 <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
             </div>
+            <div>
             <a href ={this.props.itemToDisplay.url}  target="_blank" className="source">Source</a>
+            </div>
           </div>
         )
       }
@@ -78,8 +81,9 @@ export class ItemToDisplay extends React.Component {
 
 
               <iframe id="iframeId" className="flexImage" title="youtube video" src={this.props.itemToDisplay.youTubeUrl} allowFullScreen autohide="1"></iframe>
-
+            <div>
             <a href ={this.props.itemToDisplay.url}  target="_blank"className="source">Source</a>
+            </div>
           </div>
         )
       }
@@ -94,7 +98,9 @@ export class ItemToDisplay extends React.Component {
               <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
               </img>
             </div>
+            <div>
             <a href ={this.props.itemToDisplay.url}  target="_blank" className="source">Source</a>
+            </div>
           </div>
 
         ) 
@@ -102,36 +108,49 @@ export class ItemToDisplay extends React.Component {
     }
     render(){
 
-    const comments = this.props.itemToDisplay.comments.map((item, index) => (
+    if (!this.props.ready){
+      this.props.dispatch(fetchProtectedData());
+    }
+
+
+    const comments = !this.props.ready? null: this.props.itemToDisplay.comments.map((item, index) => (
       <li key={index}>{item}</li>
     ));
 
-    // if (this.props.loading===true) {
-    //   return(
-    //     <section className="postedSection">
-    //     <div className="flexContainer2">
-    //       <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" noFadeIn />
-    //     </div>
-    //     </section>
-    //   )
-    // }
+    //style points for deleting and routing back to root / postedsection on Delete
+    if (this.props.loading===true) {
+      return(
+        <section className="postedSection">
+        <div className="flexContainer2">
+          <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" noFadeIn />
+        </div>
+        </section>
+      )
+    }
+
 
     
      return (
       <div>
-      <LoadingComponent ready={!this.props.loading}>
+      <LoadingComponent>
       <section className="postedSection">
         <div className="flexContainer1">
-          {this.renderResults()}
+          {this.props.ready? this.renderResults() : null}
         </div>
-        <div>
-        <button className="deleteButton" onClick={()=>this.deleteData()}>Delete</button>
-        </div>
+
+        {
+          this.props.ready && this.props.userId === this.props.itemToDisplay.authorid && this.props.itemToDisplay.comments < 1?
+            <div>
+             <button className="deleteButton" onClick={()=>this.deleteData()}>Delete</button>
+            </div>
+           : null
+        }
+
       </section>
-      <section>
+      <section className="commentSection">
         <CommentForm />
         <hr></hr>
-        <div className="commentSection">
+        <div className="commentDiv">
           <ul className="comments">{comments}</ul>
         </div>
       </section>
@@ -143,14 +162,16 @@ export class ItemToDisplay extends React.Component {
 
 const mapStateToProps = (state, props )=> 
   { 
-  console.log(props.match.params);
+  console.log("Is it ready? " + !state.imp.loading);
   let result = 
   {
   loading: state.imp.loading,
+  ready: !state.protectedData.ready,
   itemToDisplay: state.protectedData.data.find((post) => post.id === props.match.params.postId),
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  userId: state.auth.currentUser.userID
   }
-  console.log(result)
+  // console.log(result)
   return result
 };
 

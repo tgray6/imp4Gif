@@ -3,7 +3,8 @@ import {
     FETCH_PROTECTED_DATA_ERROR,
     ADD_POST,
     TOGGLEFORM,
-    UPDATE_ITEM
+    UPDATE_ITEM,
+    // SET_GET_INFO
 } from '../actions/protected';
 
 function sortItems(a, b) {
@@ -24,7 +25,7 @@ function sortItems(a, b) {
 const initialState = {
     data: [],
     // itemToDisplay: null,
-    loading: false,
+    ready: true,
     error: null,
     show: false
 };
@@ -66,40 +67,19 @@ export function protectedReducer(state = initialState, action) {
     }
 
 
-
-
-
-
-
-
-    //TESTING SET GET INFO TO LOCAL STORAGE@#$@$@#$@#$@#$@#$
-    if (action.type === SET_GET_INFO) {
-        return Object.assign({}, state, {
-            data: action.data
-        });
-    }
-    //TESTING#$@$@$@#$@#$@#$@#$#$#@$@@#$@$@#$@$@#$@#$@#$@#$#
-
-
-
-
-
-
-
-
-
-
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
         return Object.assign({}, state, {
             data: action.data,
-            error: null
+            error: null,
+            ready: false
         });
     } 
 
 
     else if (action.type === FETCH_PROTECTED_DATA_ERROR) {
         return Object.assign({}, state, {
-            error: action.error
+            error: action.error,
+            ready: false
         });
     }
     return state;

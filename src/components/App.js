@@ -52,7 +52,7 @@ export class App extends Component {
         <Router>
         <div className="App">
           <NavBar />
-
+          
           <Route exact path="/" component={PostedSection} />
 
           <Route exact path="/:postId" component={ItemToDisplay} />
