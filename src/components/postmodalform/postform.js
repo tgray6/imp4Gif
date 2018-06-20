@@ -5,15 +5,25 @@ import {togglePostForm} from '../actions/protected';
 import {addPost} from '../actions/protected';
 import {reduxForm, Field} from 'redux-form';
 import {API_BASE_URL} from '../config';
+import {toggleModal} from '../actions/protected';
+import {toggleModalOff} from '../actions/protected';
+import Explanation from './explanationtwo';
 // import Input from './input';
 // const uuidv1 = require('uuid/v1');
 
 export class PostForm extends React.Component{
 
+  toggleModal = () => {
+    this.props.dispatch(toggleModal());
+  };
+
+
   toggleForm = () => {
     this.props.dispatch(togglePostForm());
-    console.log(this.props.show);
+    this.props.dispatch(toggleModalOff());
   };
+
+
 
 
 
@@ -101,7 +111,7 @@ export class PostForm extends React.Component{
         <form id="postForm" onSubmit={this.props.handleSubmit(this.submit)}>
           <div className="form-section">
             <label htmlFor="post-title">Post Title</label>
-            <Field type="text" name="post-title" component="input" placeholder="This is the title of your post" required ref={(input) => this.getTitle = input} />
+            <Field type="text" name="post-title" component="input" placeholder="This is the title of your post" minLength="1" maxLength="50" required ref={(input) => this.getTitle = input} />
           </div>
 
           <div className="form-section">
@@ -111,7 +121,17 @@ export class PostForm extends React.Component{
           <button type="submit">Submit</button>
           <button className="close" onClick={this.toggleForm}>Close</button>
         </form>
+          <div className="linkGuide">
+           <button onClick={this.toggleModal}>Link Guide</button>
+          </div>
       </section>
+
+            {
+      this.props.modalShow?
+      <Explanation />
+      : null
+      }
+
       </div>
     );
   }
@@ -119,7 +139,8 @@ export class PostForm extends React.Component{
 
 const mapStateToProps =  state => ({
   nickname: state.auth.currentUser.nickname,
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  modalShow: state.protectedData.modalShow
 })
 
 export default connect(mapStateToProps)(reduxForm({ form: "post" })(PostForm));

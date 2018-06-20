@@ -44,7 +44,7 @@ export class ItemToDisplay extends React.Component {
     })
     .catch(error => console.error('Error:', error))
     // .then(response => this.props.dispatch(deletePost(response)));
-    setTimeout(backtoPostedSection, 2000);
+    setTimeout(backtoPostedSection, 1000);
 }
        
 
@@ -54,12 +54,12 @@ export class ItemToDisplay extends React.Component {
 
       if (this.props.itemToDisplay.type==="video"){
         return (
-          <div>
+          <div className="postParent">
             <header>
               <h1 className="postTitle">{this.props.itemToDisplay.title}</h1>
               <p className="author">Post By: {this.props.itemToDisplay.author}</p>
             </header>
-            <div className="flexItemTest">
+            <div>
                 <video height="auto" width="100%" controls="true" className="flexImage" muted="true" autoPlay="true" loop="true">
                 <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
@@ -73,14 +73,15 @@ export class ItemToDisplay extends React.Component {
 
       else if (this.props.itemToDisplay.type==="youtube"){
         return(
-          <div>
+          <div className="postParent">
             <header>
               <h1 className="postTitle">{this.props.itemToDisplay.title}</h1>
               <p className="author">Post By: {this.props.itemToDisplay.author}</p>
             </header>
-
-
-              <iframe id="iframeId" className="flexImage" title="youtube video" src={this.props.itemToDisplay.youTubeUrl} allowFullScreen autohide="1"></iframe>
+              <div className="youtubeDiv">
+                <iframe className="flexImage" title="youtube video" src={this.props.itemToDisplay.youTubeUrl} allowFullScreen autohide="1">
+                </iframe>
+              </div>
             <div>
             <a href ={this.props.itemToDisplay.url}  target="_blank"className="source">Source</a>
             </div>
@@ -90,11 +91,11 @@ export class ItemToDisplay extends React.Component {
 
       else{
         return (
-          <div>
-            <header>
+          <div className="postParent">
+            <header className="fuck">
               <h1 className="postTitle">{this.props.itemToDisplay.title}</h1>
               <p className="author">Post By: {this.props.itemToDisplay.author}</p></header>
-            <div className="flexItemTest">
+            <div>
               <img src={this.props.itemToDisplay.url} className="flexImage"  alt="postedimage">
               </img>
             </div>

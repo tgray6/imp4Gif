@@ -4,6 +4,8 @@ import {
     ADD_POST,
     TOGGLEFORM,
     UPDATE_ITEM,
+    TOGGLEMODAL,
+    TOGGLEMODALOFF
     // SET_GET_INFO
 } from '../actions/protected';
 
@@ -27,7 +29,8 @@ const initialState = {
     // itemToDisplay: null,
     ready: true,
     error: null,
-    show: false
+    show: false,
+    modalShow: false
 };
 
 export function protectedReducer(state = initialState, action) {
@@ -53,8 +56,32 @@ export function protectedReducer(state = initialState, action) {
         // console.log(data);
         return Object.assign({}, state, {
             data: items,
-            show: false
+            show: false,
+            modalShow: false
         });
+    }
+
+
+    if(action.type === TOGGLEMODALOFF) {
+        return Object.assign({}, state, {
+            modalShow: false
+        });
+    }
+
+
+
+    if(action.type === TOGGLEMODAL) {
+        if(state.modalShow===false){
+            return Object.assign({}, state, {
+                modalShow: true
+            });
+        }
+        else if(state.modalShow===true){
+            return Object.assign({}, state, {
+                modalShow: false
+            });         
+        }
+
     }
 
 

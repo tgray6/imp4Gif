@@ -27,7 +27,6 @@ export class PostedSection extends React.Component {
             			<video height="auto" width="100%" className="flexImage1">
             			<source src={items.url} type="video/mp4" alt="postedlink"/>
            				</video></Link>
-
            			</div>
 				)
 			}
@@ -38,9 +37,7 @@ export class PostedSection extends React.Component {
             			<Link to={`/${items.id}`} className="linkwrap">
             			<div className="blocker"></div>
 						<iframe className="flexImage1" title="youtube video" src={items.youTubeUrl} frameBorder="0" showinfo="0"></iframe>
-
             			</Link>
-
            			</div>	
 				)
 			}
@@ -50,7 +47,6 @@ export class PostedSection extends React.Component {
 					<div className="flexItem" key={items.id}>
 						<Link to={`/${items.id}`}><img src={items.url} className="flexImage1"  alt="postedlink">
 						</img></Link>
-
         			</div>
         		) 
 			}

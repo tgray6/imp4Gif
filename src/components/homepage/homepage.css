@@ -36,6 +36,9 @@ nav {
   cursor: pointer;
 }
 
+#navlogo:hover{
+  background: gray;
+}
 
 .container {
   display: flex;
@@ -73,11 +76,6 @@ section:nth-child(even) {
   margin-right: 15px;
 }
 
-/*button{
-  font-size: 15px;
-  padding: 10px;
-  width: 100px;
-}*/
 
 .flexContainer {
   max-width: 1300px;
@@ -108,7 +106,7 @@ section:nth-child(even) {
 @media screen and (max-width: 650px) { 
   #helloUser { 
     display: none; 
-  } 
+  }
 }
 
 @media screen and (max-width: 362px) { 

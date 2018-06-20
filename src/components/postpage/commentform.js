@@ -55,7 +55,7 @@ export class CommentForm extends React.Component {
     	<div>
         	<form onSubmit={this.handleSubmit}>
           		<div>
-            		<textarea id="commentForm" name="commentForm" placeholder="Comment on This" rows="15" required ref={(input) => this.commentInput = input}></textarea>
+            		<textarea id="commentForm" name="commentForm" placeholder="Comment on This. Max Length 100 Characters" rows="15" minLength="1" maxLength="100" required ref={(input) => this.commentInput = input}></textarea>
          	 	</div>
           		<button type='submit'>Comment</button>
         	</form>

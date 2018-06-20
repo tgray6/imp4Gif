@@ -13,11 +13,18 @@ import {togglePostForm} from '../actions/protected';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
+let scrollWin = () => {
+    window.scrollTo(0, 0);
+}
+
 class NavBar extends React.Component {
+
+
 
 
   toggleForm = () => {
     this.props.dispatch(togglePostForm());
+    scrollWin()
     console.log(this.props.show);
   };
 

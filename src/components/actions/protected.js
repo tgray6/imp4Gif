@@ -13,6 +13,16 @@ export const togglePostForm = () => ({
     type: TOGGLEFORM
 });
 
+export const TOGGLEMODAL = 'TOGGLEMODAL';
+export const toggleModal = () => ({
+    type: TOGGLEMODAL
+});
+
+export const TOGGLEMODALOFF = 'TOGGLEMODALOFF';
+export const toggleModalOff = () => ({
+    type: TOGGLEMODALOFF
+});
+
 
 export const UPDATE_ITEM = "UPDATE_ITEM";
 export const updateItem = item => ({

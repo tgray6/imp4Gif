@@ -17,16 +17,6 @@ export default function Explanation() {
   return (
     <section className="explanationSection">
   	<div id="explanationDiv">
-  		<h2 style={color}>WHAT IS THIS!?</h2>
-      <div>
-  		  <ul className="landingList">
-            <li><p><span style={bold}>Step 1.</span> Register and Login.</p></li>
-            <li><p><span style={bold}>Step 2.</span> Click the post button at the top to share an image, gif, mp4, or youtube link by following the instructions below.</p></li>
-            <li><p><span style={bold}>Step 3.</span> Click on any image to see what people have to say, and comment on the post or other comments!</p></li>
-        </ul>
-      </div>
-
-      
         <div>
         <h2 style={color}>INSTRUCTIONS ON LINKS</h2>
           <ul className="landingList">

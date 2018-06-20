@@ -27,9 +27,21 @@ section:nth-child(even) {
   background-color: #ddd;
 }
 
+.loginSection {
+  border-bottom: 3px solid #381057;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px #381057;
+}
+
 #explanationDiv{
   width: 100%;
   padding-right: 50px;
+}
+
+.explanationSection{
+  border-bottom: 3px solid #381057;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px #381057;
 }
 
 .registerFormDiv{
