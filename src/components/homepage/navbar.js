@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import logo2 from '../landingpage/logo2.png';
-import PostForm from '../postmodalform/postform';
+// import PostForm from '../postmodalform/postform';
 
 import {togglePostForm} from '../actions/protected';
 // import {logoutUser} from '../actions/actions';
@@ -25,7 +25,7 @@ class NavBar extends React.Component {
   toggleForm = () => {
     this.props.dispatch(togglePostForm());
     scrollWin()
-    console.log(this.props.show);
+    // console.log(this.props.show);
   };
 
 
@@ -51,11 +51,7 @@ class NavBar extends React.Component {
         </li>
      </ul>
     </nav>
-      {
-      this.props.show?
-      <PostForm />
-      : null
-      }
+
     </div>
   );
   };

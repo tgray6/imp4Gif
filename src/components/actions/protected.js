@@ -45,7 +45,7 @@ export const fetchProtectedDataError = error => ({
 });
 
 export const fetchProtectedData = () => (dispatch, getState) => {
-    console.log("fetchProtectedData is running, we get successful GET in logs");
+    // console.log("fetchProtectedData is running, we get successful GET in logs");
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items`, {
         method: 'GET',

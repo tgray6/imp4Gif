@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {fetchProtectedData} from '../actions/protected';
 
 import {Link} from 'react-router-dom';
+import PostForm from '../postmodalform/postform';
 
 import './homepage.css';
 
@@ -12,7 +13,7 @@ import './homepage.css';
 export class PostedSection extends React.Component {
 
     componentDidMount() {
-    	console.log("PostedSection is Rendering here")
+    	// console.log("PostedSection is Rendering here")
         this.props.dispatch(fetchProtectedData());
     }
 
@@ -53,6 +54,12 @@ export class PostedSection extends React.Component {
 		});
     }
     render(){
+
+      if (this.props.show===true) {
+      	return(
+			<PostForm />
+      	)
+      }
    	  return (
    	 	<div>
    	 	<header><h1>Recent Posts</h1></header>
@@ -76,7 +83,8 @@ export class PostedSection extends React.Component {
 // };
 
 const mapStateToProps = state => ({
-  items: state.protectedData.data
+  items: state.protectedData.data,
+  show: state.protectedData.show
   // itemToDisplay: state.imp.items.find((post) => post.id === props.match.params.postId)
 });
 

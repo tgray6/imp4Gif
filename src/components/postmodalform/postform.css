@@ -25,6 +25,12 @@ section {
   background-color: #bbb;
 }
 
+.postFormSection{
+  border-bottom: 3px solid #381057;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px #381057;
+}
+
 section:nth-child(even) {
   background-color: #ddd;
 }
@@ -67,3 +73,4 @@ button{
 .linkGuide{
   margin-top: 5px;
 }
+

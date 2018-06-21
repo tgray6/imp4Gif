@@ -9,6 +9,8 @@ import Spinner from 'react-spinkit';
 import {API_BASE_URL} from '../config';
 import LoadingComponent from '../loading/loadingcomponent';
 import {fetchProtectedData} from '../actions/protected';
+import PostForm from '../postmodalform/postform';
+
 
 export class ItemToDisplay extends React.Component {
 
@@ -39,7 +41,7 @@ export class ItemToDisplay extends React.Component {
 
     .then(res => res.json())
     .then(response => {
-      console.log('Success:', response);
+      // console.log('Success:', response);
       return response;
     })
     .catch(error => console.error('Error:', error))
@@ -109,6 +111,12 @@ export class ItemToDisplay extends React.Component {
     }
     render(){
 
+    if (this.props.show===true) {
+      return(
+        <PostForm />
+      )
+    }
+
     if (!this.props.ready){
       this.props.dispatch(fetchProtectedData());
     }
@@ -163,14 +171,15 @@ export class ItemToDisplay extends React.Component {
 
 const mapStateToProps = (state, props )=> 
   { 
-  console.log("Is it ready? " + !state.imp.loading);
+  // console.log("Is it ready? " + !state.imp.loading);
   let result = 
   {
   loading: state.imp.loading,
   ready: !state.protectedData.ready,
   itemToDisplay: state.protectedData.data.find((post) => post.id === props.match.params.postId),
   authToken: state.auth.authToken,
-  userId: state.auth.currentUser.userID
+  userId: state.auth.currentUser.userID,
+  show: state.protectedData.show
   }
   // console.log(result)
   return result

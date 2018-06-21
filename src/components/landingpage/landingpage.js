@@ -14,7 +14,7 @@ import {toggleLoginForm} from '../actions/actions';
 
   toggleRegisterForm = () => {
     this.props.dispatch(toggleRegisterForm());
-    console.log(this.props.showRegisterForm)
+    // console.log(this.props.showRegisterForm)
   };
 
   toggleLoginForm = () => {

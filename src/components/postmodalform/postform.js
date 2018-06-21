@@ -93,7 +93,7 @@ export class PostForm extends React.Component{
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => {
-      console.log('Success:', response);
+      // console.log('Success:', response);
       return response;
     })
     .then(response => this.props.dispatch(addPost(response)));
@@ -103,11 +103,11 @@ export class PostForm extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="postformDiv">
       <header>
         <h1>Make a Post</h1>
       </header>
-      <section>
+      <section className="postFormSection">
         <form id="postForm" onSubmit={this.props.handleSubmit(this.submit)}>
           <div className="form-section">
             <label htmlFor="post-title">Post Title</label>

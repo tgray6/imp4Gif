@@ -9,7 +9,7 @@ export class CommentForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Log this id = : " + this.props.match.params.postId);
+    // console.log("Log this id = : " + this.props.match.params.postId);
     const comment = {
       comment: this.props.nickname + ": " + this.commentInput.value
     }
@@ -31,7 +31,7 @@ export class CommentForm extends React.Component {
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => {
-      console.log('Success:', response);
+      // console.log('Success:', response);
       return response;
     })
 

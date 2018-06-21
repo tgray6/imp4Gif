@@ -23,16 +23,6 @@ export function LoadingComponent(props){
 }
 
 
-
-// const mapStateToProps = (state, props) => {
-// 	console.log(state,props)
-// 	return
-// 	{
-// 	ready: state.imp.loading
-// 	}
-// };
-
-
 const mapStateToProps = (state, props )=> 
   { 
   let result = 

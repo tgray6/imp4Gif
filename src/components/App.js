@@ -45,7 +45,7 @@ export class App extends Component {
     }
 
   render() {
-    console.log("props.loggedIn = " + this.props.loggedIn)
+    // console.log("props.loggedIn = " + this.props.loggedIn)
 
     if(this.props.loggedIn){
       return(
