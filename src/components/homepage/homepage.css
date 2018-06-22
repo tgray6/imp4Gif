@@ -50,6 +50,7 @@ nav {
 }
 
 header {
+  margin-top: -20px;
   padding: 45px 15px;
 }
 
@@ -60,6 +61,7 @@ section {
 }
 
 .postedSectionHome {
+  margin-top: -30px;
   border-bottom: 3px solid #381057;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #381057;

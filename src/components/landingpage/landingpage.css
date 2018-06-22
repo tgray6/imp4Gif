@@ -35,13 +35,14 @@ section:nth-child(even) {
 
 #explanationDiv{
   width: 100%;
-  padding-right: 50px;
 }
+
 
 .explanationSection{
   border-bottom: 3px solid #381057;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #381057;
+  float: left;
 }
 
 .registerFormDiv{
@@ -50,6 +51,7 @@ section:nth-child(even) {
 .landingList {
   display: table;
   margin-bottom: 50px;
+  padding-left: 0;
 }
 
 .landingList li {
@@ -57,9 +59,9 @@ section:nth-child(even) {
 }
 
 .landingList p {
-    display: block;
-    text-align: center;
-    margin: 0 50px;
+  display: block;
+  text-align: center;
+  margin: auto;
 }
 
 img{
@@ -89,8 +91,6 @@ img{
 button {
   cursor: pointer;
 }
-
-
 
 
 .message {

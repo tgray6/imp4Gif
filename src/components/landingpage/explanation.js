@@ -27,7 +27,7 @@ export default function Explanation() {
       </div>
 
       
-        <div>
+        <div className ="linkGuides">
         <h2 style={color}>INSTRUCTIONS ON LINKS</h2>
           <ul className="landingList">
               <li>
