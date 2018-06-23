@@ -27,10 +27,10 @@ export default function Explanation() {
  
               </li>
                 <li>
-                <p><span style={bold}>Image/Gif/mp4:</span> <span style={color2}>Desktop: </span> Google an image, gif, mp4, and right click on what you plan to post, and click "Copy Image Address", or if its an mp4, "Copy Video Address".</p>
+                <p><span style={bold}>Image/Gif/mp4:</span> <span style={color2}>Desktop: </span> Google an image, gif, mp4, and right click on what you plan to post, and click "Copy Image Address", or if its an mp4, "Copy Video Address". "Copy Link Address" works depending on the site.</p>
                </li>
                 <li>
-                <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> Just Google an image, gif, mp4, and press and hold your finger over your selected item, then select "Open image in new tab", then copy the link in the new address bar.
+                <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> Just Google an image, gif, mp4, and press and hold your finger over your selected item, then select "Open image in new tab", then copy the link in the new address bar. "Copy Link Address" works depending on the site.
                 </p>
                 <p>
                 <span style={color2}>iPad/iPhone: </span> Similar as above, but when you hold your finger over a selected item, select "Copy", then paste into the address bar, hold your finger over the newly loaded image and select "Open image in new tab" and copy that url in the address bar.

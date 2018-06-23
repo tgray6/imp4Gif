@@ -25,8 +25,8 @@ export class PostedSection extends React.Component {
 					<div className="flexItem" key={items.id}>
             			<Link to={`/${items.id}`}>
             			<div className="blocker"></div>
-            			<video height="auto" width="100%" className="flexImage1">
-            			<source src={items.url} type="video/mp4" alt="postedlink"/>
+            			<video height="auto" width="100%" autoPlay loop className="flexImage1" preload='metadata'>
+            			<source src={items.url} type="video/mp4" alt="video post"/>
            				</video></Link>
            			</div>
 				)
@@ -37,7 +37,7 @@ export class PostedSection extends React.Component {
 					<div className="flexItem"  key={items.id}>
             			<Link to={`/${items.id}`} className="linkwrap">
             			<div className="blocker"></div>
-						<iframe className="flexImage1" title="youtube video" src={items.youTubeUrl} frameBorder="0" showinfo="0"></iframe>
+						<iframe className="flexImage1" title="youtube video" alt="youtube post" src={items.youTubeUrl} frameBorder="0" showinfo="0"></iframe>
             			</Link>
            			</div>	
 				)
@@ -46,7 +46,7 @@ export class PostedSection extends React.Component {
 			else{
 				return ( 
 					<div className="flexItem" key={items.id}>
-						<Link to={`/${items.id}`}><img src={items.url} className="flexImage1"  alt="postedlink">
+						<Link to={`/${items.id}`}><img src={items.url} className="flexImage1" preload='metadata' alt="img/gif post">
 						</img></Link>
         			</div>
         		) 

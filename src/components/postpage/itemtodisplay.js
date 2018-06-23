@@ -62,7 +62,7 @@ export class ItemToDisplay extends React.Component {
               <p className="author">Post By: {this.props.itemToDisplay.author}</p>
             </header>
             <div>
-                <video height="auto" width="100%" controls="true" className="flexImage" muted="true" autoPlay="true" loop="true">
+                <video height="auto" width="100%" controls="true" preload='metadata' className="flexImage" muted="true" autoPlay="true" loop="true">
                 <source src={this.props.itemToDisplay.url} type="video/mp4" alt="postedvideo"/>
                 </video>
             </div>
@@ -131,7 +131,7 @@ export class ItemToDisplay extends React.Component {
       return(
         <section className="postedSection">
         <div className="flexContainer2">
-          <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" noFadeIn />
+          <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" fadeIn='none' />
         </div>
         </section>
       )

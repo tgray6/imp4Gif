@@ -13,48 +13,6 @@ body {
   line-height: 1.5;
 }
 
-main{
-  margin-top: 65px;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background-color: rgb(38, 38, 38);
-  border-bottom: 1px solid white;
-}
-
-
-#navlogo{
-  width: 100px;
-  height: 50px;
-  background-color: #ddd;
-  border-radius:  10px;
-}
-
-#helloUser{
-  color:  white;
-}
-
-.commentSec {
-  border-top: 1px solid #381057;
-}
-
-.container {
-  display: flex;
-}
-
-.container > li {
-  flex: 1;
-  display: table;
-}
-
-header {
-  padding: 15px 15px;
-}
 
 .postTitle{
   color: #dedcdb;
@@ -76,36 +34,12 @@ section:nth-child(even) {
   background-color: #ddd;
 }
 
-p {
-  margin: 0 auto;
-  max-width: 650px;
-}
-
-p + p {
-  margin-top: 15px;
-}
-
-.logo p{
-  display: inline;
-}
-
-
-.logoutSection p{
-  display: inline;
-}
-
-button{
-  font-size: 15px;
-  padding: 10px;
-  width: 100px;
-}
 
 .postParent{
   word-wrap: break-word;
   word-wrap: wrap;
   width: 100%;
 }
-
 
 
 .flexContainer1 {

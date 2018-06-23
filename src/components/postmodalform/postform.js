@@ -31,7 +31,8 @@ export class PostForm extends React.Component{
 
     // event.preventDefault();
     const title = this.getTitle.value;
-    let url = this.getUrl.value;
+    let url
+    url = this.getUrl.value.replace(".gifv", ".gif")
 
     let youtubeTest = url.replace("watch?v=" , "embed/");
     let youTubeUrl = youtubeTest.replace("https://m.", "https://www.");
@@ -48,6 +49,7 @@ export class PostForm extends React.Component{
     if (contains(url.toLowerCase(), subString.toLowerCase())){
       type="video";
     }
+
     else if (contains(url.toLowerCase(), youTubeString.toLowerCase())){
       type="youtube";
     }

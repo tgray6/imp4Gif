@@ -13,15 +13,12 @@ body {
   line-height: 1.5;
 }
 
-header {
-  padding:3%;
+.landingLogo{
+  max-width: 550px;
+  width: 100%;
+  height: 100%;
 }
 
-section {
-  min-height: 200px;
-  padding: 6% 0;
-  background-color: #bbb;
-}
 
 section:nth-child(even) {
   background-color: #ddd;
@@ -37,12 +34,22 @@ section:nth-child(even) {
   width: 100%;
 }
 
+input{
+  height: 30px;
+  border: 1px solid black;
+  font-weight: bolder;
+}
+
+label{
+  color: #381057;
+  font-weight: bolder;
+}
+
 
 .explanationSection{
   border-bottom: 3px solid #381057;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #381057;
-  float: left;
 }
 
 .registerFormDiv{
@@ -52,10 +59,12 @@ section:nth-child(even) {
   display: table;
   margin-bottom: 50px;
   padding-left: 0;
+  margin: auto;
 }
 
 .landingList li {
   display: table-cell;
+  padding: 5px;
 }
 
 .landingList p {
@@ -64,27 +73,19 @@ section:nth-child(even) {
   margin: auto;
 }
 
-img{
-  max-width: 500px;
-  max-height: 250px; 
-  width: 100%;
-  height: 100%;
-}
 
 @media screen and (max-width: 950px){
 #explanationDiv{
   width: 100%;
-  padding: 0px;
 }
 
-.landingList p {
+
+.landingList li {
+  display: table;
   margin: 0 0px;
   margin-bottom: 15px;
   display: inline-block;
   text-align: left;
-}
-.landingList li {
-  display: table;
 }
 }
 

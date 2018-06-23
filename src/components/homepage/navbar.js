@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './homepage.css';
+import './navbar.css';
 import {
   Link
 } from 'react-router-dom';
@@ -40,18 +40,25 @@ class NavBar extends React.Component {
    return (
     <div>
     <nav>
-     <ul className="container">
+     <ul id="containerNav">
+      <li id="navList">
         <Link to="/"><img src={logo2} id="navlogo" alt="logo"></img></Link>
-        <li> 
+      </li>
+      <div className="rightNav">
+      <li id="navList"> 
         <button className="post" onClick={this.toggleForm}>Post</button> 
-        </li>
-        <li className="logoutSection">
-          <p id="helloUser">{this.props.nickname} </p> 
-          <button className="logoutUser" onClick={() => this.logOut()}>Logout</button>
-        </li>
+      </li>
+
+
+
+      <li id="navList">
+        <button className="logoutUser" onClick={() => this.logOut()}>Logout</button>
+      </li>
+      <p className="helloUser">{this.props.nickname}</p>
+      </div>
+
      </ul>
     </nav>
-
     </div>
   );
   };
