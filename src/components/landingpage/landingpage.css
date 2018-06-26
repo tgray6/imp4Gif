@@ -114,6 +114,7 @@ button {
     background-color: #5CB85C;
     color: white;
     font-weight: bold;
+    display: inline-block;
 }
 
 
@@ -121,11 +122,12 @@ button {
     background-color: #d9534f;
     color: white;
     font-weight: bold;
+    display: inline-block;
 }
 
 
 .form-error {
     margin: 0 6px;
-    padding: 6px;
+    padding: 12px 6px;
     display: inline-block;
 }
