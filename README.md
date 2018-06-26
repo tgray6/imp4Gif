@@ -22,7 +22,7 @@ This is an API site for Posting game reviews to share with friends(or it could b
    **Longer URLS can take a few moments to paste into the form, dont worry, the site isnt frozen.**
 8. After submit, you are taken back to the homepage where you can see your review post.
 9. If you want to look at your review OR edit/delete the review, click on it and an edit button will appear if the post belongs to you.
-
+_______________________________________________________________________________________________________________________________________
 <br>
 <br>
 <br>
