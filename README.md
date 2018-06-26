@@ -8,7 +8,7 @@ https://imp4gif.netlify.com/
 
 This is an API site for Sharing Images/Gifs/MP4s/YouTube Video by posting their Links to the server, which is rendered on the client.
 
-![website layout](https://user-images.githubusercontent.com/28571966/37611576-11f17800-2b79-11e8-987b-5a96b4f852e2.png)
+![imp4gifoverview](https://user-images.githubusercontent.com/28571966/41943005-cee3a688-796f-11e8-901e-1d1e1bdde164.png)
 
 **SITE FLOW**
 
