@@ -1,4 +1,4 @@
-import {authReducer} from '../reducers/authReducer';
+import {authReducer} from '../reducers/authreducer';
 
 import {
     setAuthToken,
