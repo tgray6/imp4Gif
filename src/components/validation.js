@@ -10,19 +10,7 @@ export const matches = field => (value, allValues) =>
         : 'Does not match';
 
 
-//SERVER HANDLES THIS OK, SO NOT USING IT FOR NOW. SERVER ALSO HANDLES TRIMMED BUT ITS FINE.
-
-// export const length = length => value => {
-//     if (length.min && value.length < length.min) {
-//         return `Must be at least ${length.min} characters long`;
-//     }
-//     if (length.max && value.length > length.max) {
-//         return `Must be at most ${length.max} characters long`;
-//     }
-// };
-
-
-//NOTES ON THE ABOVE: CHECK OUT REACT-jwt-auth-client and server is React-jwt-auth
+//NOTES ON THE ABOVE: CHECK OUT REACT-jwt-auth-client and server in React-jwt-auth
 //This is a bit different from the validators we've seen before. A regular validator is a function which takes the value from the field, and returns a string if there is an error. The length validator is a function which returns another function, and it is this inner function which returns the string if the field is invalid. It is a validator creator function.
 
 

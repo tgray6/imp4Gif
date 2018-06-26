@@ -1,6 +1,7 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './errornormalize';
 
+
 export const ADD_POST = "ADD_POST";
 export const addPost = data => ({
     type: ADD_POST,
@@ -13,10 +14,12 @@ export const togglePostForm = () => ({
     type: TOGGLEFORM
 });
 
+
 export const TOGGLEMODAL = 'TOGGLEMODAL';
 export const toggleModal = () => ({
     type: TOGGLEMODAL
 });
+
 
 export const TOGGLEMODALOFF = 'TOGGLEMODALOFF';
 export const toggleModalOff = () => ({
@@ -31,12 +34,12 @@ export const updateItem = item => ({
 });
 
 
-
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
     type: FETCH_PROTECTED_DATA_SUCCESS,
     data
 });
+
 
 export const FETCH_PROTECTED_DATA_ERROR = 'FETCH_PROTECTED_DATA_ERROR';
 export const fetchProtectedDataError = error => ({
@@ -44,8 +47,8 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
+
 export const fetchProtectedData = () => (dispatch, getState) => {
-    // console.log("fetchProtectedData is running, we get successful GET in logs");
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/items`, {
         method: 'GET',

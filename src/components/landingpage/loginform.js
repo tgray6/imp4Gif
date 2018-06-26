@@ -1,6 +1,4 @@
 import React from 'react';
-// import {loginUser} from '../actions/actions';
-// import { connect } from 'react-redux';
 import {reduxForm, Field, focus} from 'redux-form';
 import {required, nonEmpty} from '../validation';
 import {login} from '../actions/auth';
@@ -8,35 +6,34 @@ import LoginInput from './logininput';
 
 export class LoginForm extends React.Component {
 
-
   onSubmit(values) {
     return this.props.dispatch(login(values.username, values.password));
   }
-    
 
   render(){
 
-  // let successMessage;
-  // if (this.props.submitSucceeded) {
-  //   successMessage = (
-  //     <div className="message message-success">
-  //       Login Successful
-  //     </div>
-  //   );
-  // }
+    let successMessage;
+    if (this.props.submitSucceeded) {
+      successMessage = (
+        <div className="message message-success">
+        Login Successful. Loading...
+        </div>
+      );
+    }
 
-  let errorMessage;
-  if (this.props.error) {
-    errorMessage = (
-      <div className="message message-error">{this.props.error}</div>
-    );
-  }
+    let errorMessage;
+    if (this.props.error) {
+      errorMessage = (
+        <div className="message message-error">{this.props.error}</div>
+      );
+    }
 
-  return (
-    <div>
-    <h2>Login</h2>
-    <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        
+
+    return (
+      <div>
+        <h2>Login</h2>
+        <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        {successMessage}
         {errorMessage}
         <div>
   	        <label htmlFor="user-name">Username </label>
@@ -62,14 +59,11 @@ export class LoginForm extends React.Component {
         </div>
         <button type='submit'>Submit Login</button>
         </form>
-    </div>
-  );
+      </div>
+    );
   }
 }
 
-//Took out of line 34 {successMessage} uncomment 19-26 if we want to show a message somehow
-
-// export default connect()(LoginForm);
 
 export default reduxForm({ 
   form: "login",

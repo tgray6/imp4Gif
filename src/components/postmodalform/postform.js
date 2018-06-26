@@ -8,8 +8,7 @@ import {API_BASE_URL} from '../config';
 import {toggleModal} from '../actions/protected';
 import {toggleModalOff} from '../actions/protected';
 import Explanation from './explanationtwo';
-// import Input from './input';
-// const uuidv1 = require('uuid/v1');
+
 
 export class PostForm extends React.Component{
 
@@ -24,12 +23,7 @@ export class PostForm extends React.Component{
   };
 
 
-
-
-
   submit = () => {
-
-    // event.preventDefault();
     const title = this.getTitle.value;
     let url
     url = this.getUrl.value.replace(".gifv", ".gif")
@@ -44,6 +38,7 @@ export class PostForm extends React.Component{
     return search.indexOf(find) !== -1;
     }
 
+
     let type
 
     if (contains(url.toLowerCase(), subString.toLowerCase())){
@@ -57,10 +52,7 @@ export class PostForm extends React.Component{
       type="image";
     }
 
-
-
     const DATA = {
-      // id: uuidv1(),
       title,
       type: type,
       url,
@@ -69,20 +61,8 @@ export class PostForm extends React.Component{
       comments: []
     };
 
-    
-
-
-
     let form = document.getElementById("postForm");
     form.reset();
-
-
-
-
-
-    // const APIURL = "http://localhost:8888/items/";
-    // const APIURL = "https://thawing-mountain-68022.herokuapp.com/items/";
-
 
     fetch(`${API_BASE_URL}/items`, {
       method: 'POST',
@@ -90,59 +70,64 @@ export class PostForm extends React.Component{
       headers:{
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.props.authToken}`
-     }
+      }
     })
     .then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => {
-      // console.log('Success:', response);
       return response;
     })
     .then(response => this.props.dispatch(addPost(response)));
-
   };
 
 
   render(){
+
     return (
       <div className="postformDiv">
-      <header>
-        <h1>Make a Post</h1>
-      </header>
-      <section className="postFormSection">
-        <form id="postForm" onSubmit={this.props.handleSubmit(this.submit)}>
-          <div className="form-section">
-            <label htmlFor="post-title">Post Title</label>
-            <Field type="text" name="post-title" component="input" placeholder="This is the title of your post" minLength="1" maxLength="50" required ref={(input) => this.getTitle = input} />
-          </div>
+        <header>
+          <h1>Make a Post</h1>
+        </header>
+        <section className="postFormSection">
 
-          <div className="form-section">
-            <label htmlFor="post-link">Paste in your link</label>
-            <Field type="text" name="post-link" component="input" placeholder="Put In That Link. (Instructions on Login Page)" required ref={(input) => this.getUrl = input}/>
-          </div>
-          <button type="submit">Submit</button>
-          <button className="close" onClick={this.toggleForm}>Close</button>
-        </form>
+          <form id="postForm" onSubmit={this.props.handleSubmit(this.submit)}>
+
+            <div className="form-section">
+              <label htmlFor="post-title">Post Title</label>
+              <Field type="text" name="post-title" component="input" placeholder="This is the title of your post" minLength="1" maxLength="50" required ref={(input) => this.getTitle = input} />
+            </div>
+
+            <div className="form-section">
+              <label htmlFor="post-link">Paste in your link</label>
+              <Field type="text" name="post-link" component="input" placeholder="Put In That Link. (Instructions Below)" required ref={(input) => this.getUrl = input}/>
+            </div>
+
+            <button type="submit">Submit</button>
+            <button className="close" onClick={this.toggleForm}>Close</button>
+          </form>
+
           <div className="linkGuide">
-           <button onClick={this.toggleModal}>Link Guide</button>
+            <button onClick={this.toggleModal}>Link Guide</button>
           </div>
-      </section>
+        </section>
 
-            {
-      this.props.modalShow?
-      <Explanation />
-      : null
-      }
+          {
+            this.props.modalShow?
+            <Explanation />
+            : null
+          }
 
       </div>
     );
   }
 }
 
+
 const mapStateToProps =  state => ({
   nickname: state.auth.currentUser.nickname,
   authToken: state.auth.authToken,
   modalShow: state.protectedData.modalShow
 })
+
 
 export default connect(mapStateToProps)(reduxForm({ form: "post" })(PostForm));

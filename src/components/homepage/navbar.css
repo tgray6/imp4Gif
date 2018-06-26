@@ -14,6 +14,7 @@
     width: 100%;
 }
 
+
 #navList {
     float: left;
     display: block;
@@ -30,30 +31,31 @@
 	float: right;
 }
 
+
 .helloUser{
 	text-align: right;
 	color:white;
 	padding-right: 5px;
 }
 
+
 #navlogo{
   width: 100px;
   height: 50px;
   cursor: pointer;
-/*  float: left;*/
   background-color: #ddd;
   border-radius:  10px;
 }
+
 
 #navlogo:hover{
   background: gray;
 }
 
+
 #helloUser{
   color:  white;
 }
-
-
 
 
 @media screen and (max-width: 650px) { 
@@ -64,7 +66,6 @@
     padding-right:0px;
 }
 }
-
 
 
 @media screen and (max-width: 400px) { 
@@ -80,4 +81,3 @@
   height: 40px;
   }
 }
-

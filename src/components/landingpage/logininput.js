@@ -7,6 +7,7 @@ export default class LoginInput extends React.Component {
         }
     }
     render() {
+        
         const Element = this.props.element || 'input';
 
         let error;

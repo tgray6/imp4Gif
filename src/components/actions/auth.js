@@ -1,9 +1,9 @@
 import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
-
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './errornormalize';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
+
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -11,21 +11,25 @@ export const setAuthToken = authToken => ({
     authToken
 });
 
+
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const clearAuth = () => ({
     type: CLEAR_AUTH
 });
+
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const authRequest = () => ({
     type: AUTH_REQUEST
 });
 
+
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const authSuccess = currentUser => ({
     type: AUTH_SUCCESS,
     currentUser
 });
+
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = error => ({
@@ -41,6 +45,7 @@ const storeAuthInfo = (authToken, dispatch) => {
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
+
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
@@ -78,6 +83,7 @@ export const login = (username, password) => dispatch => {
     );
 };
 
+
 export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
@@ -94,7 +100,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
         .catch(err => {
             // We couldn't get a refresh token because our current credentials
             // are invalid or expired, or something else went wrong, so clear
-            // them and sign us out
+            // then and sign us out
             dispatch(authError(err));
             dispatch(clearAuth());
             clearAuthToken(authToken);

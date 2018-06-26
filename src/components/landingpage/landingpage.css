@@ -4,6 +4,7 @@
           box-sizing: border-box;
 }
 
+
 body {
   font-family: "Open Sans",
   sans-serif; 
@@ -12,6 +13,7 @@ body {
   text-align: center;
   line-height: 1.5;
 }
+
 
 .landingLogo{
   max-width: 550px;
@@ -24,21 +26,25 @@ section:nth-child(even) {
   background-color: #ddd;
 }
 
+
 .loginSection {
   border-bottom: 3px solid #381057;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #381057;
 }
 
+
 #explanationDiv{
   width: 100%;
 }
+
 
 input{
   height: 30px;
   border: 1px solid black;
   font-weight: bolder;
 }
+
 
 label{
   color: #381057;
@@ -52,9 +58,12 @@ label{
   box-shadow: 0px 10px 20px #381057;
 }
 
+
 .registerFormDiv{
   margin-bottom: 50px;
 }
+
+
 .landingList {
   display: table;
   margin-bottom: 50px;
@@ -62,10 +71,12 @@ label{
   margin: auto;
 }
 
+
 .landingList li {
   display: table-cell;
   padding: 5px;
 }
+
 
 .landingList p {
   display: block;
@@ -75,19 +86,19 @@ label{
 
 
 @media screen and (max-width: 950px){
-#explanationDiv{
-  width: 100%;
-}
+  #explanationDiv{
+    width: 100%;
+  }
 
-
-.landingList li {
+  .landingList li {
   display: table;
   margin: 0 0px;
   margin-bottom: 15px;
   display: inline-block;
   text-align: left;
+  }
 }
-}
+
 
 button {
   cursor: pointer;
@@ -98,11 +109,13 @@ button {
     padding: 12px 6px;
 }
 
+
 .message-success {
     background-color: #5CB85C;
     color: white;
     font-weight: bold;
 }
+
 
 .message-error, .form-error {
     background-color: #d9534f;
@@ -110,9 +123,9 @@ button {
     font-weight: bold;
 }
 
+
 .form-error {
     margin: 0 6px;
     padding: 6px;
     display: inline-block;
 }
-

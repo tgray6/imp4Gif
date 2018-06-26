@@ -4,6 +4,7 @@
           box-sizing: border-box;
 }
 
+
 body {
   font-family: "Open Sans",
   sans-serif;
@@ -19,11 +20,13 @@ header {
   padding: 45px 15px;
 }
 
+
 section {
   min-height: 200px;
   padding: 30px 15px;
   background-color: #bbb;
 }
+
 
 .postFormSection{
   border-bottom: 3px solid #381057;
@@ -31,14 +34,17 @@ section {
   box-shadow: 0px 10px 20px #381057;
 }
 
+
 section:nth-child(even) {
   background-color: #ddd;
 }
+
 
 p {
   margin: 0 auto;
   max-width: 650px;
 }
+
 
 p + p {
   margin-top: 15px;
@@ -60,9 +66,11 @@ label {
   display: block;
 }
 
+
 .form-section {
   margin-bottom: 30px;
 }
+
 
 button{
   font-size: 15px;
@@ -70,7 +78,7 @@ button{
   width: 100px;
 }
 
+
 .linkGuide{
   margin-top: 5px;
 }
-

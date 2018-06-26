@@ -1,7 +1,5 @@
 import React from 'react';
-
 import './landingpage.css';
-
 import Header from './header';
 import RegisterForm from './registerform';
 import LoginForm from './loginform';
@@ -14,7 +12,6 @@ import {toggleLoginForm} from '../actions/actions';
 
   toggleRegisterForm = () => {
     this.props.dispatch(toggleRegisterForm());
-    // console.log(this.props.showRegisterForm)
   };
 
   toggleLoginForm = () => {
@@ -27,30 +24,33 @@ import {toggleLoginForm} from '../actions/actions';
       <div className="App">
         <Header />
         <section className="loginSection">
-        <div className="registerFormDiv">
-        {
-        this.props.showRegisterForm? <RegisterForm />
-        : <button onClick={this.toggleRegisterForm}>Register</button>
-        }
-        </div>
-        <div className="loginFormDiv">
-        {
-        this.props.showLoginForm? <LoginForm />
-        : <button onClick={this.toggleLoginForm}>Login</button>
-        }
-        </div>
+
+          <div className="registerFormDiv">
+            {
+              this.props.showRegisterForm? <RegisterForm />
+              : <button className="registerFormButton" onClick={this.toggleRegisterForm}>Register</button>
+            }
+          </div>
+
+          <div className="loginFormDiv">
+            {
+              this.props.showLoginForm? <LoginForm />
+              : <button className="loginFormButton" onClick={this.toggleLoginForm}>Login</button>
+            }
+          </div>
+          
         </section>
-          <Explanation />
+        <Explanation />
       </div>
     );
   }
 }
+
 
 const mapStateToProps = state => ({
   showRegisterForm: state.imp.showRegisterForm,
   showLoginForm: state.imp.showLoginForm
 });
 
-export default connect(mapStateToProps)(LandingPage);
 
-// export default withRouter(LandingPage);
+export default connect(mapStateToProps)(LandingPage);
