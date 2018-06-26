@@ -27,7 +27,7 @@ This is an API site for Posting game reviews to share with friends(or it could b
 <br>
 <br>
 
-NOTES BELOW ARE FOR CREATE-REACT-APP
+!!!!!!!!!!!!!!!!NOTES BELOW ARE FOR CREATE-REACT-APP ONLY!!!!!!!!!!!!!!!!
 <br>
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
