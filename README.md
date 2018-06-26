@@ -23,47 +23,12 @@ This is an API site for Posting game reviews to share with friends(or it could b
 8. After submit, you are taken back to the homepage where you can see your review post.
 9. If you want to look at your review OR edit/delete the review, click on it and an edit button will appear if the post belongs to you.
 
+<br>
+<br>
+<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<bold>NOTES BELOW ARE FOR CREATE-REACT-APP</bold>
+NOTES BELOW ARE FOR CREATE-REACT-APP
+<br>
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
