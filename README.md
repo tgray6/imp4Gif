@@ -2,26 +2,24 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 
-# GameBro ReViews
+# imp4Gif
 LIVE SITE LINK:
-https://lit-mesa-46383.herokuapp.com/
+https://imp4gif.netlify.com/
 
-This is an API site for Posting game reviews to share with friends(or it could be movies or anything you like).
+This is an API site for Sharing Images/Gifs/MP4s/YouTube Video by posting their Links to the server, which is rendered on the client.
 
 ![website layout](https://user-images.githubusercontent.com/28571966/37611576-11f17800-2b79-11e8-987b-5a96b4f852e2.png)
 
 **SITE FLOW**
 
-1. Create User
-2. Login
-3. You are taken to the homepage of the reviews.
-4. Click a review to read the full review.
-5. On the homepage, click post to publish a review.
-6. On the POST REVIEW form, fill in the form content.
-7. NOTE: To add an image url, just google an image, right click it, select copy image address and paste it into the form.
-   **Longer URLS can take a few moments to paste into the form, dont worry, the site isnt frozen.**
-8. After submit, you are taken back to the homepage where you can see your review post.
-9. If you want to look at your review OR edit/delete the review, click on it and an edit button will appear if the post belongs to you.
+1. Register User
+2. Login (Automatically logs in on Register)
+3. You are taken to the homepage that shows all recent posts.
+4. Click a thumbnail to check out a larger view with media controls and read the comments.
+5. You can post a comment at the bottom here, or, if the post belongs to you, you may delete it via a delete button that appears.
+6. You can post by clicking the post button and following the instructions depending which type of post you are trying to do.
+7. After submit, you are taken back to the homepage where you can see your post appear at the top left of the thumbnails.
+8. If you posted a bad link, you can just click on your post, which will be showing the alt text, and delete it and try again.
 _______________________________________________________________________________________________________________________________________
 <br>
 <br>
