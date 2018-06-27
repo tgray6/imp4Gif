@@ -11,8 +11,8 @@ import ItemToDisplay from './postpage/itemtodisplay'
 import PostedSection from './homepage/postedsection';
 import {refreshAuthToken} from './actions/auth';
 
-
 export class App extends Component {
+
 
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {

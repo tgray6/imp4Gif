@@ -38,7 +38,7 @@ import {toggleLoginForm} from '../actions/actions';
               : <button className="loginFormButton" onClick={this.toggleLoginForm}>Login</button>
             }
           </div>
-          
+
         </section>
         <Explanation />
       </div>
