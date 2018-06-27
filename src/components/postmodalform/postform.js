@@ -86,7 +86,7 @@ export class PostForm extends React.Component{
 
     return (
       <div className="postformDiv">
-        <header>
+        <header className="postformHead">
           <h1>Make a Post</h1>
         </header>
         <section className="postFormSection">
