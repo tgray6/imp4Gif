@@ -60,7 +60,7 @@ export class PostedSection extends React.Component {
       };
    	  return (
    	 	<div>
-   	 		<header><h1>Recent Posts</h1></header>
+   	 		<header><h1 className="postedHeader">Recent Posts</h1></header>
      		<section className="postedSectionHome">
        			<div className="flexContainer">
         			{this.renderResults()}
