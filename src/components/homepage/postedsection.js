@@ -22,7 +22,7 @@ export class PostedSection extends React.Component {
             			<div className="blocker">
             			</div>
             			<video height="auto" width="100%" className="flexImage1" muted="true" preload="true">
-            			<source src={items.url + "#t=2"} type="video/mp4" alt="video post"/>
+            			<source src={items.url + "#t=0.001"} type="video/mp4" alt="video post"/>
            				</video></Link>
            			</div>
 				);
