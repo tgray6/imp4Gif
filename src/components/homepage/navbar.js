@@ -11,7 +11,7 @@ import {clearAuthToken} from '../local-storage';
 //     window.scrollTo(0, 0);
 // }
 
-class NavBar extends React.Component {
+export class NavBar extends React.Component {
 
   toggleForm = () => {
     this.props.dispatch(togglePostForm());

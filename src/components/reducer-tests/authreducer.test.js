@@ -26,9 +26,9 @@ describe('authReducer', () => {
 			let state = {
 				authToken: null
 			}
-			state = authReducer(state, setAuthToken());
+			state = authReducer(state, setAuthToken("dummyvalue"));
 			expect(state).toEqual({
-				authToken: undefined
+				authToken: "dummyvalue"
 			});
 		})
 	})
@@ -67,10 +67,10 @@ describe('authReducer', () => {
 				loading: true,
 				currentUser: null
 			}
-			state = authReducer(state, authSuccess());
+			state = authReducer(state, authSuccess("dummyvalue"));
 			expect(state).toEqual({
 				loading: false,
-				currentUser: undefined
+				currentUser: "dummyvalue"
 			});
 		})
 	})
@@ -81,10 +81,10 @@ describe('authReducer', () => {
 				loading: true,
 				error: null
 			}
-			state = authReducer(state, authError());
+			state = authReducer(state, authError("ValidationError"));
 			expect(state).toEqual({
 				loading: false,
-				error: undefined
+				error: "ValidationError"
 			});
 		})
 	})
