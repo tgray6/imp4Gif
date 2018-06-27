@@ -21,7 +21,7 @@ import {toggleLoginForm} from '../actions/actions';
   render(){
 
     return (
-      <div className="App">
+      <div className="lander">
         <Header />
         <section className="loginSection">
 
@@ -38,7 +38,11 @@ import {toggleLoginForm} from '../actions/actions';
               : <button className="loginFormButton" onClick={this.toggleLoginForm}>Login</button>
             }
           </div>
-
+          <div className="anonymous">
+            <p>Login as Mr. Anonymous :</p>
+            <p>Username: testuser</p>
+            <p>Password: testpassword</p>
+            </div>
         </section>
         <Explanation />
       </div>

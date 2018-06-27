@@ -14,6 +14,12 @@ body {
   line-height: 1.5;
 }
 
+.lander{
+  margin-top: -50px;
+}
+.anonymous{
+  margin-top: 20px;
+}
 
 .landingLogo{
   max-width: 550px;
