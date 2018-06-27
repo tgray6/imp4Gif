@@ -69,6 +69,7 @@ section:nth-child(even) {
   }
 }
 
+
 @media screen and (max-width: 650px) { 
   .postedHeader{
     margin-top: -10px;
@@ -78,8 +79,6 @@ section:nth-child(even) {
   .postedSectionHome {
     margin-top: -50px;
   }
-
-
 }
 
 
