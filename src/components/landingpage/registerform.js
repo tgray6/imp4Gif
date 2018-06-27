@@ -13,7 +13,9 @@ export class RegisterForm extends React.Component {
     const {username, password, nickname} = values;
     const user = {username, password, nickname};
     return this.props.dispatch(registerUser(user))
-      .then(() => this.props.dispatch(login(username, password)));
+      .then(() => setTimeout(() => {
+        this.props.dispatch(login(username, password))
+      }),100);
   }
 
 

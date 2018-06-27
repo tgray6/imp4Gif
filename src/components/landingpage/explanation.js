@@ -42,7 +42,7 @@ export default function Explanation() {
           <ul className="landingList">
           
             <li>
-              <p><span style={bold}>Youtube Link</span> Copy the BASE url from the top of the browser on any youtube video. Base meaning no timestamps or anything extra after the video id. Correct examples below:
+              <p><span style={bold}>Youtube Link</span> Copy the url from the top of the browser on any youtube video. Correct examples below:
               </p>
 
               <p>Example url: https://www.youtube.com/watch?v=SN43u7up93I

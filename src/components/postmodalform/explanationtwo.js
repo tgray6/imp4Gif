@@ -24,7 +24,7 @@ export default function Explanation() {
           <ul className="landingList">
           
             <li>
-                <p><span style={bold}>Youtube Link</span> Copy the BASE url from the top of the browser on any youtube video. Base meaning no timestamps or anything extra after the video id. Correct examples below:
+                <p><span style={bold}>Youtube Link</span> Copy the url from the top of the browser on any youtube video. Correct examples below:
                 </p>
 
                 <p>Example url: https://www.youtube.com/watch?v=SN43u7up93I</p>
@@ -39,7 +39,7 @@ export default function Explanation() {
             </li>
 
             <li>
-                <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> Just Google an image, gif, mp4, and press and hold your finger over your selected item, then select "Open image in new tab", then copy the link in the new address bar. "Copy Link Address" works depending on the site.
+                <p><span style={bold}>Image/Gif/mp4: </span><span style={color2}>Mobile </span> Google an image, gif, mp4, and press and hold your finger over your selected item, then select "Open image in new tab", then copy the link in the new address bar. "Copy Link Address" works depending on the site.
                 </p>
               <p>
                 <span style={color2}>iPad/iPhone: </span> Similar as above, but when you hold your finger over a selected item, select "Copy", then paste into the address bar, hold your finger over the newly loaded image and select "Open image in new tab" and copy that url in the address bar.
