@@ -15,7 +15,7 @@ body {
 }
 
 .lander{
-  margin-top: -50px;
+  margin-top: -60px;
 }
 .anonymous{
   margin-top: 20px;
@@ -34,6 +34,7 @@ section:nth-child(even) {
 
 
 .loginSection {
+  margin-top: -20px;
   border-bottom: 3px solid #381057;
   border-radius: 20px;
   box-shadow: 0px 10px 20px #381057;
