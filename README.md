@@ -22,7 +22,7 @@ This is an API site for Sharing Images/Gifs/MP4s/YouTube Video by posting their 
 8. If you posted a bad link, you can just click on your post, which will be showing the alt text, and delete it and try again.
 <br>
 Technology used: HTML/CSS/JavaScript/Express/React
-_______________________________________________________________________________________________________________________________________
+<hr>
 <br>
 <br>
 <br>
