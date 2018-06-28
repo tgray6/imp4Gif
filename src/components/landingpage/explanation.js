@@ -22,7 +22,7 @@ export default function Explanation() {
         <div className="linkGuides">
   		    <ul className="landingList">
 
-            <li><p><span style={bold}>Step 1.</span> Register or Login. Login is automatic upon register.</p>
+            <li><p><span style={bold}>Step 1.</span> Register or Login.</p>
             </li>
 
             <li>

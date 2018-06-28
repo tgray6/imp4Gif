@@ -1,6 +1,7 @@
 import {LOADING} from '../actions/actions';
 import {TOGGLEREGISTERFORM} from '../actions/actions';
 import {TOGGLELOGINFORM} from '../actions/actions';
+import {TOGGLEFORMSOFF} from '../actions/actions';
 
 const initialState = {
 	showRegisterForm: false,
@@ -21,7 +22,6 @@ export function impReducer (state=initialState, action) {
 				showRegisterForm: false
 			});			
 		}
-
 	}
 
 	if(action.type === TOGGLELOGINFORM) {
@@ -35,7 +35,13 @@ export function impReducer (state=initialState, action) {
 				showLoginForm: false
 			});			
 		}
+	}
 
+	if(action.type === TOGGLEFORMSOFF) {
+		return Object.assign({}, state, {
+			showRegisterForm: false,
+			showLoginForm: false,
+		})
 	}
 
 	if(action.type === LOADING) {

@@ -4,6 +4,7 @@ import './navbar.css';
 import {Link} from 'react-router-dom';
 import logo2 from '../landingpage/logo2.png';
 import {togglePostForm} from '../actions/protected';
+import {toggleFormsOff} from '../actions/actions';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
@@ -21,6 +22,7 @@ export class NavBar extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
+    this.props.dispatch(toggleFormsOff());
   }
 
 

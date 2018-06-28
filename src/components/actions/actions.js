@@ -9,6 +9,10 @@ export const toggleLoginForm = () => ({
     type: TOGGLELOGINFORM
 });
 
+export const TOGGLEFORMSOFF = 'TOGGLEFORMSOFF';
+export const toggleFormsOff = () => ({
+    type: TOGGLEFORMSOFF
+});
 
 export const LOADING = 'LOADING';
 export const loading = () => ({
