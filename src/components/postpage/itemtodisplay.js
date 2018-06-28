@@ -10,6 +10,9 @@ import LoadingComponent from '../loading/loadingcomponent';
 import {fetchProtectedData} from '../actions/protected';
 import PostForm from '../postmodalform/postform';
 
+let scrollWin = () => {
+    window.scrollTo(0, 0);
+}
 
 export class ItemToDisplay extends React.Component {
 
@@ -46,6 +49,7 @@ export class ItemToDisplay extends React.Component {
 
 
   renderResults(){
+    scrollWin()
 
     if (this.props.itemToDisplay.type==="video"){
       return (
