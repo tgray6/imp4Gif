@@ -21,6 +21,7 @@ export default function Explanation() {
   	 <div id="explanationDiv">
         <div>
           <h2 style={color}>INSTRUCTIONS ON LINKS</h2>
+          <h3 style={color}>If on submission, you notice you post is only displaying the alternate text and not an image, no worries, just click the post, scroll down to delete it, check out the notes below and try again.</h3>
           <ul className="landingList">
           
             <li>
