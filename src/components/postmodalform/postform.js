@@ -10,19 +10,21 @@ import {toggleModalOff} from '../actions/protected';
 import Explanation from './explanationtwo';
 
 
+//TODO: Utlize redux-form using input.js for link validation on post.
 export class PostForm extends React.Component{
 
+  //toggles the Link Instruction visibility
   toggleModal = () => {
     this.props.dispatch(toggleModal());
   };
 
-
+  //toggles the post form visibility, as well as link guide is set to false when closing the form.
   toggleForm = () => {
     this.props.dispatch(togglePostForm());
     this.props.dispatch(toggleModalOff());
   };
 
-
+  //this submit function is called on form submit, and it is taking the url that the user is pasting in, making changes to help ensure the link is in correct format, and checking it to determine the TYPE, which tells each post how to render on postedsection and itemtodisplay. Then POSTS the data payload in const Data, then dispatches addPost to render on the client-side and sort the posts, showing the newest first.
   submit = () => {
     const title = this.getTitle.value;
     let url

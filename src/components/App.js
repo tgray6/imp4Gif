@@ -13,7 +13,7 @@ import {refreshAuthToken} from './actions/auth';
 
 export class App extends Component {
 
-
+  //all of these mounts and periodic refreshes are for logging in and authtoken refreshes.
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically
@@ -46,6 +46,7 @@ export class App extends Component {
 
   render() {
 
+    //this main loggedIn prop is how we determine what to render. This prop changes as soon as a user logs in and currentUser is set to exist on the authSuccess action found on auth.js.
     if(this.props.loggedIn){
       return(
         <Router>

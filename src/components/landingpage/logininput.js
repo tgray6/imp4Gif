@@ -1,5 +1,6 @@
 import React from 'react';
 
+//sets the component for our login form to utilize redux-form
 export default class LoginInput extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.meta.active && this.props.meta.active) {

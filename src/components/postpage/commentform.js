@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import {API_BASE_URL} from '../config';
 
 
+//comment form, found at bottom of itemtodisplay(after clicking a thumbnail page). 
 export class CommentForm extends React.Component {
 
   handleSubmit = (event) => {
@@ -13,6 +14,7 @@ export class CommentForm extends React.Component {
       comment: this.props.nickname + ": " + this.commentInput.value
     }
 
+    //postId is our router params we use, so in order to PUT to the correct post, we use the let id to hold the value of the param post id, then add it to the end of the fetch url. Then, on success, we dispatch updateItem to update the currently viewed post.
     let id = this.props.match.params.postId
 
     fetch(`${API_BASE_URL}/items/` + id, {

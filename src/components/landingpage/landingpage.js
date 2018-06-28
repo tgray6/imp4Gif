@@ -8,12 +8,17 @@ import { connect } from 'react-redux';
 import {toggleRegisterForm} from '../actions/actions';
 import {toggleLoginForm} from '../actions/actions';
 
+
+ //this is the main login/register component.
  export class LandingPage extends React.Component {
 
+  //toggles register form visibility or the register form button visibility
   toggleRegisterForm = () => {
     this.props.dispatch(toggleRegisterForm());
   };
 
+
+  //toggles login form visibility or the login form button visibility
   toggleLoginForm = () => {
     this.props.dispatch(toggleLoginForm());
   };

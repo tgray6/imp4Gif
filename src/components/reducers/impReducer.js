@@ -9,6 +9,7 @@ const initialState = {
 	loading: false,
 }
 
+//Check notes on actions.js to understand what the reducer actions are doing.
 export function impReducer (state=initialState, action) {
 
 	if(action.type === TOGGLEREGISTERFORM) {

@@ -8,13 +8,17 @@ import {
     TOGGLEMODALOFF
 } from '../actions/protected';
 
+
+//Used to sort our array of data so the newest shows up at the start of the array on the client(top left most post).
 function sortItems(a, b) {
 
   let d1 = new Date(a.created);
   let d2 = new Date(b.created); 
+
   if (d1 > d2) {
     return -1;
   }
+
   if (d1 < d2) {
     return 1;
   }
@@ -32,8 +36,9 @@ const initialState = {
 };
 
 
+//Check notes on protected.js to understand what the reducer actions are doing.
 export function protectedReducer(state = initialState, action) {
-
+    //show and hide post form
     if(action.type === TOGGLEFORM) {
         if(state.show===false){
             return Object.assign({}, state, {
@@ -48,7 +53,7 @@ export function protectedReducer(state = initialState, action) {
 
     }
 
-    //UPDATING EACH POST SO COMPONENT RE-RENDERS CLIENT_SIDE
+    //UPDATING EACH POST SO COMPONENT RENDERS CLIENT_SIDE
     if(action.type === ADD_POST) {
         let items = [...state.data, action.data].sort(sortItems);
         return Object.assign({}, state, {
@@ -58,14 +63,14 @@ export function protectedReducer(state = initialState, action) {
         });
     }
 
-
+    //set link instructions guide to off on postform
     if(action.type === TOGGLEMODALOFF) {
         return Object.assign({}, state, {
             modalShow: false
         });
     }
 
-
+    //toggles link instructions guide visibility
     if(action.type === TOGGLEMODAL) {
         if(state.modalShow===false){
             return Object.assign({}, state, {
@@ -80,7 +85,7 @@ export function protectedReducer(state = initialState, action) {
 
     }
 
-    //UPDATE_ITEM is taking our items, mapping them to the item parameter, then if action.item.id EQUALS the item id in the state, then set our action.item to be our newest updated Item in the state.
+    //UPDATE_ITEM is taking our items, mapping them to the item parameter, then if action.item.id EQUALS the item id in the state, then set our action.item to be our newest updated Item in the state. This is to ensure our comment is rendered when users submit the comment form.
     if(action.type === UPDATE_ITEM) {
         return Object.assign({}, state, {
             data: state.data.map(item => action.item.id === item.id? action.item: item)

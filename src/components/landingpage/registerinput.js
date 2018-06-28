@@ -1,5 +1,6 @@
 import React from 'react';
 
+//sets the component for our register form to utilize redux-form
 export default class RegisterInput extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.meta.active && this.props.meta.active) {

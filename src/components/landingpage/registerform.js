@@ -9,6 +9,7 @@ const matchesPassword = matches('password');
 
 export class RegisterForm extends React.Component {
 
+ //on submission of register form, dispatched registerUser action. Form utilizes redux-form for the success and error messages displayed to user. handleSubmit is a prop passed to us by redux-form, so we call handleSubmit in onSubmit. Also dispatch login action after registration using the supplied username and password as credentials.
   onSubmit(values) {
     const {username, password, nickname} = values;
     const user = {username, password, nickname};

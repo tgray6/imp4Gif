@@ -6,13 +6,21 @@ import PostForm from '../postmodalform/postform';
 import './homepage.css';
 
 
+//used to help the flow of the page so that when a user clicks on a post, goes back to home, then clicks on another post, the page is scrolled to the top
+// let scrollWin = () => {
+//     window.scrollTo(0, 0);
+// }
+
+
 export class PostedSection extends React.Component {
 
+	//This is running our main GET with fetchProtectedData to display all posts on main page.
 	componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
 
 
+    //When submitting a POST via postform, the posted link determines the type of the post and renders appropriately by mapping out our protectedData.data array on protectedReducer.
 	renderResults(){
 		return this.props.items.map((items) => {
 			if (items.type==="video"){
@@ -53,6 +61,9 @@ export class PostedSection extends React.Component {
 
     render(){
 
+      // scrollWin()
+
+      //shows PostForm component instead of post data if post button is clicked.
       if (this.props.show===true) {
       	return(
 			<PostForm />

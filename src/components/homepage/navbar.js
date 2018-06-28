@@ -8,17 +8,15 @@ import {toggleFormsOff} from '../actions/actions';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
-// let scrollWin = () => {
-//     window.scrollTo(0, 0);
-// }
 
 export class NavBar extends React.Component {
 
-  toggleForm = () => {
+  //toggles post form
+  toggleForm() {
     this.props.dispatch(togglePostForm());
-    // scrollWin()
   };
 
+  //clears authtoken from current user and from local storage and login/register forms back to false
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
@@ -36,7 +34,7 @@ export class NavBar extends React.Component {
             </li>
             <div className="rightNav">
               <li id="navList"> 
-                <button className="post" onClick={this.toggleForm}>Post</button> 
+                <button className="post" onClick={() => this.toggleForm()}>Post</button> 
               </li>
               <li id="navList">
                 <button className="logoutUser" onClick={() => this.logOut()}>Logout</button>

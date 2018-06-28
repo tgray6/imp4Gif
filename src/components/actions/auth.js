@@ -5,6 +5,7 @@ import {normalizeResponseErrors} from './errornormalize';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
 
+//these actions are all responsible for setting our authtoken, setting currentUser on successful submission of the login form/register form(logs in upon successful register).
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
     type: SET_AUTH_TOKEN,
@@ -12,6 +13,7 @@ export const setAuthToken = authToken => ({
 });
 
 
+//used on the Logout button on the navbar to clear out the authentication token of the logged in user.
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const clearAuth = () => ({
     type: CLEAR_AUTH

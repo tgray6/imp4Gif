@@ -6,6 +6,7 @@ import LoginInput from './logininput';
 
 export class LoginForm extends React.Component {
 
+  //on submission of login form, dispatched login action. Form utilizes redux-form for the success and error messages displayed to user. handleSubmit is a prop passed to us by redux-form, so we call handleSubmit in onSubmit.
   onSubmit(values) {
     return this.props.dispatch(login(values.username, values.password));
   }

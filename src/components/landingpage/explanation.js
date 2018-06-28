@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//The main explanation component found on the login page.
 export default function Explanation() {
 
   let bold = {

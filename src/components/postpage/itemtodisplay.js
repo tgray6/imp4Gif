@@ -10,9 +10,6 @@ import LoadingComponent from '../loading/loadingcomponent';
 import {fetchProtectedData} from '../actions/protected';
 import PostForm from '../postmodalform/postform';
 
-let scrollWin = () => {
-    window.scrollTo(0, 0);
-}
 
 export class ItemToDisplay extends React.Component {
 
@@ -22,7 +19,7 @@ export class ItemToDisplay extends React.Component {
     this.props.dispatch(loading());
 
 
-    //FETCH TO DELETE ENDPOINT
+    //FETCH TO DELETE ENDPOINT using the currently viewed post id adding to the end of the fetch url.
     let id = this.props.itemToDisplay.id
 
     fetch(`${API_BASE_URL}/items/` + id, {
@@ -49,8 +46,8 @@ export class ItemToDisplay extends React.Component {
 
 
   renderResults(){
-    scrollWin()
-
+    //this is looking to determine the "TYPE" of the post clicked on so that it renders accordingly, same as postedsection.js(page with all posts);
+    //remember, on postform.js, we determine the type of each post by the url check.
     if (this.props.itemToDisplay.type==="video"){
       return (
         <div className="postParent">
@@ -109,12 +106,14 @@ export class ItemToDisplay extends React.Component {
 
   render(){
 
+    //renders postform if clicked on Post button
     if (this.props.show===true) {
       return(
           <PostForm />
       )
     }
 
+    //this used our loadingcomponent to fix refresh page issue on this page. in-depth notes on loadingcomponent.js
     if (!this.props.ready){
       this.props.dispatch(fetchProtectedData());
     }
@@ -123,7 +122,7 @@ export class ItemToDisplay extends React.Component {
         <li key={index}>{item}</li>
     ));
 
-    //this if statement is for style points for deleting and routing back to root / postedsection on Delete
+    //this if statement is for style points for deleting and routing back to root / postedsection on Delete. Simply shows a better transition to the main page.
     if (this.props.loading===true) {
       return(
         <section className="postedSection">
@@ -178,7 +177,6 @@ const mapStateToProps = (state, props )=> {
   userId: state.auth.currentUser.userID,
   show: state.protectedData.show
   }
-  // console.log(result)
   return result
 };
 

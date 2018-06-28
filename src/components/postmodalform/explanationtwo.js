@@ -1,5 +1,6 @@
 import React from 'react';
 
+//this is a slightly slimmed version of the original explanation found on the login page. This is found through the postform.
 export default function Explanation() {
 
   let bold = {

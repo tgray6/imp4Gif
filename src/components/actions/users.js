@@ -1,8 +1,9 @@
 import {SubmissionError} from 'redux-form';
-
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './errornormalize';
 
+
+//Posts to the /users endpoint to register new user via the register form on login page.
 export const registerUser = user => dispatch => {
     return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
