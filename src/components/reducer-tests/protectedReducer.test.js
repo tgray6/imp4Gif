@@ -165,36 +165,3 @@ describe('protectedReducer', () => {
 		})
 	})
 })
-
-// describe('fetchProtectedData', () => {
-//     it('Should dispatch fetchProtectedDataSuccess', () => {
-//         const data = {
-//             items: [
-//             {
-//             	id: "5b29855bbce1df22f068cb81",
-// 				title: "Test Title",
-//  				type: "image",
-//  				youTubeUrl: "https://i.gifer.com/NM9x.gif",
-//  				url: "https://i.gifer.com/NM9x.gif",
-//  				author: "New Author",
-//  				comments: []
-//             }
-//             ]
-//         };
-
-//         global.fetch = jest.fn().mockImplementation(() =>
-//             Promise.resolve({
-//                 ok: true,
-//                 json() {
-//                     return data;
-//                 }
-//             })
-//         );
-
-//         const dispatch = jest.fn();
-//         return fetchProtectedData()(dispatch).then(() => {
-//             expect(fetch).toHaveBeenCalledWith('/items');
-//             expect(dispatch).toHaveBeenCalledWith(fetchBoardSuccess(data));
-//         });
-//     });
-// });
