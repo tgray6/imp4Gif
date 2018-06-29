@@ -146,7 +146,7 @@ export class ItemToDisplay extends React.Component {
             {
               this.props.ready && this.props.userId === this.props.itemToDisplay.authorid?
               <div>
-                <button className="deleteButton" onClick={()=>this.deleteData()}>Delete</button>
+                <button className="deleteButton" onClick={(e)=>{ if(window.confirm("Sure you want to delete your post?"))this.deleteData(e)}}>Delete</button>
               </div>
               : null
             }
