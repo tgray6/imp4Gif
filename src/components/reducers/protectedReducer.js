@@ -1,4 +1,5 @@
 import {
+    FETCH_DATA_REQUEST,
     FETCH_PROTECTED_DATA_SUCCESS,
     FETCH_PROTECTED_DATA_ERROR,
     ADD_POST,
@@ -32,7 +33,8 @@ const initialState = {
     ready: true,
     error: null,
     show: false,
-    modalShow: false
+    modalShow: false,
+    loginLoad: false
 };
 
 
@@ -93,9 +95,17 @@ export function protectedReducer(state = initialState, action) {
     }
 
 
+    if (action.type === FETCH_DATA_REQUEST) {
+        return Object.assign({}, state, {
+            loginLoad: true
+        });
+    }
+
+
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
         return Object.assign({}, state, {
             data: action.data,
+            loginLoad: false,
             error: null,
             ready: false
         });
@@ -104,6 +114,7 @@ export function protectedReducer(state = initialState, action) {
 
     else if (action.type === FETCH_PROTECTED_DATA_ERROR) {
         return Object.assign({}, state, {
+            loginLoad: false,
             error: action.error,
             ready: false
         });

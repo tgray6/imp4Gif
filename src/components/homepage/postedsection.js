@@ -4,6 +4,7 @@ import {fetchProtectedData} from '../actions/protected';
 import {Link} from 'react-router-dom';
 import PostForm from '../postmodalform/postform';
 import './homepage.css';
+import Spinner from 'react-spinkit';
 
 
 //used to help the flow of the page so that when a user clicks on a post, goes back to home, then clicks on another post, the page is scrolled to the top
@@ -17,7 +18,7 @@ export class PostedSection extends React.Component {
 	//This is running our main GET with fetchProtectedData to display all posts on main page.
 	componentDidMount() {
         this.props.dispatch(fetchProtectedData());
-    }
+  }
 
 
     //When submitting a POST via postform, the posted link determines the type of the post and renders appropriately by mapping out our protectedData.data array on protectedReducer.
@@ -57,9 +58,19 @@ export class PostedSection extends React.Component {
         		);
 			}
 		});
-    };
+  };
 
     render(){
+
+    if (this.props.loginLoad===true) {
+      return(
+        <section className="postedSection">
+          <div className="flexContainer2">
+            <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" fadeIn='none'/>
+          </div>
+        </section>
+      )
+    }
 
       // scrollWin()
 
@@ -85,7 +96,8 @@ export class PostedSection extends React.Component {
 
 const mapStateToProps = state => ({
   items: state.protectedData.data,
-  show: state.protectedData.show
+  show: state.protectedData.show,
+  loginLoad: state.protectedData.loginLoad
 });
 
 

@@ -39,6 +39,13 @@ export const updateItem = item => ({
 });
 
 
+//This is to run before our fetch so we can display the loading icon.
+export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
+export const fetchDataRequest = () => ({
+    type: FETCH_DATA_REQUEST
+});
+
+
 
 //All below is used for fetching the protected GET data endpoint and returning the data or errors.
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
@@ -58,6 +65,7 @@ export const fetchProtectedDataError = error => ({
 export const fetchProtectedData = () => (dispatch, getState) => {
     //Gets the authtoken from authReducer at state.auth.authToken(auth is set in store.js to point to authReducer)
     const authToken = getState().auth.authToken;
+    dispatch(fetchDataRequest())
     return fetch(`${API_BASE_URL}/items`, {
         method: 'GET',
         headers: {
