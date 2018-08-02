@@ -12,10 +12,10 @@ export default function Explanation() {
     color: "#5607bd"
   }
 
-  let color2 = {
-    fontWeight: "bold",
-    color: "red"
-  }
+  // let color2 = {
+  //   fontWeight: "bold",
+  //   color: "red"
+  // }
 
   return (
     <section className="explanationSection">
