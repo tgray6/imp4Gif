@@ -13,7 +13,8 @@ describe('authReducer', () => {
     	authToken: null, // authToken !== null does not mean it has been validated
     	currentUser: null,
     	loading: false,
-    	error: null
+    	error: null,
+    	loginLoading: false
 	};
 
 	it('Should recognize the initialState', () => {
@@ -48,13 +49,15 @@ describe('authReducer', () => {
 	})
 
 	describe('authRequest', () => {
-		it('Should set loading to true and error to be null', () => {
+		it('Should set loading to true, error to null, and loginLoading to true', () => {
 			let state = {
+				loginLoading: false,
 				loading: false,
 				error: "ValidationError"
 			}
 			state = authReducer(state, authRequest());
 			expect(state).toEqual({
+				loginLoading: true,
 				loading: true,
 				error: null
 			});
@@ -62,13 +65,15 @@ describe('authReducer', () => {
 	})
 
 	describe('authSuccess', () => {
-		it('Should set loading to false and currentUser to be undefined', () => {
+		it('Should set loading to false and currentUser to be undefined, loginLoading to be false', () => {
 			let state = {
+				loginLoading: true,
 				loading: true,
 				currentUser: null
 			}
 			state = authReducer(state, authSuccess("dummyvalue"));
 			expect(state).toEqual({
+				loginLoading: false,
 				loading: false,
 				currentUser: "dummyvalue"
 			});
@@ -76,13 +81,15 @@ describe('authReducer', () => {
 	})
 
 	describe('authError', () => {
-		it('Should set loading to false and error to be undefined', () => {
+		it('Should set loading to false and error to be undefined, loginLoading to be false', () => {
 			let state = {
+				loginLoading: true,
 				loading: true,
 				error: null
 			}
 			state = authReducer(state, authError("ValidationError"));
 			expect(state).toEqual({
+				loginLoading: false,
 				loading: false,
 				error: "ValidationError"
 			});
