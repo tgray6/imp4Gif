@@ -13,14 +13,14 @@ export class LoginForm extends React.Component {
 
   render(){
 
-    let successMessage;
-    if (this.props.submitSucceeded) {
-      successMessage = (
-        <div className="message message-success">
-        Login Successful. Loading...
-        </div>
-      );
-    }
+    // let successMessage;
+    // if (this.props.submitSucceeded) {
+    //   successMessage = (
+    //     <div className="message message-success">
+    //     Login Successful. Loading...
+    //     </div>
+    //   );
+    // }
 
     let errorMessage;
     if (this.props.error) {
@@ -34,7 +34,7 @@ export class LoginForm extends React.Component {
       <div>
         <h2>Login</h2>
         <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        {successMessage}
+        
         {errorMessage}
         <div>
   	        <label htmlFor="user-name">Username </label>
@@ -70,3 +70,5 @@ export default reduxForm({
   form: "login",
   onSubmitFail: (errors, dispatch) =>
     dispatch(focus('login', Object.keys(errors)[0])) })(LoginForm);
+
+    //{successMessage}  removed from line 37

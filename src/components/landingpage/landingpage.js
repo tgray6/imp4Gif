@@ -7,6 +7,7 @@ import Explanation from './explanation';
 import { connect } from 'react-redux';
 import {toggleRegisterForm} from '../actions/actions';
 import {toggleLoginForm} from '../actions/actions';
+import Spinner from 'react-spinkit';
 
 
  //this is the main login/register component.
@@ -24,6 +25,16 @@ import {toggleLoginForm} from '../actions/actions';
   };
 
   render(){
+
+        if (this.props.loginLoading===true) {
+      return(
+        <section className="postedSection">
+          <div className="flexContainer2">
+            <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" fadeIn='none'/>
+          </div>
+        </section>
+      )
+    }
 
     return (
       <div className="lander">
@@ -58,7 +69,8 @@ import {toggleLoginForm} from '../actions/actions';
 
 const mapStateToProps = state => ({
   showRegisterForm: state.imp.showRegisterForm,
-  showLoginForm: state.imp.showLoginForm
+  showLoginForm: state.imp.showLoginForm,
+  loginLoading: state.auth.loginLoading
 });
 
 

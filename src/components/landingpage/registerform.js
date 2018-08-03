@@ -22,14 +22,14 @@ export class RegisterForm extends React.Component {
 
   render(){
 
-    let successMessage;
-    if (this.props.submitSucceeded) {
-      successMessage = (
-        <div className="message message-success">
-          Registration Success. Loading...
-        </div>
-            );
-    }
+    // let successMessage;
+    // if (this.props.submitSucceeded) {
+    //   successMessage = (
+    //     <div className="message message-success">
+    //       Registration Success. Loading...
+    //     </div>
+    //         );
+    // }
 
     let errorMessage;
     if (this.props.error) {
@@ -45,7 +45,7 @@ export class RegisterForm extends React.Component {
         this.onSubmit(values)
         )}>
 
-          {successMessage}
+          
           {errorMessage}
 
      	    <div>
@@ -112,3 +112,5 @@ export default reduxForm({
   form: "register",
   onSubmitFail: (errors, dispatch) =>
     dispatch(focus('register', Object.keys(errors)[0])) })(RegisterForm);
+
+    // {successMessage}  removed from line 48

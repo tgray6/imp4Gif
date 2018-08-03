@@ -4,7 +4,7 @@ import {fetchProtectedData} from '../actions/protected';
 import {Link} from 'react-router-dom';
 import PostForm from '../postmodalform/postform';
 import './homepage.css';
-import Spinner from 'react-spinkit';
+// import Spinner from 'react-spinkit';
 
 
 //used to help the flow of the page so that when a user clicks on a post, goes back to home, then clicks on another post, the page is scrolled to the top
@@ -62,15 +62,25 @@ export class PostedSection extends React.Component {
 
     render(){
 
-    if (this.props.loginLoad===true) {
-      return(
-        <section className="postedSection">
-          <div className="flexContainer2">
-            <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" fadeIn='none'/>
-          </div>
-        </section>
-      )
-    }
+    // if (this.props.loginLoad===true) {
+    //   return(
+    //     <section className="postedSection">
+    //       <div className="flexContainer2">
+    //         <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" fadeIn='none'/>
+    //       </div>
+    //     </section>
+    //   )
+    // }
+
+    // if (this.props.loginLoading===true) {
+    //   return(
+    //     <section className="postedSection">
+    //       <div className="flexContainer2">
+    //         <Spinner name="wandering-cubes" color="rgb(86, 7, 189)" fadeIn='none'/>
+    //       </div>
+    //     </section>
+    //   )
+    // }
 
       // scrollWin()
 
@@ -97,7 +107,8 @@ export class PostedSection extends React.Component {
 const mapStateToProps = state => ({
   items: state.protectedData.data,
   show: state.protectedData.show,
-  loginLoad: state.protectedData.loginLoad
+  // loginLoad: state.protectedData.loginLoad,
+  // loginLoading: state.auth.loginLoading
 });
 
 
